@@ -7,40 +7,19 @@
  * Author:          Sami Keijonen
  * Author URI:      https://foxland.fi
  * Text Domain:     edd-members
+ * Domain Path:     /languages
+ *
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License version 2, as published by the Free Software Foundation. You may NOT assume
+ * that you can use any other version of the GPL.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package         EDD\EDDMembers
  * @author          Sami Keijonen <sami.keijonen@foxnet.fi>
  * @copyright       Copyright (c) Sami Keijonen
- *
- * IMPORTANT! Ensure that you make the following adjustments
- * before releasing your extension:
- *
- * - Replace all instances of plugin-name with the name of your plugin.
- *   By WordPress coding standards, the folder name, plugin file name,
- *   and text domain should all match. For the purposes of standardization,
- *   the folder name, plugin file name, and text domain are all the
- *   lowercase form of the actual plugin name, replacing spaces with
- *   hyphens.
- *
- * - Replace all instances of Plugin_Name with the name of your plugin.
- *   For the purposes of standardization, the camel case form of the plugin
- *   name, replacing spaces with underscores, is used to define classes
- *   in your extension.
- *
- * - Replace all instances of PLUGINNAME with the name of your plugin.
- *   For the purposes of standardization, the uppercase form of the plugin
- *   name, removing spaces, is used to define plugin constants.
- *
- * - Replace all instances of Plugin Name with the actual name of your
- *   plugin. This really doesn't need to be anywhere other than in the
- *   EDD Licensing call in the hooks method.
- *
- * - Find all instances of @todo in the plugin and update the relevant
- *   areas as necessary.
- *
- * - All functions that are not class methods MUST be prefixed with the
- *   plugin name, replacing spaces with underscores. NOT PREFIXING YOUR
- *   FUNCTIONS CAN CAUSE PLUGIN CONFLICTS!
+ * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
 
@@ -192,19 +171,26 @@ if( !class_exists( 'EDD_Members' ) ) {
 					'type' => 'header',
 				),
 				array(
+					'id'      => 'edd_members_private_post_type',
+					'name'    => __( 'Private content', 'edd-members' ),
+					'desc'    => __( 'Select which post type content you want to have private. Note! Only singular views will be private', 'edd-members' ),
+					'type'    => 'multicheck',
+					'options' => edd_members_get_public_post_types()
+				),
+				array(
 					'id'      => 'edd_members_settings_private_label_logged_out',
 					'name'    => __( 'Private Label logged out', 'edd-members' ),
 					'desc'    => __( 'Enter the text you for private content when user is logged out', 'edd-members' ),
-					'type'    => 'text',
-					'size'    => 'regular',
+					'type'    => 'rich_editor',
+					'size'    => 15,
 					'std'     => __( 'This content is for members only.', 'edd-members' )
 				),
 				array(
 					'id'      => 'edd_members_settings_private_label_logged_in',
 					'name'    => __( 'Private Label logged in', 'edd-members' ),
 					'desc'    => __( 'Enter the text you for private content when user is logged in', 'edd-members' ),
-					'type'    => 'text',
-					'size'    => 'regular',
+					'type'    => 'rich_editor',
+					'size'    => 15,
 					'std'     => __( 'This content is for members only. Your membership have probably expired.', 'edd-members' )
 				),
 				array(
@@ -212,13 +198,6 @@ if( !class_exists( 'EDD_Members' ) ) {
 					'name'    => __( 'Login form', 'edd-members' ),
 					'desc'    => __( 'Show login form for logged out users', 'edd-members' ),
 					'type'    => 'checkbox'
-				),
-				array(
-					'id'      => 'edd_members_private_post_type',
-					'name'    => __( 'Private content', 'edd-members' ),
-					'desc'    => __( 'Select which post type content you want to have private. Note! Only singular views will be private', 'edd-members' ),
-					'type'    => 'multicheck',
-					'options' => edd_members_get_public_post_types()
 				)
 			);
 
@@ -229,13 +208,19 @@ if( !class_exists( 'EDD_Members' ) ) {
 		/*
 		 * Activation function fires when the plugin is activated.
 		 *
-		 * This function is fired when the activation hook is called by WordPress,
-		 * 
+		 * @since  1.0.0
+		 * @access public
+		 * @return void
 		 */
 		public static function activation() {
 		
-		// Activation functions here
-
+			// Get the administrator role
+			$role = get_role( 'administrator' );
+			
+			// If the administrator role exists, add required capabilities for the plugin
+			if ( !empty( $role ) ) {
+				$role->add_cap( 'edd_members_show_all_content' );
+			}
 		}
           
 	}
