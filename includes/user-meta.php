@@ -1,0 +1,104 @@
+<?php
+/**
+ * Add user meta related functions
+ *
+ * @package     EDDMembers\Usermeta
+ * @since       1.0.0
+ */
+ 
+
+/* Exit if accessed directly. */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
+/**
+ * Add new user column: Expire Date.
+ *
+ * @since  1.0.0
+ * @return array $columns
+ */
+function edd_members_expire_date_column( $columns ) {
+	$columns['expire_date'] = __( 'Expire Date', 'edd-members' );
+	return $columns;
+}
+add_filter( 'manage_users_columns', 'edd_members_expire_date_column' );
+
+/**
+ * Adds expire Date to column.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function edd_members_expire_date_data( $value, $column_name, $user_id ) {
+	
+	if( 'expire_date' == $column_name ) {
+		
+		// Get expire date
+		$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
+		
+		// Return expire_date if there is one
+		if ( !empty( $expire_date ) ) {
+			return date_i18n( get_option( 'date_format' ), $expire_date );
+		 } else {
+			return __( 'Unknown', 'edd-members' );
+		 }
+	
+	} 
+}
+add_action( 'manage_users_custom_column', 'edd_members_expire_date_data', 10, 3 );
+
+/**
+ * Adds expire date in user profile.
+ *
+ * Only user with 'edd_members_edit_user' can edit expire date.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function edd_members_expire_date_profile_field( $user ) { ?>
+
+	<h3><?php _e( 'Membership expire date', 'edd-members' ); ?></h3>
+
+	<table class="form-table">
+
+		<tr>
+			<th><label for="edd_members_exprire_date"><?php _e( 'Expire date', 'edd-members' ); ?></label></th>
+
+			<td>
+				<?php if ( current_user_can( 'edd_members_edit_user' ) ) { // Only user with 'edd_members_edit_user' can edit expire date ?>
+					<input class="edd_members_datepicker" type="text" name="_edd_members_expiration_date" id="edd_members_exprire_date" value="<?php echo date_i18n( get_option( 'date_format' ), esc_attr( get_the_author_meta( '_edd_members_expiration_date', $user->ID ) ) ); ?>" class="regular-text" />
+					<span class="description"><?php _e( 'Set expire date for membership.', 'edd-members' ); ?></span>
+				<?php } else {
+					echo date_i18n( get_option( 'date_format' ), esc_attr( get_the_author_meta( '_edd_members_expiration_date', $user->ID ) ) );
+				} ?>
+			</td>
+		</tr>
+
+	</table>
+<?php }
+add_action( 'show_user_profile', 'edd_members_expire_date_profile_field' );
+add_action( 'edit_user_profile', 'edd_members_expire_date_profile_field' );
+
+/**
+ * Save expire date in user profile.
+ *
+ * Only user with 'edd_members_edit_user' can save expire date.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function edd_members_save_expire_date_profile_field( $user_id ) {
+	
+	// Bail if current user doesn't have 'edd_members_edit_user' cap to update expire date
+	if ( !current_user_can( 'edd_members_edit_user', $user_id ) ) {
+		return false;
+	}
+
+	// Update user meta
+	update_usermeta( $user_id, '_edd_members_expiration_date', strtotime( esc_attr( $_POST['_edd_members_expiration_date'] ) ) );
+	
+}
+add_action( 'personal_options_update', 'edd_members_save_expire_date_profile_field' );
+add_action( 'edit_user_profile_update', 'edd_members_save_expire_date_profile_field' );
