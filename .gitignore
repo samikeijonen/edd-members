@@ -1,0 +1,5 @@
+# Grunt
+
+node_modules/
+build/
+tx.exe
