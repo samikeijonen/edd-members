@@ -56,7 +56,7 @@ if( !class_exists( 'EDD_Members' ) ) {
 				self::$instance = new EDD_Members();
 				self::$instance->setup_constants();
 				self::$instance->includes();
-				self::$instance->setup_actions();
+				self::$instance->load_textdomain();
 				self::$instance->hooks();
 			}
 
@@ -98,24 +98,26 @@ if( !class_exists( 'EDD_Members' ) ) {
 			require_once EDD_MEMBERS_DIR . 'includes/scripts.php';
 			require_once EDD_MEMBERS_DIR . 'includes/functions.php';
 			require_once EDD_MEMBERS_DIR . 'includes/class-gamajo-template-loader.php';
-			require_once EDD_MEMBERS_DIR . 'includes/class-svamuli-template-loader.php';
+			require_once EDD_MEMBERS_DIR . 'includes/class-template-loader.php';
 			require_once EDD_MEMBERS_DIR . 'includes/meta-boxes.php';
-			
+			require_once EDD_MEMBERS_DIR . 'includes/functions-filters.php';
+			require_once EDD_MEMBERS_DIR . 'includes/user-meta.php';
+			require_once EDD_MEMBERS_DIR . 'includes/shortcodes.php';
 		}
 		
 		
 		/**
-		 * Setup plugin actions
+		 * Internationalization
 		 *
-		 * @access      private
+		 * @access      public
 		 * @since       1.0.0
 		 * @return      void
 		 */
-		private function setup_actions() {
+		public function load_textdomain() {
 		
-			// Internationalize the text strings used
-			add_action( 'plugins_loaded', array( $this, 'i18n' ), 2 );
-		
+			// Load the default language files
+			load_plugin_textdomain( 'edd-members', false, 'edd-members/languages' );
+			
 		}
 
 
@@ -133,23 +135,8 @@ if( !class_exists( 'EDD_Members' ) ) {
 
 			// Handle licensing
 			if( class_exists( 'EDD_License' ) ) {
-				$license = new EDD_License( __FILE__, 'EDD Members', EDD_MEMBERS_VER, 'Sami Keijonen' );
+				$license = new EDD_License( __FILE__, 'EDD Members', EDD_MEMBERS_VER, 'Sami Keijonen', null, 'http://foxland.fi/' );
 			}
-		}
-
-
-		/**
-		 * Internationalization
-		 *
-		 * @access      public
-		 * @since       1.0.0
-		 * @return      void
-		 */
-		public function i18n() {
-		
-			// Load the default language files
-			load_plugin_textdomain( 'edd-members', false, 'edd-members/languages' );
-			
 		}
 
 
@@ -220,6 +207,7 @@ if( !class_exists( 'EDD_Members' ) ) {
 			// If the administrator role exists, add required capabilities for the plugin
 			if ( !empty( $role ) ) {
 				$role->add_cap( 'edd_members_show_all_content' );
+				$role->add_cap( 'edd_members_edit_user' );
 			}
 		}
           
@@ -242,7 +230,6 @@ if( !class_exists( 'EDD_Members' ) ) {
 
 			$activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
 			$activation = $activation->run();
-			return EDD_Members::instance();
 		} else {
 			return EDD_Members::instance();
 		}
