@@ -22,29 +22,13 @@ function edd_members_private_template( $content ) {
 
 	/* If is singular post type what have been selected in the settings, load templates/content-private.php file. 
 	 * This file can be overwitten in themes edd-members-templates folder.
-	 * User's that have capability 'edd_members_show_all_content' can view any content.
-	 * Administrator role have this capability by default. 
 	 */
 	
-	// Get post meta for singular posts that have been checked private
-	$edd_members_check_as_private = get_post_meta( get_the_ID(), '_edd_members_check_as_private', true );
+	// Check for private content
+	$edd_members_is_private_content = edd_members_is_private_content();
 	
-	// Get private post types from settings
-	$edd_members_private_post_type = edd_get_option( 'edd_members_private_post_type' );
-	
-	// Check for singular post that have been checked private. @TODO: Should we make is_singular check in here also?
-	$edd_members_check_1 = false;
-	if ( !edd_members_is_membership_valid() && 'edd_members_set_as_private' == $edd_members_check_as_private && !current_user_can( 'edd_members_show_all_content' ) && is_main_query() ) {
-		$edd_members_check_1 = true;
-	}
-	
-	// Check private post types from settings
-	$edd_members_check_2 = false;
-	if ( !edd_members_is_membership_valid() && !current_user_can( 'edd_members_show_all_content' ) && !empty( $edd_members_private_post_type ) && is_singular( array_keys( $edd_members_private_post_type ) ) && is_main_query() ) {
-		$edd_members_check_2 = true;
-	}
-	
-	if ( $edd_members_check_1 || $edd_members_check_2 ) {
+	// Load private template if the content is private
+	if ( $edd_members_is_private_content ) {
 		
 		$templates = new EDD_Members_Template_Loader;
 		
@@ -62,6 +46,43 @@ add_filter( 'bbp_get_topic_content', 'edd_members_private_template', 99 ); // Al
 add_filter( 'bbp_get_reply_content', 'edd_members_private_template', 99 ); // Also support for bbPress replies
 
 /**
+ * Check for private content.
+ *
+ * @since  1.0.0
+ * @return boolean
+ */
+function edd_members_is_private_content() {
+
+	/* Note! User with cap 'edd_members_show_all_content' can always see content.
+	 * Admins have this cap by default.
+	 */
+	
+	// Get post meta for singular posts that have been checked private
+	$edd_members_check_as_private = get_post_meta( get_the_ID(), '_edd_members_check_as_private', true );
+	
+	// Get private post types from settings
+	$edd_members_private_post_type = edd_get_option( 'edd_members_private_post_type' );
+	
+	// Check for singular post that have been checked private. @TODO: Should we make is_singular check in here also?
+	$edd_members_check_singular = false;
+	if ( !edd_members_is_membership_valid() && !empty( $edd_members_check_as_private ) && 'private' == $edd_members_check_as_private && !current_user_can( 'edd_members_show_all_content' ) && is_main_query() ) {
+		$edd_members_check_singular = true;
+	}
+	
+	// Check private post types from settings
+	$edd_members_check_non_singular = false;
+	if ( !edd_members_is_membership_valid() && !current_user_can( 'edd_members_show_all_content' ) && !empty( $edd_members_private_post_type ) && is_singular( array_keys( $edd_members_private_post_type ) ) && is_main_query() ) {
+		$edd_members_check_non_singular = true;
+	}
+	
+	// Check if some of the conditions are true
+	$edd_members_check = $edd_members_check_singular || $edd_members_check_non_singular;
+	
+	return apply_filters( 'edd_members_is_private_content', $edd_members_check );
+
+}
+
+/**
  * Add or update expire date to custom user meta when purchasing something on the site.
  *
  * @since  1.0.0
@@ -75,7 +96,7 @@ function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type =
 	
 	$user_id = get_current_user_id();
 	
-	if( $type == 'bundle' ) {
+	if( 'bundle' == $type ) {
 		$downloads = edd_get_bundled_products( $download_id );
 	} else {
 		$downloads = array();
@@ -96,9 +117,12 @@ function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type =
 			continue;
 		}
 		
+		// Get price id
+		$price_id = isset( $cart_item['item_number']['options']['price_id'] ) ? (int) $cart_item['item_number']['options']['price_id'] : false;
+		
 		// Get membership lengths in arrays
 		$edd_members_membership_lengths = array();
-		$edd_members_membership_lengths[] = strtotime( edd_members_get_membership_length( $license_id, $payment_id, $d_id ), strtotime( $current_date ) );
+		$edd_members_membership_lengths[] = strtotime( edd_members_get_membership_length( $price_id, $payment_id, $d_id ), strtotime( $current_date ) );
 		
 	}
 	
@@ -146,11 +170,17 @@ add_action( 'edd_complete_download_purchase', 'edd_members_add_expire_date', 10,
  * @since  1.0.0
  * @return void
  */
-function edd_members_get_membership_length( $license_id = 0, $payment_id = 0, $download_id = 0 ) {
+function edd_members_get_membership_length( $price_id = 0, $payment_id = 0, $download_id = 0 ) {
 	
 	// Get expire unit and length
-	$edd_members_exp_unit   = esc_attr( get_post_meta( $download_id, '_edd_members_exp_unit', true ) );
-	$edd_members_exp_length = absint( get_post_meta( $download_id, '_edd_members_exp_length', true ) );
+	if ( edd_has_variable_prices( $download_id ) ) {
+		$edd_members_exp_length = edd_members_get_variable_price_length( $download_id, $price_id, 'length' );
+		$edd_members_exp_unit   = edd_members_get_variable_price_length( $download_id, $price_id, 'unit' );
+		
+	} else {
+		$edd_members_exp_length = absint( get_post_meta( $download_id, '_edd_members_exp_length', true ) );
+		$edd_members_exp_unit   = esc_attr( get_post_meta( $download_id, '_edd_members_exp_unit', true ) );
+	}
 	
 	// Set default
 	if( empty( $edd_members_exp_unit ) ) {
@@ -208,7 +238,7 @@ function edd_members_is_membership_valid() {
 	$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
 	
 	// Check if user expire date > current date
-	if ( $expire_date > strtotime( $current_date ) ) {
+	if ( !empty( $expire_date ) && $expire_date > strtotime( $current_date ) ) {
 		$check_membership = true;
 	}
 	
@@ -216,7 +246,13 @@ function edd_members_is_membership_valid() {
 
 }
 
-function edd_members_get_price_membership_length( $download_id = 0, $price_id = null, $type = null ) {
+/**
+ * Get membership length and unit for variable prices.
+ *
+ * @since  1.0.0
+ * @return string
+ */
+function edd_members_get_variable_price_length( $download_id = 0, $price_id = null, $type = null ) {
 
 	$prices = edd_get_variable_prices( $download_id );
 
@@ -229,42 +265,6 @@ function edd_members_get_price_membership_length( $download_id = 0, $price_id = 
 
 	return false;
 }
-
-/**
- * Add new user column: Expire Date.
- *
- * @since  1.0.0
- * @return array $columns
- */
-function edd_members_expire_date_column( $columns ) {
-	$columns['expire_date'] = __( 'Expire Date', 'edd-members' );
-	return $columns;
-}
-add_filter( 'manage_users_columns', 'edd_members_expire_date_column' );
-
-/**
- * Adds expire Date to column.
- *
- * @since  1.0.0
- * @return void
- */
-function edd_members_expire_date_data( $value, $column_name, $user_id ) {
-	
-	if( 'expire_date' == $column_name ) {
-		
-		// Get expire date
-		$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
-		
-		// Return expire_date if there is one
-		if ( !empty( $expire_date ) ) {
-			return date_i18n( get_option( 'date_format' ), $expire_date );
-		 } else {
-			return __( 'Unknown', 'edd-members' );
-		 }
-	
-	} 
-}
-add_action( 'manage_users_custom_column', 'edd_members_expire_date_data', 10, 3 );
 
 /**
  * Returns a list of all public post types.
