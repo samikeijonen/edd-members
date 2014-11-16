@@ -68,6 +68,13 @@ class EDD_Extension_Activation {
 	 * @return      void
 	 */
 	public function run() {
+	
+		// We need plugin.php!
+		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		// Deactivate this plugin
+		deactivate_plugins( $this->plugin_path . '/' . $this->plugin_file );
+		unset( $_GET['activate'] );
+		
 		// Display notice
 		add_action( 'admin_notices', array( $this, 'missing_edd_notice' ) );
 	}
@@ -82,9 +89,9 @@ class EDD_Extension_Activation {
 	 */
 	public function missing_edd_notice() {
 		if( $this->has_edd ) {
-			echo '<div class="error"><p>' . $this->plugin_name . __( ' requires Easy Digital Downloads! Please activate it to continue!', 'edd-members' ) . '</p></div>';
+			echo '<div class="error"><p>' . $this->plugin_name . ' ' . __( 'requires Easy Digital Downloads! Please activate it to continue!', 'edd-members' ) . '</p></div>';
 		} else {
-			echo '<div class="error"><p>' . $this->plugin_name . __( ' requires Easy Digital Downloads! Please install it to continue!', 'edd-members' ) . '</p></div>';
+			echo '<div class="error"><p>' . $this->plugin_name . ' ' . __( 'requires Easy Digital Downloads! Please install it to continue!', 'edd-members' ) . '</p></div>';
 		}
 	}
 }
