@@ -93,6 +93,11 @@ if( !class_exists( 'EDD_Members' ) ) {
 		 * @return      void
 		 */
 		private function includes() {
+		
+			// Get out if EDD is not active
+			if( ! function_exists( 'EDD' ) ) {
+				return;
+			}
 			
 			// Include files and scripts
 			require_once EDD_MEMBERS_DIR . 'includes/scripts.php';
@@ -103,6 +108,9 @@ if( !class_exists( 'EDD_Members' ) ) {
 			require_once EDD_MEMBERS_DIR . 'includes/functions-filters.php';
 			require_once EDD_MEMBERS_DIR . 'includes/user-meta.php';
 			require_once EDD_MEMBERS_DIR . 'includes/shortcodes.php';
+			require_once EDD_MEMBERS_DIR . 'includes/settings.php';
+			require_once EDD_MEMBERS_DIR . 'includes/renewals.php';
+			require_once EDD_MEMBERS_DIR . 'includes/EDD_Members_Emails.php';
 		}
 		
 		
@@ -160,14 +168,14 @@ if( !class_exists( 'EDD_Members' ) ) {
 				array(
 					'id'      => 'edd_members_private_post_type',
 					'name'    => __( 'Private content', 'edd-members' ),
-					'desc'    => __( 'Select which post type content you want to have private. Note! Only singular views will be private', 'edd-members' ),
+					'desc'    => __( 'Select which post type content you want to have private. Note! Only singular views will be private.', 'edd-members' ),
 					'type'    => 'multicheck',
 					'options' => edd_members_get_public_post_types()
 				),
 				array(
 					'id'      => 'edd_members_settings_private_label_logged_out',
 					'name'    => __( 'Private Label logged out', 'edd-members' ),
-					'desc'    => __( 'Enter the text you for private content when user is logged out', 'edd-members' ),
+					'desc'    => __( 'Enter the text you for private content when user is logged out.', 'edd-members' ),
 					'type'    => 'rich_editor',
 					'size'    => 15,
 					'std'     => __( 'This content is for members only.', 'edd-members' )
@@ -175,7 +183,7 @@ if( !class_exists( 'EDD_Members' ) ) {
 				array(
 					'id'      => 'edd_members_settings_private_label_logged_in',
 					'name'    => __( 'Private Label logged in', 'edd-members' ),
-					'desc'    => __( 'Enter the text you for private content when user is logged in', 'edd-members' ),
+					'desc'    => __( 'Enter the text you for private content when user is logged in.', 'edd-members' ),
 					'type'    => 'rich_editor',
 					'size'    => 15,
 					'std'     => __( 'This content is for members only. Your membership have probably expired.', 'edd-members' )
@@ -183,8 +191,20 @@ if( !class_exists( 'EDD_Members' ) ) {
 				array(
 					'id'      => 'edd_members_show_login_form',
 					'name'    => __( 'Login form', 'edd-members' ),
-					'desc'    => __( 'Show login form for logged out users', 'edd-members' ),
+					'desc'    => __( 'Check this box if you want to show login form for logged out users.', 'edd-members' ),
 					'type'    => 'checkbox'
+				),
+				array(
+					'id'      => 'edd_members_send_renewal_reminders',
+					'name'    => __( 'Send Renewal Reminders', 'edd-members' ),
+					'desc'    => __( 'Check this box if you want customers to receive a renewal reminder when their membership is about to expire.', 'edd-members' ),
+					'type'    => 'checkbox'
+				),
+				array(
+					'id'      => 'members_renewal_notices', // EDD adds prefix 'edd_' in hook type
+					'name'    => __( 'Renewal Notices', 'edd-members' ),
+					'desc'    => __( 'Configure the renewal notice emails', 'edd-members' ),
+					'type'    => 'hook'
 				)
 			);
 
@@ -229,7 +249,8 @@ if( !class_exists( 'EDD_Members' ) ) {
 			}
 
 			$activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
-			$activation = $activation->run();
+			$activation = $activation->edd_members_run();
+			return EDD_Members::instance();
 		} else {
 			return EDD_Members::instance();
 		}
