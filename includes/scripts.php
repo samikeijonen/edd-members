@@ -29,10 +29,10 @@ function edd_members_admin_scripts( $hook ) {
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 	
 	// Enqueue date picker in user profile page
-	if( 'user-edit.php' == $hook ) {
+	if( 'user-edit.php' == $hook || 'profile.php' == $hook ) {
 	
 		// Add datepicker
-		wp_enqueue_script( 'edd-members-datepicker-settings', EDD_MEMBERS_URL . '/assets/js/admin' . $suffix . '.js', array( 'jquery-ui-datepicker' ) );
+		wp_enqueue_script( 'edd-members-datepicker-settings', EDD_MEMBERS_URL . 'assets/js/admin' . $suffix . '.js', array( 'jquery-ui-datepicker' ) );
 		
 		// Localize dateformat
 		wp_localize_script( 'edd-members-datepicker-settings', 'datepicker_settings_vars', array(
