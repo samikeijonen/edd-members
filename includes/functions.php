@@ -194,9 +194,7 @@ function edd_members_get_membership_length( $price_id = 0, $payment_id = 0, $dow
 	// Set expiration
 	$expiration = '+' . $edd_members_exp_length . ' ' . $edd_members_exp_unit;
 
-	$edd_members_membership_length = apply_filters( 'edd_members_membership_length', $expiration, $payment_id, $download_id, $license_id );
-
-	return $edd_members_membership_length;
+	return apply_filters( 'edd_members_membership_length', $expiration, $payment_id, $download_id, $price_id );
 }
 
 /**
@@ -211,6 +209,33 @@ function edd_members_set_membership_expiration( $user_id, $expiration ) {
 	do_action( 'edd_members_pre_set_expiration', $user_id, $expiration );
 	update_user_meta( $user_id, '_edd_members_expiration_date', $expiration );
 	do_action( 'edd_members_post_set_expiration', $user_id, $expiration );
+
+}
+
+/**
+ * Get user expire date.
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function edd_members_get_expire_date( $user_id = 0 ) {
+	
+	// Get current user id if it's not set from function call
+	if ( empty( $user_id ) && is_user_logged_in() ) {
+		$user_id = get_current_user_id();
+	}
+		
+	// Get expire date
+	$expire_date = get_the_author_meta( '_edd_members_expiration_date', $user_id );
+		
+	// Return expire_date if there is one
+	if ( !empty( $expire_date ) ) {
+		$edd_members_expire_date = date_i18n( get_option( 'date_format' ), $expire_date );
+	} else {
+		$edd_members_expire_date = __( 'Unknown', 'edd-members' );
+	}
+		
+	return $edd_members_expire_date;
 
 }
 
@@ -264,6 +289,23 @@ function edd_members_get_variable_price_length( $download_id = 0, $price_id = nu
 	}
 
 	return false;
+}
+
+/**
+ * Get user id from user email.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function edd_members_get_user_id_by_email( $user_email = null ) {
+
+	// User info by email
+	$user = get_user_by( 'email', $user_email );
+		
+	// User id
+	$user_id = $user->ID;
+	
+	return $user_id;
 }
 
 /**
