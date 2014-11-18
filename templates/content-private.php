@@ -17,10 +17,8 @@ if( !defined( 'ABSPATH' ) ) {
 	
 	<?php if ( !is_user_logged_in() ) : ?>
 								
-		<p>
-			<?php $edd_members_settings_private_label_logged_out = edd_get_option( 'edd_members_settings_private_label_logged_out' ) ? edd_get_option( 'edd_members_settings_private_label_logged_out' ) : __( 'This content is for members only.', 'edd-members' ); ?>
-			<?php echo apply_filters( 'edd_members_the_content', wp_kses_post( $edd_members_settings_private_label_logged_out ) ); ?>
-		</p>
+		<?php $edd_members_settings_private_label_logged_out = edd_get_option( 'edd_members_settings_private_label_logged_out' ) ? edd_get_option( 'edd_members_settings_private_label_logged_out' ) : __( 'This content is for members only.', 'edd-members' ); ?>
+		<?php echo apply_filters( 'edd_members_the_content', wp_kses_post( $edd_members_settings_private_label_logged_out ) ); ?>
 		
 		<?php
 		// Show login form for logged out users if the setting have been enabled
@@ -33,21 +31,16 @@ if( !defined( 'ABSPATH' ) ) {
 		
 		if ( $edd_members_show_login_form && ! $edd_members_is_bbpress ) : ?>
 		
-			<p>
-				<?php wp_login_form(); ?>
-			</p>
-			<p>
-				<a href="<?php echo wp_lostpassword_url( esc_url( get_permalink() ) ); ?>"><?php _e( 'Lost password?', 'edd-members' ); ?></a>
-			</p>
+			<?php wp_login_form(); ?>
+			
+			<a href="<?php echo wp_lostpassword_url( esc_url( get_permalink() ) ); ?>"><?php _e( 'Lost password?', 'edd-members' ); ?></a>
 		
 		<?php endif; ?>
 		
 	<?php else : // For logged in users ?>
 	
-		<p>
-			<?php $edd_members_settings_private_label_logged_in = edd_get_option( 'edd_members_settings_private_label_logged_in' ) ? edd_get_option( 'edd_members_settings_private_label_logged_in' ) : __( 'This content is for members only. Your membership have probably expired.', 'edd-members' ); ?>
-			<?php echo apply_filters( 'edd_members_the_content', wp_kses_post( $edd_members_settings_private_label_logged_in ) ); ?>
-		</p>
+		<?php $edd_members_settings_private_label_logged_in = edd_get_option( 'edd_members_settings_private_label_logged_in' ) ? edd_get_option( 'edd_members_settings_private_label_logged_in' ) : __( 'This content is for members only. Your membership have probably expired.', 'edd-members' ); ?>
+		<?php echo apply_filters( 'edd_members_the_content', wp_kses_post( $edd_members_settings_private_label_logged_in ) ); ?>
 		
 	<?php endif; ?>
 	
