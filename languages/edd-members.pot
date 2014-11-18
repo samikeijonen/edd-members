@@ -13,66 +13,161 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.5\n"
 
-#: edd-members.php:155
+#: edd-members.php:164
 msgid "EDD Members Settings"
 msgstr ""
 
-#: edd-members.php:156
+#: edd-members.php:165
 msgid "Configure EDD Members Settings"
 msgstr ""
 
-#: edd-members.php:161
+#: edd-members.php:170
 msgid "Private content"
 msgstr ""
 
-#: edd-members.php:162
+#: edd-members.php:171
 msgid ""
 "Select which post type content you want to have private. Note! Only "
-"singular views will be private"
-msgstr ""
-
-#: edd-members.php:168
-msgid "Private Label logged out"
-msgstr ""
-
-#: edd-members.php:169
-msgid "Enter the text you for private content when user is logged out"
-msgstr ""
-
-#: edd-members.php:172 templates/content-private.php:21
-msgid "This content is for members only."
-msgstr ""
-
-#: edd-members.php:176
-msgid "Private Label logged in"
+"singular views will be private."
 msgstr ""
 
 #: edd-members.php:177
-msgid "Enter the text you for private content when user is logged in"
+msgid "Private Label logged out"
 msgstr ""
 
-#: edd-members.php:180 templates/content-private.php:48
-msgid "This content is for members only. Your membership have probably expired."
+#: edd-members.php:178
+msgid "Enter the text you for private content when user is logged out."
 msgstr ""
 
-#: edd-members.php:184
-msgid "Login form"
+#: edd-members.php:181 templates/content-private.php:20
+msgid "This content is for members only."
 msgstr ""
 
 #: edd-members.php:185
-msgid "Show login form for logged out users"
+msgid "Private Label logged in"
+msgstr ""
+
+#: edd-members.php:186
+msgid "Enter the text you for private content when user is logged in."
+msgstr ""
+
+#: edd-members.php:189 templates/content-private.php:42
+msgid "This content is for members only. Your membership have probably expired."
+msgstr ""
+
+#: edd-members.php:193
+msgid "Login form"
+msgstr ""
+
+#: edd-members.php:194
+msgid "Check this box if you want to show login form for logged out users."
+msgstr ""
+
+#: edd-members.php:199
+msgid "Send Renewal Reminders"
+msgstr ""
+
+#: edd-members.php:200
+msgid ""
+"Check this box if you want customers to receive a renewal reminder when "
+"their membership is about to expire."
+msgstr ""
+
+#: edd-members.php:205
+msgid "Renewal Notices"
+msgstr ""
+
+#: edd-members.php:206
+msgid "Configure the renewal notice emails"
+msgstr ""
+
+#: includes/EDD_Members_Emails.php:13
+msgid "Show user expire date"
+msgstr ""
+
+#: includes/EDD_Members_Emails.php:49
+msgid ""
+"Hello {name},\n"
+"\n"
+"Your membership is about to expire.\n"
+"\n"
+"Your membership expires on: {edd_members_expiration}.\n"
+"\n"
+"Renew now: {renewal_link}."
+msgstr ""
+
+#: includes/EDD_Members_Emails.php:52 includes/renewals.php:86
+#: includes/renewals.php:130 includes/settings.php:96 includes/settings.php:150
+msgid "Your membership is about to expire"
+msgstr ""
+
+#: includes/add-renewal-notice.php:17 includes/add-renewal-notice.php:63
+#: includes/settings.php:49
+msgid "Add Renewal Notice"
+msgstr ""
+
+#: includes/add-renewal-notice.php:17 includes/edit-renewal-notice.php:23
+msgid "Go Back"
+msgstr ""
+
+#: includes/add-renewal-notice.php:23 includes/add-renewal-notice.php:32
+#: includes/add-renewal-notice.php:45 includes/edit-renewal-notice.php:29
+#: includes/edit-renewal-notice.php:38
+msgid "Email Subject"
+msgstr ""
+
+#: includes/add-renewal-notice.php:27 includes/edit-renewal-notice.php:33
+msgid "The subject line of the renewal notice email"
+msgstr ""
+
+#: includes/add-renewal-notice.php:40 includes/edit-renewal-notice.php:46
+msgid "When should this email be sent?"
+msgstr ""
+
+#: includes/add-renewal-notice.php:49 includes/edit-renewal-notice.php:55
+msgid ""
+"The email message to be sent with the renewal notice. The following "
+"template tags can be used in the message:"
+msgstr ""
+
+#: includes/add-renewal-notice.php:51 includes/edit-renewal-notice.php:57
+msgid "The customer's name"
+msgstr ""
+
+#: includes/add-renewal-notice.php:52 includes/edit-renewal-notice.php:58
+msgid "User expiration date"
+msgstr ""
+
+#: includes/add-renewal-notice.php:53 includes/edit-renewal-notice.php:59
+msgid "URL to the renewal site"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "EDD Members"
 msgstr ""
 
-#: includes/class.extension-activation.php:92
+#: includes/class.extension-activation.php:94
 msgid "requires Easy Digital Downloads! Please activate it to continue!"
 msgstr ""
 
-#: includes/class.extension-activation.php:94
+#: includes/class.extension-activation.php:96
 msgid "requires Easy Digital Downloads! Please install it to continue!"
+msgstr ""
+
+#: includes/edit-renewal-notice.php:23
+msgid "Edit Renewal Notice"
+msgstr ""
+
+#: includes/edit-renewal-notice.php:51
+msgid "Email Message"
+msgstr ""
+
+#: includes/edit-renewal-notice.php:70
+msgid "Update Renewal Notice"
+msgstr ""
+
+#: includes/functions.php:235
+msgid "Unknown"
 msgstr ""
 
 #: includes/meta-boxes.php:28
@@ -115,27 +210,127 @@ msgstr ""
 msgid "Membership length"
 msgstr ""
 
-#: includes/shortcodes.php:36 includes/user-meta.php:45
-msgid "Unknown"
+#: includes/renewals.php:39
+msgid "One day before expiration"
+msgstr ""
+
+#: includes/renewals.php:40
+msgid "Two days before expiration"
+msgstr ""
+
+#: includes/renewals.php:41
+msgid "Three days before expiration"
+msgstr ""
+
+#: includes/renewals.php:42
+msgid "One week before expiration"
+msgstr ""
+
+#: includes/renewals.php:43
+msgid "Two weeks before expiration"
+msgstr ""
+
+#: includes/renewals.php:44
+msgid "One month before expiration"
+msgstr ""
+
+#: includes/renewals.php:45
+msgid "Two months before expiration"
+msgstr ""
+
+#: includes/renewals.php:46
+msgid "Three months before expiration"
+msgstr ""
+
+#: includes/renewals.php:47
+msgid "At the time of expiration"
+msgstr ""
+
+#: includes/renewals.php:48
+msgid "One day after expiration"
+msgstr ""
+
+#: includes/renewals.php:49
+msgid "Two days after expiration"
+msgstr ""
+
+#: includes/renewals.php:50
+msgid "Three days after expiration"
+msgstr ""
+
+#: includes/renewals.php:51
+msgid "One week after expiration"
+msgstr ""
+
+#: includes/renewals.php:52
+msgid "Two weeks after expiration"
+msgstr ""
+
+#: includes/renewals.php:53
+msgid "One month after expiration"
+msgstr ""
+
+#: includes/renewals.php:54
+msgid "Two months after expiration"
+msgstr ""
+
+#: includes/renewals.php:55
+msgid "Three months after expiration"
+msgstr ""
+
+#: includes/settings.php:30
+msgid "Subject"
+msgstr ""
+
+#: includes/settings.php:31
+msgid "Send Period"
+msgstr ""
+
+#: includes/settings.php:32
+msgid "Actions"
+msgstr ""
+
+#: includes/settings.php:41
+msgid "Edit"
+msgstr ""
+
+#: includes/settings.php:42
+msgid "Delete"
+msgstr ""
+
+#: includes/settings.php:89 includes/settings.php:139 includes/settings.php:193
+msgid "You do not have permission to add renewal notices"
+msgstr ""
+
+#: includes/settings.php:93 includes/settings.php:143 includes/settings.php:197
+msgid "Nonce verification failed"
+msgstr ""
+
+#: includes/settings.php:147 includes/settings.php:201
+msgid "No renewal notice ID was provided"
+msgstr ""
+
+#: includes/settings.php:223
+msgid "Membership Renewal Notice"
 msgstr ""
 
 #: includes/user-meta.php:23
 msgid "Expire Date"
 msgstr ""
 
-#: includes/user-meta.php:62
+#: includes/user-meta.php:58
 msgid "Membership expire date"
 msgstr ""
 
-#: includes/user-meta.php:67
+#: includes/user-meta.php:63
 msgid "Expire date"
 msgstr ""
 
-#: includes/user-meta.php:72
+#: includes/user-meta.php:68
 msgid "Set expire date for membership."
 msgstr ""
 
-#: templates/content-private.php:40
+#: templates/content-private.php:36
 msgid "Lost password?"
 msgstr ""
 
