@@ -100,7 +100,7 @@ grunt.initConfig({
 });
 
 // Default task.
-grunt.registerTask( 'default', [ 'makepot' ], [ 'uglify' ] );
+grunt.registerTask( 'default', [ 'makepot', 'uglify' ] );
 
 // Build task(s).
 grunt.registerTask( 'build', [ 'clean', 'copy', 'compress' ] );
