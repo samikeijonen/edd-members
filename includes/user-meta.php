@@ -36,16 +36,12 @@ function edd_members_expire_date_data( $value, $column_name, $user_id ) {
 	if( 'expire_date' == $column_name ) {
 		
 		// Get expire date
-		$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
+		$expire_date = edd_members_get_expire_date( $user_id );
 		
-		// Return expire_date if there is one
-		if ( !empty( $expire_date ) ) {
-			return date_i18n( get_option( 'date_format' ), $expire_date );
-		 } else {
-			return __( 'Unknown', 'edd-members' );
-		 }
+		return $expire_date;
 	
-	} 
+	}
+	
 }
 add_action( 'manage_users_custom_column', 'edd_members_expire_date_data', 10, 3 );
 
@@ -68,7 +64,7 @@ function edd_members_expire_date_profile_field( $user ) { ?>
 
 			<td>
 				<?php if ( current_user_can( 'edd_members_edit_user' ) ) { // Only user with 'edd_members_edit_user' can edit expire date ?>
-					<input class="edd_members_datepicker" type="text" name="_edd_members_expiration_date" id="edd_members_exprire_date" value="<?php echo date_i18n( get_option( 'date_format' ), esc_attr( get_the_author_meta( '_edd_members_expiration_date', $user->ID ) ) ); ?>" class="regular-text" />
+					<input class="edd_members_datepicker" type="text" name="_edd_members_expiration_date" id="edd_members_exprire_date" value="<?php echo edd_members_get_expire_date( $user->ID ); ?>" class="regular-text" />
 					<span class="description"><?php _e( 'Set expire date for membership.', 'edd-members' ); ?></span>
 				<?php } else {
 					echo date_i18n( get_option( 'date_format' ), esc_attr( get_the_author_meta( '_edd_members_expiration_date', $user->ID ) ) );
