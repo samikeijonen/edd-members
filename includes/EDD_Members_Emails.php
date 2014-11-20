@@ -68,7 +68,7 @@ class EDD_Members_Emails {
 		}
 		
 		// User id
-		$user_id = edd_members_get_user_id_by_email( $user_email );
+		$user_id = edd_members_get_user_info_by_email( $user_email, 'ID' );
 
 		add_user_meta( $user_id, sanitize_key( '_edd_members_renewal_sent_' . $notice['send_period'] ), time() ); // Prevent renewal notices from being sent more than once
 
@@ -76,22 +76,31 @@ class EDD_Members_Emails {
 
 	public function filter_reminder_template_tags( $text = '', $user_email = null ) {
 		
-		// User id
-		$user_id = edd_members_get_user_id_by_email( $user_email );
+		// User display name
+		$user_display_name = edd_members_get_user_info_by_email( $user_email, 'display_name' );
 		
 		// Get expire date
 		$exprire_date = edd_members_get_expire_date( $user_id  );
 
 		// Retrieve the customer name
-		if ( $user ) {
-			$customer_name = $user->display_name;
+		if ( $user_display_name ) {
+			$customer_name = $user_display_name;
 		} else {
 			$customer_name = $user_email;
 		}
-
+		
+		// Get renewal page
+		$page_id = edd_get_option( 'edd_members_renew_page' );
+		
+		if( !empty( $page_id ) ) {
+			$edd_renewal_page = '<a href="' . esc_url( get_permalink( $page_id ) ) . '">' . bloginfo( 'name' ) . '</a>';
+		} else {
+			$edd_renewal_page = '<a href="' . esc_url( home_url( '/' ) ) . '">' . bloginfo( 'name' ) . '</a>';
+		}
+		
 		$text = str_replace( '{name}', $customer_name, $text );
 		$text = str_replace( '{edd_members_expiration}', $exprire_date, $text );
-		$text = str_replace( '{renewal_link}', $renewal_link, $text );
+		$text = str_replace( '{edd_members_page}', $edd_renewal_page, $text );
 
 		return $text;
 	}
