@@ -13,72 +13,86 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.5\n"
 
-#: edd-members.php:164
+#: edd-members.php:167
 msgid "EDD Members Settings"
 msgstr ""
 
-#: edd-members.php:165
+#: edd-members.php:168
 msgid "Configure EDD Members Settings"
 msgstr ""
 
-#: edd-members.php:170
+#: edd-members.php:173
 msgid "Private content"
 msgstr ""
 
-#: edd-members.php:171
+#: edd-members.php:174
 msgid ""
 "Select which post type content you want to have private. Note! Only "
 "singular views will be private."
 msgstr ""
 
-#: edd-members.php:177
+#: edd-members.php:180
 msgid "Private Label logged out"
 msgstr ""
 
-#: edd-members.php:178
+#: edd-members.php:181
 msgid "Enter the text you for private content when user is logged out."
 msgstr ""
 
-#: edd-members.php:181 templates/content-private.php:20
+#: edd-members.php:184 templates/content-private.php:20
 msgid "This content is for members only."
 msgstr ""
 
-#: edd-members.php:185
+#: edd-members.php:188
 msgid "Private Label logged in"
 msgstr ""
 
-#: edd-members.php:186
+#: edd-members.php:189
 msgid "Enter the text you for private content when user is logged in."
 msgstr ""
 
-#: edd-members.php:189 templates/content-private.php:42
+#: edd-members.php:192 templates/content-private.php:42
 msgid "This content is for members only. Your membership have probably expired."
 msgstr ""
 
-#: edd-members.php:193
+#: edd-members.php:196
 msgid "Login form"
 msgstr ""
 
-#: edd-members.php:194
+#: edd-members.php:197
 msgid "Check this box if you want to show login form for logged out users."
 msgstr ""
 
-#: edd-members.php:199
+#: edd-members.php:202
 msgid "Send Renewal Reminders"
 msgstr ""
 
-#: edd-members.php:200
+#: edd-members.php:203
 msgid ""
 "Check this box if you want customers to receive a renewal reminder when "
 "their membership is about to expire."
 msgstr ""
 
-#: edd-members.php:205
+#: edd-members.php:208
 msgid "Renewal Notices"
 msgstr ""
 
-#: edd-members.php:206
-msgid "Configure the renewal notice emails"
+#: edd-members.php:209
+msgid "Configure the renewal notice emails."
+msgstr ""
+
+#: edd-members.php:214
+msgid "Renew membership page"
+msgstr ""
+
+#: edd-members.php:215
+msgid ""
+"This is the page where users could renew their membership. Or it is just "
+"landing page."
+msgstr ""
+
+#: edd-members.php:219
+msgid "Select a page"
 msgstr ""
 
 #: includes/EDD_Members_Emails.php:13
@@ -96,8 +110,8 @@ msgid ""
 "Renew now: {renewal_link}."
 msgstr ""
 
-#: includes/EDD_Members_Emails.php:52 includes/renewals.php:86
-#: includes/renewals.php:130 includes/settings.php:96 includes/settings.php:150
+#: includes/EDD_Members_Emails.php:52 includes/renewals.php:92
+#: includes/renewals.php:138 includes/settings.php:96 includes/settings.php:150
 msgid "Your membership is about to expire"
 msgstr ""
 
@@ -210,71 +224,71 @@ msgstr ""
 msgid "Membership length"
 msgstr ""
 
-#: includes/renewals.php:39
+#: includes/renewals.php:45
 msgid "One day before expiration"
 msgstr ""
 
-#: includes/renewals.php:40
+#: includes/renewals.php:46
 msgid "Two days before expiration"
 msgstr ""
 
-#: includes/renewals.php:41
+#: includes/renewals.php:47
 msgid "Three days before expiration"
 msgstr ""
 
-#: includes/renewals.php:42
+#: includes/renewals.php:48
 msgid "One week before expiration"
 msgstr ""
 
-#: includes/renewals.php:43
+#: includes/renewals.php:49
 msgid "Two weeks before expiration"
 msgstr ""
 
-#: includes/renewals.php:44
+#: includes/renewals.php:50
 msgid "One month before expiration"
 msgstr ""
 
-#: includes/renewals.php:45
+#: includes/renewals.php:51
 msgid "Two months before expiration"
 msgstr ""
 
-#: includes/renewals.php:46
+#: includes/renewals.php:52
 msgid "Three months before expiration"
 msgstr ""
 
-#: includes/renewals.php:47
+#: includes/renewals.php:53
 msgid "At the time of expiration"
 msgstr ""
 
-#: includes/renewals.php:48
+#: includes/renewals.php:54
 msgid "One day after expiration"
 msgstr ""
 
-#: includes/renewals.php:49
+#: includes/renewals.php:55
 msgid "Two days after expiration"
 msgstr ""
 
-#: includes/renewals.php:50
+#: includes/renewals.php:56
 msgid "Three days after expiration"
 msgstr ""
 
-#: includes/renewals.php:51
+#: includes/renewals.php:57
 msgid "One week after expiration"
 msgstr ""
 
-#: includes/renewals.php:52
+#: includes/renewals.php:58
 msgid "Two weeks after expiration"
 msgstr ""
 
-#: includes/renewals.php:53
+#: includes/renewals.php:59
 msgid "One month after expiration"
 msgstr ""
 
-#: includes/renewals.php:54
+#: includes/renewals.php:60
 msgid "Two months after expiration"
 msgstr ""
 
-#: includes/renewals.php:55
+#: includes/renewals.php:61
 msgid "Three months after expiration"
 msgstr ""
 
