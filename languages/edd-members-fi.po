@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: EDD Members 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
-"PO-Revision-Date: 2014-11-20 22:32+0200\n"
+"PO-Revision-Date: 2014-11-20 23:32+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <Sami Keijonen>\n"
 "Language: fi\n"
@@ -95,7 +95,7 @@ msgstr "Hallitse sähköpostimuistutuksia"
 
 #: edd-members.php:214
 msgid "Renew membership page"
-msgstr "Uusi jäsenyys-sivu"
+msgstr "Uusi jäsenyytesi-sivu"
 
 #: edd-members.php:215
 msgid ""
