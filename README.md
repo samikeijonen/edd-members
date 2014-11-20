@@ -9,11 +9,11 @@ build membership site in no time.
 
 * Or site owner can make singular post type content private.
 
-* Plugin is filtering the_content when content is suppose to be private.
+* Plugin is filtering `the_content` when content is suppose to be private.
 
-* Plugin loads content-private.php template for private content and that can be overwritten in a theme `edd-members` folder.
+* Plugin loads `content-private.php` template for private content and that can be overwritten in a theme `edd-members` folder.
 
-* Site admin have capability 'edd_members_show_all_content' by default and can see everything. All the others can't see the content that's marked as private.
+* Site admin have capability `edd_members_show_all_content` by default and can see everything. All the others can't see the content that's marked as private.
 
 * In EDD download site owner can choose does he/she enable membership for particular download and pick membership length.
 
