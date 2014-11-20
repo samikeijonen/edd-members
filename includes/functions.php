@@ -262,8 +262,8 @@ function edd_members_is_membership_valid() {
 	// Get expire date
 	$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
 	
-	// Check if user expire date > current date
-	if ( !empty( $expire_date ) && $expire_date > strtotime( $current_date ) ) {
+	// Check if user expire date >= current date
+	if ( !empty( $expire_date ) && $expire_date >= strtotime( $current_date ) ) {
 		$check_membership = true;
 	}
 	
@@ -292,20 +292,24 @@ function edd_members_get_variable_price_length( $download_id = 0, $price_id = nu
 }
 
 /**
- * Get user id from user email.
+ * Get user info from user email.
  *
  * @since  1.0.0
  * @return void
  */
-function edd_members_get_user_id_by_email( $user_email = null ) {
+function edd_members_get_user_info_by_email( $user_email = null, $type = null ) {
+
+	if( is_null( $type ) || empty( $type ) ) {
+		return false;
+	}
 
 	// User info by email
 	$user = get_user_by( 'email', $user_email );
 		
-	// User id
-	$user_id = $user->ID;
+	// User info
+	$user_info = $user->$type;
 	
-	return $user_id;
+	return $user_info;
 }
 
 /**
