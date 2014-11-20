@@ -100,15 +100,18 @@ if( !class_exists( 'EDD_Members' ) ) {
 			}
 			
 			// Include files and scripts
-			require_once EDD_MEMBERS_DIR . 'includes/scripts.php';
+			if ( is_admin() ) {
+				require_once EDD_MEMBERS_DIR . 'includes/scripts.php';
+				require_once EDD_MEMBERS_DIR . 'includes/meta-boxes.php';
+				require_once EDD_MEMBERS_DIR . 'includes/settings.php';
+				require_once EDD_MEMBERS_DIR . 'includes/user-meta.php';
+			}
+			
 			require_once EDD_MEMBERS_DIR . 'includes/functions.php';
 			require_once EDD_MEMBERS_DIR . 'includes/class-gamajo-template-loader.php';
 			require_once EDD_MEMBERS_DIR . 'includes/class-template-loader.php';
-			require_once EDD_MEMBERS_DIR . 'includes/meta-boxes.php';
 			require_once EDD_MEMBERS_DIR . 'includes/functions-filters.php';
-			require_once EDD_MEMBERS_DIR . 'includes/user-meta.php';
 			require_once EDD_MEMBERS_DIR . 'includes/shortcodes.php';
-			require_once EDD_MEMBERS_DIR . 'includes/settings.php';
 			require_once EDD_MEMBERS_DIR . 'includes/renewals.php';
 			require_once EDD_MEMBERS_DIR . 'includes/EDD_Members_Emails.php';
 		}
@@ -203,8 +206,17 @@ if( !class_exists( 'EDD_Members' ) ) {
 				array(
 					'id'      => 'members_renewal_notices', // EDD adds prefix 'edd_' in hook type
 					'name'    => __( 'Renewal Notices', 'edd-members' ),
-					'desc'    => __( 'Configure the renewal notice emails', 'edd-members' ),
+					'desc'    => __( 'Configure the renewal notice emails.', 'edd-members' ),
 					'type'    => 'hook'
+				),
+				array(
+					'id'          => 'edd_members_renew_page',
+					'name'        => __( 'Renew membership page', 'edd-members' ),
+					'desc'        => __( 'This is the page where users could renew their membership. Or it is just landing page.', 'edd-members' ),
+					'type'        => 'select',
+                    'options'     => edd_get_pages(),
+                    'select2'     => true,
+                    'placeholder' => __( 'Select a page', 'edd-members' )
 				)
 			);
 
