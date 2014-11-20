@@ -95,11 +95,11 @@ msgstr ""
 msgid "Select a page"
 msgstr ""
 
-#: includes/EDD_Members_Emails.php:13
+#: includes/EDD_Members_Emails.php:26
 msgid "Show user expire date"
 msgstr ""
 
-#: includes/EDD_Members_Emails.php:49
+#: includes/EDD_Members_Emails.php:62
 msgid ""
 "Hello {name},\n"
 "\n"
@@ -107,52 +107,56 @@ msgid ""
 "\n"
 "Your membership expires on: {edd_members_expiration}.\n"
 "\n"
-"Renew now: {renewal_link}."
+"Renew now: {edd_members_page}."
 msgstr ""
 
-#: includes/EDD_Members_Emails.php:52 includes/renewals.php:92
+#: includes/EDD_Members_Emails.php:65 includes/renewals.php:92
 #: includes/renewals.php:138 includes/settings.php:96 includes/settings.php:150
 msgid "Your membership is about to expire"
 msgstr ""
 
-#: includes/add-renewal-notice.php:17 includes/add-renewal-notice.php:63
+#: includes/EDD_Members_Emails.php:70
+msgid "Membership Reminder"
+msgstr ""
+
+#: includes/add-renewal-notice.php:21 includes/add-renewal-notice.php:67
 #: includes/settings.php:49
 msgid "Add Renewal Notice"
 msgstr ""
 
-#: includes/add-renewal-notice.php:17 includes/edit-renewal-notice.php:23
+#: includes/add-renewal-notice.php:21 includes/edit-renewal-notice.php:27
 msgid "Go Back"
 msgstr ""
 
-#: includes/add-renewal-notice.php:23 includes/add-renewal-notice.php:32
-#: includes/add-renewal-notice.php:45 includes/edit-renewal-notice.php:29
-#: includes/edit-renewal-notice.php:38
+#: includes/add-renewal-notice.php:27 includes/add-renewal-notice.php:36
+#: includes/add-renewal-notice.php:49 includes/edit-renewal-notice.php:33
+#: includes/edit-renewal-notice.php:42
 msgid "Email Subject"
 msgstr ""
 
-#: includes/add-renewal-notice.php:27 includes/edit-renewal-notice.php:33
+#: includes/add-renewal-notice.php:31 includes/edit-renewal-notice.php:37
 msgid "The subject line of the renewal notice email"
 msgstr ""
 
-#: includes/add-renewal-notice.php:40 includes/edit-renewal-notice.php:46
+#: includes/add-renewal-notice.php:44 includes/edit-renewal-notice.php:50
 msgid "When should this email be sent?"
 msgstr ""
 
-#: includes/add-renewal-notice.php:49 includes/edit-renewal-notice.php:55
+#: includes/add-renewal-notice.php:53 includes/edit-renewal-notice.php:59
 msgid ""
 "The email message to be sent with the renewal notice. The following "
 "template tags can be used in the message:"
 msgstr ""
 
-#: includes/add-renewal-notice.php:51 includes/edit-renewal-notice.php:57
+#: includes/add-renewal-notice.php:55 includes/edit-renewal-notice.php:61
 msgid "The customer's name"
 msgstr ""
 
-#: includes/add-renewal-notice.php:52 includes/edit-renewal-notice.php:58
+#: includes/add-renewal-notice.php:56 includes/edit-renewal-notice.php:62
 msgid "User expiration date"
 msgstr ""
 
-#: includes/add-renewal-notice.php:53 includes/edit-renewal-notice.php:59
+#: includes/add-renewal-notice.php:57 includes/edit-renewal-notice.php:63
 msgid "URL to the renewal site"
 msgstr ""
 
@@ -168,15 +172,15 @@ msgstr ""
 msgid "requires Easy Digital Downloads! Please install it to continue!"
 msgstr ""
 
-#: includes/edit-renewal-notice.php:23
+#: includes/edit-renewal-notice.php:27
 msgid "Edit Renewal Notice"
 msgstr ""
 
-#: includes/edit-renewal-notice.php:51
+#: includes/edit-renewal-notice.php:55
 msgid "Email Message"
 msgstr ""
 
-#: includes/edit-renewal-notice.php:70
+#: includes/edit-renewal-notice.php:74
 msgid "Update Renewal Notice"
 msgstr ""
 
