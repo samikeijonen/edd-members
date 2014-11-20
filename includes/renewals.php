@@ -20,6 +20,12 @@ if( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Check if send renewal reminders is enabled
+ *
+ * @since  1.0.0
+ * @return boolean Renewal reminders
+ */
 function edd_members_renewals_allowed() {
 	if( edd_get_option( 'edd_members_send_renewal_reminders' ) ) {
 		return true;
@@ -93,7 +99,7 @@ If you wish to renew your membership, simply click the link below and follow the
 
 Your license expires on: {edd_members_expiration}.
 
-Renew now: {renewal_link}.'
+Renew now: {edd_members_page}.'
 	);
 
 	$notice   = isset( $notices[ $notice_id ] ) ? $notices[ $notice_id ] : $notices[0];
@@ -111,6 +117,8 @@ Renew now: {renewal_link}.'
  * @return array Renewal notices defined in settings
  */
 function edd_members_get_renewal_notices() {
+
+	// Get notices from options
 	$notices = get_option( 'edd_members_renewal_notices', array() );
 
 	if( empty( $notices ) ) {
@@ -123,7 +131,7 @@ If you wish to renew your license, simply click the link below and follow the in
 
 Your license expires on: {edd_members_expiration}.
 
-Renew now: {renewal_link}.';
+Renew now: {edd_members_page}.';
 
 		$notices[0] = array(
 			'send_period' => '+1week',
@@ -158,7 +166,7 @@ function edd_members_scheduled_reminders() {
 
 			if( ! get_user_meta( $user_id, sanitize_key( '_edd_members_renewal_sent_' . $notice['send_period'] ) ) ) {
 
-				$edd_members_emails->send_renewal_reminder( $user_email, $notice_id );
+				$edd_members_emails->send_renewal_reminder( sanitize_email( $user_email->user_email ), $notice_id );
 
 			}
 
@@ -169,21 +177,38 @@ function edd_members_scheduled_reminders() {
 }
 add_action( 'edd_daily_scheduled_events', 'edd_members_scheduled_reminders' );
 
+function edd_mebers_test_email() {
+
+	$current_date = date( 'Y-m-d' );
+	
+	$edd_members_get_expiring_users = edd_members_get_expiring_users( 'expired' );
+	
+	echo 'Emails:' . strtotime( $current_date ) . ' ' . current_time( 'timestamp' ) . ' ' . $edd_members_get_expiring_users;
+	
+	//print_r( $edd_members_get_expiring_users );
+	
+	foreach ( $edd_members_get_expiring_users as $edd_members_get_expiring_user ) {
+		echo $edd_members_get_expiring_user->user_email . '<br />';
+	}
+	
+}
+add_action( 'wp_head', 'edd_mebers_test_email' );
+
 
 function edd_members_get_expiring_users( $period = '+1week' ) {
 
+	if ( 'expired' == $period ) {
+		$period = '+0days';
+	}
+
 	$args = array(
-		'meta_query'             => array(
-			'relation'           => 'AND',
+		'meta_query'      => array(
 			array(
-				'key'            => '_edd_members_expiration_date',
-				'value'          => array(
-					current_time( 'timestamp' ),
-					strtotime( $period )
-				),
-				'compare'        => 'BETWEEN'
+				'key'     => '_edd_members_expiration_date',
+				'value'   =>  strtotime( $period, strtotime( date( 'Y-m-d' ) ) ), 
+				'compare' => '='
 			),
-			'fields'             => array( 'user_email' )
+			'fields'      => array( 'user_email' )
 		)
 	);
 
@@ -191,7 +216,7 @@ function edd_members_get_expiring_users( $period = '+1week' ) {
 
 	$query = get_users( $args );
 	if( ! $query ) {
-		return false; // no expiring keys found
+		return false; // no expiring dates found
 	}
 
 	return $query;
@@ -212,7 +237,7 @@ function edd_members_check_for_expired_users() {
 
 	$query = get_users( $args );
 	if( ! $query ) {
-		return false; // no expiring keys found
+		return false; // no expiring dates found
 	}
 
 	foreach( $query as $user_id ) {
