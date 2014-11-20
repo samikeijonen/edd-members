@@ -28,8 +28,8 @@ function edd_members_renewal_notices_settings( $args ) {
 		<thead>
 			<tr>
 				<th style="width:350%; padding-left: 10px;" scope="col"><?php _e( 'Subject', 'edd-members' ); ?></th>
-				<th style="width:350%;" scope="col"><?php _e( 'Send Period', 'edd-members' ); ?></th>
-				<th scope="col"><?php _e( 'Actions', 'edd-members' ); ?></th>
+				<th style="width:350%; padding-left: 10px;" scope="col"><?php _e( 'Send Period', 'edd-members' ); ?></th>
+				<th scope="col" style="padding-left: 10px;"><?php _e( 'Actions', 'edd-members' ); ?></th>
 			</tr>
 		</thead>
 		<?php if( ! empty( $notices ) ) : $i = 1; ?>
