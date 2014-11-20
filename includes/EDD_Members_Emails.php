@@ -1,4 +1,17 @@
 <?php
+/**
+ * Send email class
+ *
+ * This is modified version of email class from Pippin Williamson and his Software License Plugin.
+ *
+ * @author      Sami Keijonen
+ * @author      Pippin Williamson
+ * @copyright   Copyright (c) 2014, Pippin Williamson
+ * @link        https://easydigitaldownloads.com/extensions/software-licensing/
+ * @license     http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @package     EDDMembers\Renewals
+ * @since       1.0.0
+ */
 
 class EDD_Members_Emails {
 
@@ -46,14 +59,15 @@ class EDD_Members_Emails {
 		$email_to   = $user_email;
 
 		$notice     = edd_members_get_renewal_notice( $notice_id );
-		$message    = ! empty( $notice['message'] ) ? $notice['message'] : __( "Hello {name},\n\nYour membership is about to expire.\n\nYour membership expires on: {edd_members_expiration}.\n\nRenew now: {renewal_link}.", "edd-members" );
+		$message    = ! empty( $notice['message'] ) ? $notice['message'] : __( "Hello {name},\n\nYour membership is about to expire.\n\nYour membership expires on: {edd_members_expiration}.\n\nRenew now: {edd_members_page}.", "edd-members" );
 		$message    = $this->filter_reminder_template_tags( $message, $user_email );
 
 		$subject    = ! empty( $notice['subject'] ) ? $notice['subject'] : __( 'Your membership is about to expire', 'edd-members' );
 		$subject    = $this->filter_reminder_template_tags( $subject, $user_email );
 
 		if( class_exists( 'EDD_Emails' ) ) {
-
+			
+			EDD()->emails->__set( 'heading', __( 'Membership Reminder', 'edd-members' ) );
 			EDD()->emails->send( $email_to, $subject, $message );
 
 		} else {

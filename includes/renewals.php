@@ -2,8 +2,8 @@
 /**
  * Email renewals functions
  *
- * Most of the renewals functions are from Pippin Williamson and his Software License Plugin.
- * I have modified some of them.
+ * Some of the renewals functions are from Pippin Williamson and his Software License Plugin.
+ * I have modified some of them and added new ones.
  *
  * @author      Sami Keijonen
  * @author      Pippin Williamson
@@ -144,6 +144,14 @@ Renew now: {edd_members_page}.';
 	return apply_filters( 'edd_members_get_renewal_notices', $notices );
 }
 
+/**
+ * Check email reminders once a day.
+ *
+ * Uses EDD daily cron job. Send email notification id expire date and notice period "match".
+ *
+ * @since  1.0.0
+ * @return void
+ */
 function edd_members_scheduled_reminders() {
 
 	if( ! edd_members_renewals_allowed() ) {
@@ -177,24 +185,12 @@ function edd_members_scheduled_reminders() {
 }
 add_action( 'edd_daily_scheduled_events', 'edd_members_scheduled_reminders' );
 
-function edd_mebers_test_email() {
-
-	$current_date = date( 'Y-m-d' );
-	
-	$edd_members_get_expiring_users = edd_members_get_expiring_users( 'expired' );
-	
-	echo 'Emails:' . strtotime( $current_date ) . ' ' . current_time( 'timestamp' ) . ' ' . $edd_members_get_expiring_users;
-	
-	//print_r( $edd_members_get_expiring_users );
-	
-	foreach ( $edd_members_get_expiring_users as $edd_members_get_expiring_user ) {
-		echo $edd_members_get_expiring_user->user_email . '<br />';
-	}
-	
-}
-add_action( 'wp_head', 'edd_mebers_test_email' );
-
-
+/**
+ * Get expiring users based on notice period .
+ *
+ * @since  1.0.0
+ * @return Array
+ */
 function edd_members_get_expiring_users( $period = '+1week' ) {
 
 	if ( 'expired' == $period ) {
@@ -205,7 +201,7 @@ function edd_members_get_expiring_users( $period = '+1week' ) {
 		'meta_query'      => array(
 			array(
 				'key'     => '_edd_members_expiration_date',
-				'value'   =>  strtotime( $period, strtotime( date( 'Y-m-d' ) ) ), 
+				'value'   =>  strtotime( $period, strtotime( date( 'Y-m-d' ) ) ),
 				'compare' => '='
 			),
 			'fields'      => array( 'user_email' )
@@ -222,17 +218,23 @@ function edd_members_get_expiring_users( $period = '+1week' ) {
 	return $query;
 }
 
+/**
+ * Check expired users.
+ *
+ * @since  1.0.0
+ * @return array
+ */
 function edd_members_check_for_expired_users() {
 
 	$args = array(
-		'meta_query'             => array(
+		'meta_query'      => array(
 			array(
-				'key'            => '_edd_members_expiration_date',
-				'value'          => current_time( 'timestamp' ),
-				'compare'        => '<'
+				'key'     => '_edd_members_expiration_date',
+				'value'   => strtotime( date( 'Y-m-d' ) ),
+				'compare' => '<'
 			)
 		),
-		'fields'                 => array( 'ID', 'user_email' )
+		'fields'          => array( 'ID', 'user_email' )
 	);
 
 	$query = get_users( $args );

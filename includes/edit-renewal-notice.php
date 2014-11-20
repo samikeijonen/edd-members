@@ -2,10 +2,14 @@
 /**
  * Edit Renewal Notice
  *
- * @package     EDD Software Licensing
+ * Edit renewal functions are from Pippin Williamson and his Software License Plugin.
+ *
+ * @author      Pippin Williamson
  * @copyright   Copyright (c) 2014, Pippin Williamson
- * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
- * @since       3.0
+ * @link        https://easydigitaldownloads.com/extensions/software-licensing/
+ * @license     http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @package     EDDMembers\Renewals
+ * @since       1.0.0
  */
 
 // Exit if accessed directly
