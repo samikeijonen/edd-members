@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: EDD Members 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
-"PO-Revision-Date: 2014-11-20 23:32+0200\n"
+"PO-Revision-Date: 2014-11-21 14:42+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <Sami Keijonen>\n"
 "Language: fi\n"
@@ -40,7 +40,7 @@ msgid "Private Label logged out"
 msgstr "Teksti uloskirjautuneille"
 
 #: edd-members.php:181
-msgid "Enter the text you for private content when user is logged out."
+msgid "Enter the text for private content when user is logged out."
 msgstr ""
 "Kirjoita teksti uloskirjautuneille käyttäjille, jotka eivät näe sisältöä."
 
@@ -53,9 +53,9 @@ msgid "Private Label logged in"
 msgstr "Teksti sisäänkirjautuneille"
 
 #: edd-members.php:189
-msgid "Enter the text you for private content when user is logged in."
+msgid "Enter the text you private content when user is logged in."
 msgstr ""
-"Kirjoita teksti sisäänkirjautuneille käyttäjille, jotka eivät näe sisältöä."
+"Kirjoita teksti sisään kirjautuneille käyttäjille, jotka eivät näe sisältöä."
 
 #: edd-members.php:192 templates/content-private.php:42
 msgid ""

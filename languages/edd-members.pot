@@ -36,7 +36,7 @@ msgid "Private Label logged out"
 msgstr ""
 
 #: edd-members.php:181
-msgid "Enter the text you for private content when user is logged out."
+msgid "Enter the text for private content when user is logged out."
 msgstr ""
 
 #: edd-members.php:184 templates/content-private.php:20
@@ -48,7 +48,7 @@ msgid "Private Label logged in"
 msgstr ""
 
 #: edd-members.php:189
-msgid "Enter the text you for private content when user is logged in."
+msgid "Enter the text you private content when user is logged in."
 msgstr ""
 
 #: edd-members.php:192 templates/content-private.php:42
