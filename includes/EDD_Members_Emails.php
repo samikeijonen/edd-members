@@ -40,9 +40,8 @@ class EDD_Members_Emails {
 	}
 
 	public function send_renewal_reminder( $user_email = null, $notice_id = 0 ) {
-
-		global $edd_options;
-
+		
+		// Bail if there is no email
 		if( empty( $user_email ) ) {
 			return;
 		}
@@ -93,6 +92,9 @@ class EDD_Members_Emails {
 		// User display name
 		$user_display_name = edd_members_get_user_info_by_email( $user_email, 'display_name' );
 		
+		// Use id
+		$user_id = edd_members_get_user_info_by_email( $user_email, 'ID' );
+		
 		// Get expire date
 		$exprire_date = edd_members_get_expire_date( $user_id  );
 
@@ -107,9 +109,9 @@ class EDD_Members_Emails {
 		$page_id = edd_get_option( 'edd_members_renew_page' );
 		
 		if( !empty( $page_id ) ) {
-			$edd_renewal_page = '<a href="' . esc_url( get_permalink( $page_id ) ) . '">' . bloginfo( 'name' ) . '</a>';
+			$edd_renewal_page = '<a href="' . esc_url( get_permalink( $page_id ) ) . '">' . get_the_title( $page_id ) . '</a>';
 		} else {
-			$edd_renewal_page = '<a href="' . esc_url( home_url( '/' ) ) . '">' . bloginfo( 'name' ) . '</a>';
+			$edd_renewal_page = '<a href="' . esc_url( home_url( '/' ) ) . '">' . get_bloginfo( 'name' ) . '</a>';
 		}
 		
 		$text = str_replace( '{name}', $customer_name, $text );
