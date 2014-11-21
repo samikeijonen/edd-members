@@ -19,7 +19,7 @@
  * @package         EDD\EDDMembers
  * @author          Sami Keijonen <sami.keijonen@foxnet.fi>
  * @copyright       Copyright (c) Sami Keijonen
- * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @license         http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
 
@@ -163,60 +163,60 @@ if( !class_exists( 'EDD_Members' ) ) {
             
 			$edd_members_settings = array(
 				array(
-					'id'   => 'edd_members_settings',
-					'name' => '<strong>' . __( 'EDD Members Settings', 'edd-members' ) . '</strong>',
-					'desc' => __( 'Configure EDD Members Settings', 'edd-members' ),
-					'type' => 'header',
+					'id'          => 'edd_members_settings',
+					'name'        => '<strong>' . __( 'EDD Members Settings', 'edd-members' ) . '</strong>',
+					'desc'        => __( 'Configure EDD Members Settings', 'edd-members' ),
+					'type'        => 'header',
 				),
 				array(
-					'id'      => 'edd_members_private_post_type',
-					'name'    => __( 'Private content', 'edd-members' ),
-					'desc'    => __( 'Select which post type content you want to have private. Note! Only singular views will be private.', 'edd-members' ),
-					'type'    => 'multicheck',
-					'options' => edd_members_get_public_post_types()
+					'id'          => 'edd_members_private_post_type',
+					'name'        => __( 'Private content', 'edd-members' ),
+					'desc'        => __( 'Select which post type content you want to have private. Note! Only singular views will be private.', 'edd-members' ),
+					'type'        => 'multicheck',
+					'options'     => edd_members_get_public_post_types()
 				),
 				array(
-					'id'      => 'edd_members_settings_private_label_logged_out',
-					'name'    => __( 'Private Label logged out', 'edd-members' ),
-					'desc'    => __( 'Enter the text you for private content when user is logged out.', 'edd-members' ),
-					'type'    => 'rich_editor',
-					'size'    => 15,
-					'std'     => __( 'This content is for members only.', 'edd-members' )
+					'id'          => 'edd_members_settings_private_label_logged_out',
+					'name'        => __( 'Private Label logged out', 'edd-members' ),
+					'desc'        => __( 'Enter the text for private content when user is logged out.', 'edd-members' ),
+					'type'        => 'rich_editor',
+					'size'        => 15,
+					'std'         => __( 'This content is for members only.', 'edd-members' )
 				),
 				array(
-					'id'      => 'edd_members_settings_private_label_logged_in',
-					'name'    => __( 'Private Label logged in', 'edd-members' ),
-					'desc'    => __( 'Enter the text you for private content when user is logged in.', 'edd-members' ),
-					'type'    => 'rich_editor',
-					'size'    => 15,
-					'std'     => __( 'This content is for members only. Your membership have probably expired.', 'edd-members' )
+					'id'          => 'edd_members_settings_private_label_logged_in',
+					'name'        => __( 'Private Label logged in', 'edd-members' ),
+					'desc'        => __( 'Enter the text you private content when user is logged in.', 'edd-members' ),
+					'type'        => 'rich_editor',
+					'size'        => 15,
+					'std'         => __( 'This content is for members only. Your membership have probably expired.', 'edd-members' )
 				),
 				array(
-					'id'      => 'edd_members_show_login_form',
-					'name'    => __( 'Login form', 'edd-members' ),
-					'desc'    => __( 'Check this box if you want to show login form for logged out users.', 'edd-members' ),
-					'type'    => 'checkbox'
+					'id'          => 'edd_members_show_login_form',
+					'name'        => __( 'Login form', 'edd-members' ),
+					'desc'        => __( 'Check this box if you want to show login form for logged out users.', 'edd-members' ),
+					'type'        => 'checkbox'
 				),
 				array(
-					'id'      => 'edd_members_send_renewal_reminders',
-					'name'    => __( 'Send Renewal Reminders', 'edd-members' ),
-					'desc'    => __( 'Check this box if you want customers to receive a renewal reminder when their membership is about to expire.', 'edd-members' ),
-					'type'    => 'checkbox'
+					'id'          => 'edd_members_send_renewal_reminders',
+					'name'        => __( 'Send Renewal Reminders', 'edd-members' ),
+					'desc'        => __( 'Check this box if you want customers to receive a renewal reminder when their membership is about to expire.', 'edd-members' ),
+					'type'        => 'checkbox'
 				),
 				array(
-					'id'      => 'members_renewal_notices', // EDD adds prefix 'edd_' in hook type
-					'name'    => __( 'Renewal Notices', 'edd-members' ),
-					'desc'    => __( 'Configure the renewal notice emails.', 'edd-members' ),
-					'type'    => 'hook'
+					'id'          => 'members_renewal_notices', // EDD adds prefix 'edd_' in hook type
+					'name'        => __( 'Renewal Notices', 'edd-members' ),
+					'desc'        => __( 'Configure the renewal notice emails.', 'edd-members' ),
+					'type'        => 'hook'
 				),
 				array(
 					'id'          => 'edd_members_renew_page',
 					'name'        => __( 'Renew membership page', 'edd-members' ),
 					'desc'        => __( 'This is the page where users could renew their membership. Or it is just landing page.', 'edd-members' ),
 					'type'        => 'select',
-                    'options'     => edd_get_pages(),
-                    'select2'     => true,
-                    'placeholder' => __( 'Select a page', 'edd-members' )
+					'options'     => edd_get_pages(),
+					'select2'     => true,
+					'placeholder' => __( 'Select a page', 'edd-members' )
 				)
 			);
 
