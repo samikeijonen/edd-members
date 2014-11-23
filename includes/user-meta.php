@@ -5,13 +5,11 @@
  * @package     EDDMembers\Usermeta
  * @since       1.0.0
  */
- 
 
 /* Exit if accessed directly. */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 
 /**
  * Add new user column: Expire Date.
@@ -63,11 +61,11 @@ function edd_members_expire_date_profile_field( $user ) { ?>
 			<th><label for="edd_members_exprire_date"><?php _e( 'Expire date', 'edd-members' ); ?></label></th>
 
 			<td>
-				<?php if ( current_user_can( 'edd_members_edit_user' ) ) { // Only user with 'edd_members_edit_user' can edit expire date ?>
+				<?php if ( current_user_can( 'edd_members_edit_user' ) || current_user_can( 'manage_shop_settings' ) ) { // Only users with 'edd_members_edit_user' or 'manage_shop_settings' cap can edit expire date ?>
 					<input class="edd_members_datepicker" type="text" name="_edd_members_expiration_date" id="edd_members_exprire_date" value="<?php echo edd_members_get_expire_date( $user->ID ); ?>" class="regular-text" />
 					<span class="description"><?php _e( 'Set expire date for membership.', 'edd-members' ); ?></span>
 				<?php } else {
-					echo date_i18n( get_option( 'date_format' ), esc_attr( get_the_author_meta( '_edd_members_expiration_date', $user->ID ) ) );
+					echo edd_members_get_expire_date( $user->ID );
 				} ?>
 			</td>
 		</tr>
