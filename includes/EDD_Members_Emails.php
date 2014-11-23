@@ -83,7 +83,7 @@ class EDD_Members_Emails {
 		// User id
 		$user_id = edd_members_get_user_info_by_email( $user_email, 'ID' );
 
-		add_user_meta( $user_id, sanitize_key( '_edd_members_renewal_sent_' . $notice['send_period'] ), time() ); // Prevent renewal notices from being sent more than once
+		update_user_meta( $user_id, sanitize_key( '_edd_members_renewal_sent_' . $notice['send_period'] ), time() ); // Prevent renewal notices from being sent more than once
 
 	}
 
