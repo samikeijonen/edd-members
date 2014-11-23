@@ -14,7 +14,6 @@
  * @since       1.0.0
  */
 
-
 // Exit if accessed directly
 if( !defined( 'ABSPATH' ) ) {
 	exit;
@@ -163,20 +162,19 @@ function edd_members_scheduled_reminders() {
 	$notices = edd_members_get_renewal_notices();
 
 	foreach( $notices as $notice_id => $notice ) {
-
+		
+		// Get users that match current date and sent period
 		$user_emails = edd_members_get_expiring_users( $notice['send_period'] );
-
+		
+		// Bail if none found
 		if( ! $user_emails ) {
 			continue;
 		}
-
+		
+		// Loop all found users and sent emails
 		foreach( $user_emails as $user_email ) {
 
-			if( ! get_user_meta( $user_id, sanitize_key( '_edd_members_renewal_sent_' . $notice['send_period'] ) ) ) {
-
-				$edd_members_emails->send_renewal_reminder( sanitize_email( $user_email->user_email ), $notice_id );
-
-			}
+			$edd_members_emails->send_renewal_reminder( sanitize_email( $user_email->user_email ), $notice_id );
 
 		}
 
@@ -196,13 +194,20 @@ function edd_members_get_expiring_users( $period = '+1week' ) {
 	if ( 'expired' == $period ) {
 		$period = '+0days';
 	}
-
+	
+	// Get current date +/- period time without seconds (2015-04-16 00:00)
+	$start_date = strtotime( $period, strtotime( date( 'Y-m-d' ) ) );
+	
+	// Add +1 day (2015-04-17 00:00)
+	$end_date = strtotime( '+1 day', $start_date );
+	
+	// Compare date values between start and and date, this means one whole day
 	$args = array(
 		'meta_query'      => array(
 			array(
 				'key'     => '_edd_members_expiration_date',
-				'value'   =>  strtotime( $period, strtotime( date( 'Y-m-d' ) ) ),
-				'compare' => '='
+				'value'   =>  array( $start_date, $end_date ),
+				'compare' => 'BETWEEN',
 			),
 			'fields'      => array( 'user_email' )
 		)
