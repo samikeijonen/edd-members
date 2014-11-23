@@ -99,7 +99,7 @@ msgstr ""
 msgid "Show user expire date"
 msgstr ""
 
-#: includes/EDD_Members_Emails.php:62
+#: includes/EDD_Members_Emails.php:61
 msgid ""
 "Hello {name},\n"
 "\n"
@@ -110,12 +110,12 @@ msgid ""
 "Renew now: {edd_members_page}."
 msgstr ""
 
-#: includes/EDD_Members_Emails.php:65 includes/renewals.php:92
-#: includes/renewals.php:138 includes/settings.php:96 includes/settings.php:150
+#: includes/EDD_Members_Emails.php:64 includes/renewals.php:91
+#: includes/renewals.php:137 includes/settings.php:96 includes/settings.php:150
 msgid "Your membership is about to expire"
 msgstr ""
 
-#: includes/EDD_Members_Emails.php:70
+#: includes/EDD_Members_Emails.php:69
 msgid "Membership Reminder"
 msgstr ""
 
@@ -188,111 +188,111 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: includes/meta-boxes.php:28
+#: includes/meta-boxes.php:27
 msgid "Set as private"
 msgstr ""
 
-#: includes/meta-boxes.php:58
+#: includes/meta-boxes.php:57
 msgid "All content have been marked as private in global %ssettings%s page."
 msgstr ""
 
-#: includes/meta-boxes.php:63
+#: includes/meta-boxes.php:62
 msgid "Check this content as private."
 msgstr ""
 
-#: includes/meta-boxes.php:90
+#: includes/meta-boxes.php:89
 msgid "Check to enable membership length creation"
 msgstr ""
 
-#: includes/meta-boxes.php:97 includes/meta-boxes.php:157
+#: includes/meta-boxes.php:96 includes/meta-boxes.php:156
 msgid "Days"
 msgstr ""
 
-#: includes/meta-boxes.php:98 includes/meta-boxes.php:158
+#: includes/meta-boxes.php:97 includes/meta-boxes.php:157
 msgid "Weeks"
 msgstr ""
 
-#: includes/meta-boxes.php:99 includes/meta-boxes.php:159
+#: includes/meta-boxes.php:98 includes/meta-boxes.php:158
 msgid "Months"
 msgstr ""
 
-#: includes/meta-boxes.php:100 includes/meta-boxes.php:160
+#: includes/meta-boxes.php:99 includes/meta-boxes.php:159
 msgid "Years"
 msgstr ""
 
-#: includes/meta-boxes.php:102
+#: includes/meta-boxes.php:101
 msgid "How long are membership valid for?"
 msgstr ""
 
-#: includes/meta-boxes.php:127
+#: includes/meta-boxes.php:126
 msgid "Membership length"
 msgstr ""
 
-#: includes/renewals.php:45
+#: includes/renewals.php:44
 msgid "One day before expiration"
 msgstr ""
 
-#: includes/renewals.php:46
+#: includes/renewals.php:45
 msgid "Two days before expiration"
 msgstr ""
 
-#: includes/renewals.php:47
+#: includes/renewals.php:46
 msgid "Three days before expiration"
 msgstr ""
 
-#: includes/renewals.php:48
+#: includes/renewals.php:47
 msgid "One week before expiration"
 msgstr ""
 
-#: includes/renewals.php:49
+#: includes/renewals.php:48
 msgid "Two weeks before expiration"
 msgstr ""
 
-#: includes/renewals.php:50
+#: includes/renewals.php:49
 msgid "One month before expiration"
 msgstr ""
 
-#: includes/renewals.php:51
+#: includes/renewals.php:50
 msgid "Two months before expiration"
 msgstr ""
 
-#: includes/renewals.php:52
+#: includes/renewals.php:51
 msgid "Three months before expiration"
 msgstr ""
 
-#: includes/renewals.php:53
+#: includes/renewals.php:52
 msgid "At the time of expiration"
 msgstr ""
 
-#: includes/renewals.php:54
+#: includes/renewals.php:53
 msgid "One day after expiration"
 msgstr ""
 
-#: includes/renewals.php:55
+#: includes/renewals.php:54
 msgid "Two days after expiration"
 msgstr ""
 
-#: includes/renewals.php:56
+#: includes/renewals.php:55
 msgid "Three days after expiration"
 msgstr ""
 
-#: includes/renewals.php:57
+#: includes/renewals.php:56
 msgid "One week after expiration"
 msgstr ""
 
-#: includes/renewals.php:58
+#: includes/renewals.php:57
 msgid "Two weeks after expiration"
 msgstr ""
 
-#: includes/renewals.php:59
+#: includes/renewals.php:58
 msgid "One month after expiration"
 msgstr ""
 
-#: includes/renewals.php:60
+#: includes/renewals.php:59
 msgid "Two months after expiration"
 msgstr ""
 
-#: includes/renewals.php:61
+#: includes/renewals.php:60
 msgid "Three months after expiration"
 msgstr ""
 
@@ -332,19 +332,19 @@ msgstr ""
 msgid "Membership Renewal Notice"
 msgstr ""
 
-#: includes/user-meta.php:23
+#: includes/user-meta.php:21
 msgid "Expire Date"
 msgstr ""
 
-#: includes/user-meta.php:58
+#: includes/user-meta.php:56
 msgid "Membership expire date"
 msgstr ""
 
-#: includes/user-meta.php:63
+#: includes/user-meta.php:61
 msgid "Expire date"
 msgstr ""
 
-#: includes/user-meta.php:68
+#: includes/user-meta.php:66
 msgid "Set expire date for membership."
 msgstr ""
 

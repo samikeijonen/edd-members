@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: EDD Members 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
-"PO-Revision-Date: 2014-11-21 14:42+0200\n"
+"PO-Revision-Date: 2014-11-23 14:42+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <Sami Keijonen>\n"
 "Language: fi\n"
@@ -111,7 +111,7 @@ msgstr "Valitse sivu"
 msgid "Show user expire date"
 msgstr "Näytä käyttäjän päättymispäivä"
 
-#: includes/EDD_Members_Emails.php:62
+#: includes/EDD_Members_Emails.php:61
 msgid ""
 "Hello {name},\n"
 "\n"
@@ -129,13 +129,13 @@ msgstr ""
 "\n"
 "Uusi jäsenyys meidän sivuilla: {edd_members_page}."
 
-#: includes/EDD_Members_Emails.php:65 includes/renewals.php:92
-#: includes/renewals.php:138 includes/settings.php:96
+#: includes/EDD_Members_Emails.php:64 includes/renewals.php:91
+#: includes/renewals.php:137 includes/settings.php:96
 #: includes/settings.php:150
 msgid "Your membership is about to expire"
 msgstr "Jäsenyytesi on pian päättymässä"
 
-#: includes/EDD_Members_Emails.php:70
+#: includes/EDD_Members_Emails.php:69
 msgid "Membership Reminder"
 msgstr "Jäsenyyden muistutus"
 
@@ -212,111 +212,111 @@ msgstr "Päivitä sähköpostimuistutus"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: includes/meta-boxes.php:28
+#: includes/meta-boxes.php:27
 msgid "Set as private"
 msgstr "Merkitse yksityiseksi"
 
-#: includes/meta-boxes.php:58
+#: includes/meta-boxes.php:57
 msgid "All content have been marked as private in global %ssettings%s page."
 msgstr "Kaikki sisältö on merkitty yksityiseksi %sasetukset%s-sivulla."
 
-#: includes/meta-boxes.php:63
+#: includes/meta-boxes.php:62
 msgid "Check this content as private."
 msgstr "Merkitse tämä sisältö yksityiseksi."
 
-#: includes/meta-boxes.php:90
+#: includes/meta-boxes.php:89
 msgid "Check to enable membership length creation"
 msgstr "Valitse tämä, jos haluat ottaa jäsenyyden keston käyttöön"
 
-#: includes/meta-boxes.php:97 includes/meta-boxes.php:157
+#: includes/meta-boxes.php:96 includes/meta-boxes.php:156
 msgid "Days"
 msgstr "Päivää"
 
-#: includes/meta-boxes.php:98 includes/meta-boxes.php:158
+#: includes/meta-boxes.php:97 includes/meta-boxes.php:157
 msgid "Weeks"
 msgstr "Viikkoa"
 
-#: includes/meta-boxes.php:99 includes/meta-boxes.php:159
+#: includes/meta-boxes.php:98 includes/meta-boxes.php:158
 msgid "Months"
 msgstr "Kuukautta"
 
-#: includes/meta-boxes.php:100 includes/meta-boxes.php:160
+#: includes/meta-boxes.php:99 includes/meta-boxes.php:159
 msgid "Years"
 msgstr "Vuotta"
 
-#: includes/meta-boxes.php:102
+#: includes/meta-boxes.php:101
 msgid "How long are membership valid for?"
 msgstr "Kuinka kauan jäsenyys on voimassa?"
 
-#: includes/meta-boxes.php:127
+#: includes/meta-boxes.php:126
 msgid "Membership length"
 msgstr "Jäsenyyden kesto"
 
-#: includes/renewals.php:45
+#: includes/renewals.php:44
 msgid "One day before expiration"
 msgstr "Päivä ennen jäsenyyden loppumista"
 
-#: includes/renewals.php:46
+#: includes/renewals.php:45
 msgid "Two days before expiration"
 msgstr "Kaksi päivää ennen jäsenyyden loppumista"
 
-#: includes/renewals.php:47
+#: includes/renewals.php:46
 msgid "Three days before expiration"
 msgstr "Kolme päivää ennen jäsenyyden loppumista"
 
-#: includes/renewals.php:48
+#: includes/renewals.php:47
 msgid "One week before expiration"
 msgstr "Viikko ennen jäsenyyden loppumista"
 
-#: includes/renewals.php:49
+#: includes/renewals.php:48
 msgid "Two weeks before expiration"
 msgstr "Kaksi viikkoa ennen jäsenyyden loppumista"
 
-#: includes/renewals.php:50
+#: includes/renewals.php:49
 msgid "One month before expiration"
 msgstr "Kuukausi ennen jäsenyyden loppumista"
 
-#: includes/renewals.php:51
+#: includes/renewals.php:50
 msgid "Two months before expiration"
 msgstr "Kaksi kuukautta ennen jäsenyyden loppumista"
 
-#: includes/renewals.php:52
+#: includes/renewals.php:51
 msgid "Three months before expiration"
 msgstr "Kolme kuukautta ennen jäsenyyden loppumista"
 
-#: includes/renewals.php:53
+#: includes/renewals.php:52
 msgid "At the time of expiration"
 msgstr "Päättymispäivänä"
 
-#: includes/renewals.php:54
+#: includes/renewals.php:53
 msgid "One day after expiration"
 msgstr "Päivä jäsenyyden loppumisen jälkeen"
 
-#: includes/renewals.php:55
+#: includes/renewals.php:54
 msgid "Two days after expiration"
 msgstr "Kaksi päivää jäsenyyden loppumisen jälkeen"
 
-#: includes/renewals.php:56
+#: includes/renewals.php:55
 msgid "Three days after expiration"
 msgstr "Kolme päivää jäsenyyden loppumisen jälkeen"
 
-#: includes/renewals.php:57
+#: includes/renewals.php:56
 msgid "One week after expiration"
 msgstr "Viikko jäsenyyden loppumisen jälkeen"
 
-#: includes/renewals.php:58
+#: includes/renewals.php:57
 msgid "Two weeks after expiration"
 msgstr "Kaksi viikkoa jäsenyyden loppumisen jälkeen"
 
-#: includes/renewals.php:59
+#: includes/renewals.php:58
 msgid "One month after expiration"
 msgstr "Kuukausi jäsenyyden loppumisen jälkeen"
 
-#: includes/renewals.php:60
+#: includes/renewals.php:59
 msgid "Two months after expiration"
 msgstr "Kaksi kuukautta jäsenyyden loppumisen jälkeen"
 
-#: includes/renewals.php:61
+#: includes/renewals.php:60
 msgid "Three months after expiration"
 msgstr "Kolme kuukautta jäsenyyden loppumisen jälkeen"
 
@@ -358,19 +358,19 @@ msgstr "Sähköpostimuistutuksen ID ei ole tiedossa"
 msgid "Membership Renewal Notice"
 msgstr "Jäsenyyden sähköpostimuistutus"
 
-#: includes/user-meta.php:23
+#: includes/user-meta.php:21
 msgid "Expire Date"
 msgstr "Päättymispäivä"
 
-#: includes/user-meta.php:58
+#: includes/user-meta.php:56
 msgid "Membership expire date"
 msgstr "Jäsenyyden päättymispäivä"
 
-#: includes/user-meta.php:63
+#: includes/user-meta.php:61
 msgid "Expire date"
 msgstr "Päättymispäivä"
 
-#: includes/user-meta.php:68
+#: includes/user-meta.php:66
 msgid "Set expire date for membership."
 msgstr "Aseta jäsenyyden päättymispäivä."
 
