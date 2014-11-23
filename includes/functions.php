@@ -6,7 +6,6 @@
  * @since       1.0.0
  */
 
-
 // Exit if accessed directly
 if( !defined( 'ABSPATH' ) ) {
 	exit;
@@ -15,14 +14,14 @@ if( !defined( 'ABSPATH' ) ) {
 /**
  * Load members only template.
  *
+ * Load templates/content-private.php file when content is private. 
+ * This file can be overwitten in themes 'edd-members-templates' folder.
+ *
  * @since  1.0.0
+ * @param  $content
  * @return void
  */
 function edd_members_private_template( $content ) {
-
-	/* If is singular post type what have been selected in the settings, load templates/content-private.php file. 
-	 * This file can be overwitten in themes edd-members-templates folder.
-	 */
 	
 	// Check for private content
 	$edd_members_is_private_content = edd_members_is_private_content();
@@ -48,14 +47,13 @@ add_filter( 'bbp_get_reply_content', 'edd_members_private_template', 99 ); // Al
 /**
  * Check for private content.
  *
+ * User with cap 'edd_members_show_all_content' can always see content.
+ * Admins have this cap by default.
+ *
  * @since  1.0.0
  * @return boolean
  */
 function edd_members_is_private_content() {
-
-	/* Note! User with cap 'edd_members_show_all_content' can always see content.
-	 * Admins have this cap by default.
-	 */
 	
 	// Get post meta for singular posts that have been checked private
 	$edd_members_check_as_private = get_post_meta( get_the_ID(), '_edd_members_check_as_private', true );
@@ -108,7 +106,7 @@ function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type =
 	}
 	
 	// Current date
-	$current_date = date( 'Y-m-d' );
+	$current_date = current_time( 'timestamp' );
 
 	foreach ( $downloads as $d_id ) {
 		
@@ -120,9 +118,9 @@ function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type =
 		// Get price id
 		$price_id = isset( $cart_item['item_number']['options']['price_id'] ) ? (int) $cart_item['item_number']['options']['price_id'] : false;
 		
-		// Get membership lengths in arrays
+		// Get membership lengths in arrays because user might purchase more than one item
 		$edd_members_membership_lengths = array();
-		$edd_members_membership_lengths[] = strtotime( edd_members_get_membership_length( $price_id, $payment_id, $d_id ), strtotime( $current_date ) );
+		$edd_members_membership_lengths[] = strtotime( edd_members_get_membership_length( $price_id, $payment_id, $d_id ), $current_date );
 		
 	}
 	
@@ -132,9 +130,11 @@ function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type =
 	// Get current expire date
 	$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
 	
-	/* If expire_date is not set (this means new user), add membership length = current_date + support_time.
+	/*
+	 * If expire_date is not set (this means new user), add membership length = current_date + support_time.
 	 * Else there is expire date already.
 	 */
+	 
 	if ( !isset( $expire_date ) || empty( $expire_date ) ) {
 		$expire_date = $edd_members_membership_length;
 	}
@@ -184,11 +184,11 @@ function edd_members_get_membership_length( $price_id = 0, $payment_id = 0, $dow
 	
 	// Set default
 	if( empty( $edd_members_exp_unit ) ) {
-		$edd_members_exp_unit = 'years';
+		$edd_members_exp_unit = 'days';
 	}
 
 	if( empty( $edd_members_exp_length ) ) {
-		$edd_members_exp_length = '1';
+		$edd_members_exp_length = '0';
 	}
 	
 	// Set expiration
@@ -230,7 +230,7 @@ function edd_members_get_expire_date( $user_id = 0 ) {
 		
 	// Return expire_date if there is one
 	if ( !empty( $expire_date ) ) {
-		$edd_members_expire_date = date_i18n( get_option( 'date_format' ), $expire_date );
+		$edd_members_expire_date = date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $expire_date );
 	} else {
 		$edd_members_expire_date = __( 'Unknown', 'edd-members' );
 	}
@@ -257,13 +257,13 @@ function edd_members_is_membership_valid() {
 	$user_id = get_current_user_id();
 	
 	// Current date
-	$current_date = date( 'Y-m-d' );
+	$current_date = current_time( 'timestamp' );
 
 	// Get expire date
 	$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
 	
 	// Check if user expire date >= current date
-	if ( !empty( $expire_date ) && $expire_date >= strtotime( $current_date ) ) {
+	if ( !empty( $expire_date ) && $expire_date >= $current_date ) {
 		$check_membership = true;
 	}
 	
