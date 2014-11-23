@@ -1,8 +1,8 @@
 <?php
 /**
- * Edit Renewal Notice
+ * Add Renewal Notice
  *
- * Edit renewal functions are from Pippin Williamson and his Software License Plugin.
+ * Add renewal functions are from Pippin Williamson and his Software License Plugin.
  *
  * @author      Pippin Williamson
  * @copyright   Copyright (c) 2014, Pippin Williamson
