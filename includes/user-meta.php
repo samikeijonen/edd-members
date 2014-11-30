@@ -62,7 +62,7 @@ function edd_members_expire_date_profile_field( $user ) { ?>
 
 			<td>
 				<?php if ( current_user_can( 'edd_members_edit_user' ) || current_user_can( 'manage_shop_settings' ) ) { // Only users with 'edd_members_edit_user' or 'manage_shop_settings' cap can edit expire date ?>
-					<input class="edd_members_datepicker" type="text" name="_edd_members_expiration_date" id="edd_members_exprire_date" value="<?php echo edd_members_get_expire_date( $user->ID ); ?>" class="regular-text" />
+					<input class="edd_members_datepicker" type="text" name="_edd_members_expiration_date" id="edd_members_exprire_date" value="<?php echo edd_members_get_expire_date( $user->ID, false ); ?>" class="regular-text" />
 					<span class="description"><?php _e( 'Set expire date for membership.', 'edd-members' ); ?></span>
 				<?php } else {
 					echo edd_members_get_expire_date( $user->ID );
@@ -71,6 +71,7 @@ function edd_members_expire_date_profile_field( $user ) { ?>
 		</tr>
 
 	</table>
+	
 <?php }
 add_action( 'show_user_profile', 'edd_members_expire_date_profile_field' );
 add_action( 'edit_user_profile', 'edd_members_expire_date_profile_field' );
@@ -86,12 +87,12 @@ add_action( 'edit_user_profile', 'edd_members_expire_date_profile_field' );
 function edd_members_save_expire_date_profile_field( $user_id ) {
 	
 	// Bail if current user doesn't have 'edd_members_edit_user' cap to update expire date
-	if ( !current_user_can( 'edd_members_edit_user', $user_id ) ) {
+	if ( !current_user_can( 'edd_members_edit_user', $user_id ) || !current_user_can( 'manage_shop_settings', $user_id ) ) {
 		return false;
 	}
 
 	// Update user meta
-	update_usermeta( $user_id, '_edd_members_expiration_date', strtotime( esc_attr( $_POST['_edd_members_expiration_date'] ) ) );
+	update_user_meta( $user_id, '_edd_members_expiration_date', strtotime( esc_attr( $_POST['_edd_members_expiration_date'] ) ) );
 	
 }
 add_action( 'personal_options_update', 'edd_members_save_expire_date_profile_field' );
