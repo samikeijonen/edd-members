@@ -60,7 +60,6 @@ $notice    = edd_members_get_renewal_notice( $notice_id );
 					<ul>
 						<li>{name} <?php _e( 'The customer\'s name', 'edd-members' ); ?></li>
 						<li>{edd_members_expiration} <?php _e( 'User expiration date', 'edd-members' ); ?></li>
-						<li>{edd_members_page} <?php _e( 'URL to the renewal site', 'edd-members' ); ?></li>
 					</ul>
 				</td>
 			</tr>
