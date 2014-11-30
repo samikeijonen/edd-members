@@ -10,11 +10,17 @@
 if( !defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+do_action( 'edd_members_before_private_content' );
 ?>
 						
 <div id="edd-members-private-message" class="edd-members-private-message">
+
+	<?php do_action( 'edd_members_open_private_content' ); ?>
 	
 	<?php if ( !is_user_logged_in() ) : ?>
+	
+		<?php do_action( 'edd_members_open_private_content_logged_out' ); ?>
 								
 		<?php $edd_members_settings_private_label_logged_out = edd_get_option( 'edd_members_settings_private_label_logged_out' ) ? edd_get_option( 'edd_members_settings_private_label_logged_out' ) : __( 'This content is for members only.', 'edd-members' ); ?>
 		<?php echo apply_filters( 'edd_members_the_content', wp_kses_post( $edd_members_settings_private_label_logged_out ) ); ?>
@@ -36,11 +42,23 @@ if( !defined( 'ABSPATH' ) ) {
 		
 		<?php endif; ?>
 		
+		<?php do_action( 'edd_members_close_private_content_logged_out' ); ?>
+		
 	<?php else : // For logged in users ?>
+	
+		<?php do_action( 'edd_members_open_private_content_logged_in' ); ?>
 	
 		<?php $edd_members_settings_private_label_logged_in = edd_get_option( 'edd_members_settings_private_label_logged_in' ) ? edd_get_option( 'edd_members_settings_private_label_logged_in' ) : __( 'This content is for members only. Your membership have probably expired.', 'edd-members' ); ?>
 		<?php echo apply_filters( 'edd_members_the_content', wp_kses_post( $edd_members_settings_private_label_logged_in ) ); ?>
 		
+		<?php do_action( 'edd_members_close_private_content_logged_in' ); ?>
+	
 	<?php endif; ?>
 	
+	<?php do_action( 'edd_members_close_private_content' ); ?>
+	
 </div><!-- .edd-members-private-message -->
+
+<?php 
+
+do_action( 'edd_members_after_private_content' );
