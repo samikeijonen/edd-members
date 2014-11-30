@@ -94,11 +94,7 @@ function edd_members_get_renewal_notice( $notice_id = 0 ) {
 
 Your membership is about to expire.
 
-If you wish to renew your membership, simply click the link below and follow the instructions.
-
-Your license expires on: {edd_members_expiration}.
-
-Renew now: {edd_members_page}.'
+Your membership expires on: {edd_members_expiration}.'
 	);
 
 	$notice   = isset( $notices[ $notice_id ] ) ? $notices[ $notice_id ] : $notices[0];
@@ -126,11 +122,7 @@ function edd_members_get_renewal_notices() {
 
 Your membership is about to expire.
 
-If you wish to renew your license, simply click the link below and follow the instructions.
-
-Your license expires on: {edd_members_expiration}.
-
-Renew now: {edd_members_page}.';
+Your membership expires on: {edd_members_expiration}.';
 
 		$notices[0] = array(
 			'send_period' => '+1week',
