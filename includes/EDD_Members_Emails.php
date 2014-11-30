@@ -58,7 +58,7 @@ class EDD_Members_Emails {
 		$email_to   = $user_email;
 
 		$notice     = edd_members_get_renewal_notice( $notice_id );
-		$message    = ! empty( $notice['message'] ) ? $notice['message'] : __( "Hello {name},\n\nYour membership is about to expire.\n\nYour membership expires on: {edd_members_expiration}.\n\nRenew now: {edd_members_page}.", "edd-members" );
+		$message    = ! empty( $notice['message'] ) ? $notice['message'] : __( "Hello {name},\n\nYour membership is about to expire.\n\nYour membership expires on: {edd_members_expiration}.", "edd-members" );
 		$message    = $this->filter_reminder_template_tags( $message, $user_email );
 
 		$subject    = ! empty( $notice['subject'] ) ? $notice['subject'] : __( 'Your membership is about to expire', 'edd-members' );
@@ -82,8 +82,9 @@ class EDD_Members_Emails {
 		
 		// User id
 		$user_id = edd_members_get_user_info_by_email( $user_email, 'ID' );
-
-		update_user_meta( $user_id, sanitize_key( '_edd_members_renewal_sent_' . $notice['send_period'] ), time() ); // Prevent renewal notices from being sent more than once
+		
+		// Save in user meta just in case if we need to prevent sending emails more than once
+		update_user_meta( $user_id, sanitize_key( '_edd_members_renewal_sent_' . $notice['send_period'] ), time() );
 
 	}
 
@@ -105,18 +106,8 @@ class EDD_Members_Emails {
 			$customer_name = $user_email;
 		}
 		
-		// Get renewal page
-		$page_id = edd_get_option( 'edd_members_renew_page' );
-		
-		if( !empty( $page_id ) ) {
-			$edd_renewal_page = '<a href="' . esc_url( get_permalink( $page_id ) ) . '">' . get_the_title( $page_id ) . '</a>';
-		} else {
-			$edd_renewal_page = '<a href="' . esc_url( home_url( '/' ) ) . '">' . get_bloginfo( 'name' ) . '</a>';
-		}
-		
 		$text = str_replace( '{name}', $customer_name, $text );
 		$text = str_replace( '{edd_members_expiration}', $exprire_date, $text );
-		$text = str_replace( '{edd_members_page}', $edd_renewal_page, $text );
 
 		return $text;
 	}
