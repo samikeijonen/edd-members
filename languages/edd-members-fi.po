@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: EDD Members 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
-"PO-Revision-Date: 2014-11-30 15:01+0200\n"
+"PO-Revision-Date: 2014-11-30 15:27+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <Sami Keijonen>\n"
 "Language: fi\n"
@@ -182,7 +182,7 @@ msgstr ""
 #: includes/class.extension-activation.php:96
 msgid "requires Easy Digital Downloads! Please install it to continue!"
 msgstr ""
-"vaatii Easy Digital Downloads -lisäosan! Aktivoi se ensin, jotta pääset "
+"vaatii Easy Digital Downloads -lisäosan! Asenna se ensin, jotta pääset "
 "eteenpäin!"
 
 #: includes/edit-renewal-notice.php:27
