@@ -176,6 +176,12 @@ if( !class_exists( 'EDD_Members' ) ) {
 					'options'     => edd_members_get_public_post_types()
 				),
 				array(
+					'id'          => 'edd_members_private_comments',
+					'name'        => __( 'Private comments', 'edd-members' ),
+					'desc'        => __( 'Check this if you want to set comments private for above selected content.', 'edd-members' ),
+					'type'        => 'checkbox'
+				),
+				array(
 					'id'          => 'edd_members_settings_private_label_logged_out',
 					'name'        => __( 'Private Label logged out', 'edd-members' ),
 					'desc'        => __( 'Enter the text for private content when user is logged out.', 'edd-members' ),
@@ -186,7 +192,7 @@ if( !class_exists( 'EDD_Members' ) ) {
 				array(
 					'id'          => 'edd_members_settings_private_label_logged_in',
 					'name'        => __( 'Private Label logged in', 'edd-members' ),
-					'desc'        => __( 'Enter the text you private content when user is logged in.', 'edd-members' ),
+					'desc'        => __( 'Enter the text for private content when user is logged in.', 'edd-members' ),
 					'type'        => 'rich_editor',
 					'size'        => 15,
 					'std'         => __( 'This content is for members only. Your membership have probably expired.', 'edd-members' )
@@ -208,15 +214,6 @@ if( !class_exists( 'EDD_Members' ) ) {
 					'name'        => __( 'Renewal Notices', 'edd-members' ),
 					'desc'        => __( 'Configure the renewal notice emails.', 'edd-members' ),
 					'type'        => 'hook'
-				),
-				array(
-					'id'          => 'edd_members_renew_page',
-					'name'        => __( 'Renew membership page', 'edd-members' ),
-					'desc'        => __( 'This is the page where users could renew their membership. Or it is just landing page.', 'edd-members' ),
-					'type'        => 'select',
-					'options'     => edd_get_pages(),
-					'select2'     => true,
-					'placeholder' => __( 'Select a page', 'edd-members' )
 				)
 			);
 
