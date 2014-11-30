@@ -74,7 +74,7 @@ function edd_members_render_check_as_private_meta_box( $post, $metabox ) {
  * @return      void
  */
 function edd_members_metabox_membership_length( $post_id = 0 ) {
-
+	
 	$edd_members_length_enabled = get_post_meta( $post_id, '_edd_members_length_enabled', true ) ? true : false;
 	$edd_members_exp_unit       = esc_attr( get_post_meta( $post_id, '_edd_members_exp_unit', true ) );
 	$edd_members_exp_length     = absint( get_post_meta( $post_id, '_edd_members_exp_length', true ) );
