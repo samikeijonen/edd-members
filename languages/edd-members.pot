@@ -32,67 +32,61 @@ msgid ""
 msgstr ""
 
 #: edd-members.php:180
-msgid "Private Label logged out"
+msgid "Private comments"
 msgstr ""
 
 #: edd-members.php:181
+msgid "Check this if you want to set comments private for above selected content."
+msgstr ""
+
+#: edd-members.php:186
+msgid "Private Label logged out"
+msgstr ""
+
+#: edd-members.php:187
 msgid "Enter the text for private content when user is logged out."
 msgstr ""
 
-#: edd-members.php:184 templates/content-private.php:20
+#: edd-members.php:190 templates/content-private.php:19
 msgid "This content is for members only."
 msgstr ""
 
-#: edd-members.php:188
+#: edd-members.php:194
 msgid "Private Label logged in"
 msgstr ""
 
-#: edd-members.php:189
-msgid "Enter the text you private content when user is logged in."
+#: edd-members.php:195
+msgid "Enter the text for private content when user is logged in."
 msgstr ""
 
-#: edd-members.php:192 templates/content-private.php:42
+#: edd-members.php:198 templates/content-private.php:41
 msgid "This content is for members only. Your membership have probably expired."
 msgstr ""
 
-#: edd-members.php:196
+#: edd-members.php:202
 msgid "Login form"
 msgstr ""
 
-#: edd-members.php:197
+#: edd-members.php:203
 msgid "Check this box if you want to show login form for logged out users."
 msgstr ""
 
-#: edd-members.php:202
+#: edd-members.php:208
 msgid "Send Renewal Reminders"
 msgstr ""
 
-#: edd-members.php:203
+#: edd-members.php:209
 msgid ""
 "Check this box if you want customers to receive a renewal reminder when "
 "their membership is about to expire."
 msgstr ""
 
-#: edd-members.php:208
+#: edd-members.php:214
 msgid "Renewal Notices"
 msgstr ""
 
-#: edd-members.php:209
-msgid "Configure the renewal notice emails."
-msgstr ""
-
-#: edd-members.php:214
-msgid "Renew membership page"
-msgstr ""
-
 #: edd-members.php:215
-msgid ""
-"This is the page where users could renew their membership. Or it is just "
-"landing page."
-msgstr ""
-
-#: edd-members.php:219
-msgid "Select a page"
+msgid "Configure the renewal notice emails."
 msgstr ""
 
 #: includes/EDD_Members_Emails.php:26
@@ -105,13 +99,11 @@ msgid ""
 "\n"
 "Your membership is about to expire.\n"
 "\n"
-"Your membership expires on: {edd_members_expiration}.\n"
-"\n"
-"Renew now: {edd_members_page}."
+"Your membership expires on: {edd_members_expiration}."
 msgstr ""
 
 #: includes/EDD_Members_Emails.php:64 includes/renewals.php:91
-#: includes/renewals.php:137 includes/settings.php:96 includes/settings.php:150
+#: includes/renewals.php:129 includes/settings.php:96 includes/settings.php:150
 msgid "Your membership is about to expire"
 msgstr ""
 
@@ -119,7 +111,7 @@ msgstr ""
 msgid "Membership Reminder"
 msgstr ""
 
-#: includes/add-renewal-notice.php:21 includes/add-renewal-notice.php:67
+#: includes/add-renewal-notice.php:21 includes/add-renewal-notice.php:66
 #: includes/settings.php:49
 msgid "Add Renewal Notice"
 msgstr ""
@@ -156,10 +148,6 @@ msgstr ""
 msgid "User expiration date"
 msgstr ""
 
-#: includes/add-renewal-notice.php:57 includes/edit-renewal-notice.php:63
-msgid "URL to the renewal site"
-msgstr ""
-
 #. Plugin Name of the plugin/theme
 msgid "EDD Members"
 msgstr ""
@@ -180,11 +168,11 @@ msgstr ""
 msgid "Email Message"
 msgstr ""
 
-#: includes/edit-renewal-notice.php:74
+#: includes/edit-renewal-notice.php:73
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:235
+#: includes/functions.php:307
 msgid "Unknown"
 msgstr ""
 
@@ -348,7 +336,7 @@ msgstr ""
 msgid "Set expire date for membership."
 msgstr ""
 
-#: templates/content-private.php:36
+#: templates/content-private.php:35
 msgid "Lost password?"
 msgstr ""
 
@@ -366,4 +354,9 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "https://foxland.fi"
+msgstr ""
+
+#: includes/functions.php:304
+msgctxt "word between date and time"
+msgid "at"
 msgstr ""

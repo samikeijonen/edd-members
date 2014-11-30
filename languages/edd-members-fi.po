@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: EDD Members 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
-"PO-Revision-Date: 2014-11-23 14:42+0200\n"
+"PO-Revision-Date: 2014-11-30 15:01+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <Sami Keijonen>\n"
 "Language: fi\n"
@@ -36,48 +36,59 @@ msgstr ""
 "sivu/artikkeli on yksityinen."
 
 #: edd-members.php:180
+msgid "Private comments"
+msgstr "Yksityiset kommentit"
+
+#: edd-members.php:181
+msgid ""
+"Check this if you want to set comments private for above selected content."
+msgstr ""
+"Valitse tämä, jos haluat myös kommentit yksityiseksi yllävalituille "
+"sisällöille."
+
+#: edd-members.php:186
 msgid "Private Label logged out"
 msgstr "Teksti uloskirjautuneille"
 
-#: edd-members.php:181
+#: edd-members.php:187
 msgid "Enter the text for private content when user is logged out."
 msgstr ""
 "Kirjoita teksti uloskirjautuneille käyttäjille, jotka eivät näe sisältöä."
 
-#: edd-members.php:184 templates/content-private.php:20
+#: edd-members.php:190 templates/content-private.php:19
 msgid "This content is for members only."
 msgstr "Tämä sisältö on vain jäsenille."
 
-#: edd-members.php:188
+#: edd-members.php:194
 msgid "Private Label logged in"
 msgstr "Teksti sisäänkirjautuneille"
 
-#: edd-members.php:189
-msgid "Enter the text you private content when user is logged in."
+#: edd-members.php:195
+msgid "Enter the text for private content when user is logged in."
 msgstr ""
-"Kirjoita teksti sisään kirjautuneille käyttäjille, jotka eivät näe sisältöä."
+"Kirjoita teksti uloskirjautuneille käyttäjille, jotka eivät näe sisältöä."
 
-#: edd-members.php:192 templates/content-private.php:42
+#: edd-members.php:198 templates/content-private.php:41
 msgid ""
 "This content is for members only. Your membership have probably expired."
 msgstr ""
 "Tämä sisältö on vain jäsenille. Jäsenyytesi on mahdollisesti päättynyt."
 
-#: edd-members.php:196
+#: edd-members.php:202
 msgid "Login form"
 msgstr "Kirjaudu sisään -lomake?"
 
-#: edd-members.php:197
+#: edd-members.php:203
 msgid "Check this box if you want to show login form for logged out users."
 msgstr ""
 "Valitse tämä, jos haluat näyttää kirjaudu sisään -lomakkeen "
 "uloskirjautuneille käyttäjille."
 
-#: edd-members.php:202
+#: edd-members.php:208
 msgid "Send Renewal Reminders"
 msgstr "Lähetä sähköpostimuistutuksia"
 
-#: edd-members.php:203
+#: edd-members.php:209
 msgid ""
 "Check this box if you want customers to receive a renewal reminder when "
 "their membership is about to expire."
@@ -85,27 +96,13 @@ msgstr ""
 "Valitse tämä, jos haluat lähettää käyttäjille sähköpostimuistutuksia kun "
 "heidän jäsenyytensä on loppumassa."
 
-#: edd-members.php:208
+#: edd-members.php:214
 msgid "Renewal Notices"
 msgstr "Sähköpostimuistutukset"
 
-#: edd-members.php:209
+#: edd-members.php:215
 msgid "Configure the renewal notice emails."
 msgstr "Hallitse sähköpostimuistutuksia"
-
-#: edd-members.php:214
-msgid "Renew membership page"
-msgstr "Uusi jäsenyytesi-sivu"
-
-#: edd-members.php:215
-msgid ""
-"This is the page where users could renew their membership. Or it is just "
-"landing page."
-msgstr "Valitse sivu, johon haluat käyttäjän menevän uudistamaan jäsenyytensä."
-
-#: edd-members.php:219
-msgid "Select a page"
-msgstr "Valitse sivu"
 
 #: includes/EDD_Members_Emails.php:26
 msgid "Show user expire date"
@@ -117,20 +114,16 @@ msgid ""
 "\n"
 "Your membership is about to expire.\n"
 "\n"
-"Your membership expires on: {edd_members_expiration}.\n"
-"\n"
-"Renew now: {edd_members_page}."
+"Your membership expires on: {edd_members_expiration}."
 msgstr ""
 "Hei {name},\n"
 "\n"
 "Jäsenyytesi on päättymässä.\n"
 "\n"
-"Jäsenyyden päättymispäivä: {edd_members_expiration}.\n"
-"\n"
-"Uusi jäsenyys meidän sivuilla: {edd_members_page}."
+"Jäsenyyden päättymispäivä: {edd_members_expiration}."
 
 #: includes/EDD_Members_Emails.php:64 includes/renewals.php:91
-#: includes/renewals.php:137 includes/settings.php:96
+#: includes/renewals.php:129 includes/settings.php:96
 #: includes/settings.php:150
 msgid "Your membership is about to expire"
 msgstr "Jäsenyytesi on pian päättymässä"
@@ -139,7 +132,7 @@ msgstr "Jäsenyytesi on pian päättymässä"
 msgid "Membership Reminder"
 msgstr "Jäsenyyden muistutus"
 
-#: includes/add-renewal-notice.php:21 includes/add-renewal-notice.php:67
+#: includes/add-renewal-notice.php:21 includes/add-renewal-notice.php:66
 #: includes/settings.php:49
 msgid "Add Renewal Notice"
 msgstr "Lisää sähköpostimuistutus"
@@ -176,10 +169,6 @@ msgstr "Asiakkaan nimi"
 msgid "User expiration date"
 msgstr "Käyttäjän jäsenyyden päättymispäivä"
 
-#: includes/add-renewal-notice.php:57 includes/edit-renewal-notice.php:63
-msgid "URL to the renewal site"
-msgstr "Linkki jäsensivulle"
-
 #. Plugin Name of the plugin/theme
 msgid "EDD Members"
 msgstr "EDD Jäsenet"
@@ -204,11 +193,11 @@ msgstr "Muokkaa sähköpostimuistutuksia"
 msgid "Email Message"
 msgstr "Sähköpostiviesti"
 
-#: includes/edit-renewal-notice.php:74
+#: includes/edit-renewal-notice.php:73
 msgid "Update Renewal Notice"
 msgstr "Päivitä sähköpostimuistutus"
 
-#: includes/functions.php:235
+#: includes/functions.php:307
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -374,7 +363,7 @@ msgstr "Päättymispäivä"
 msgid "Set expire date for membership."
 msgstr "Aseta jäsenyyden päättymispäivä."
 
-#: templates/content-private.php:36
+#: templates/content-private.php:35
 msgid "Lost password?"
 msgstr "Salasana unohtunut?"
 
@@ -393,3 +382,23 @@ msgstr "Sami Keijonen"
 #. Author URI of the plugin/theme
 msgid "https://foxland.fi"
 msgstr "https://foxland.fi"
+
+#: includes/functions.php:304
+msgctxt "word between date and time"
+msgid "at"
+msgstr "klo"
+
+#~ msgid "Renew membership page"
+#~ msgstr "Uusi jäsenyytesi-sivu"
+
+#~ msgid ""
+#~ "This is the page where users could renew their membership. Or it is just "
+#~ "landing page."
+#~ msgstr ""
+#~ "Valitse sivu, johon haluat käyttäjän menevän uudistamaan jäsenyytensä."
+
+#~ msgid "Select a page"
+#~ msgstr "Valitse sivu"
+
+#~ msgid "URL to the renewal site"
+#~ msgstr "Linkki jäsensivulle"
