@@ -12,16 +12,16 @@ if( !defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Load members only template.
+ * Load members only template for the content.
  *
  * Load templates/content-private.php file when content is private. 
  * This file can be overwitten in themes 'edd-members-templates' folder.
  *
  * @since  1.0.0
- * @param  $content
- * @return void
+ * @param  string $content The Content template
+ * @return string $content
  */
-function edd_members_private_template( $content ) {
+function edd_members_private_content( $content ) {
 	
 	// Check for private content
 	$edd_members_is_private_content = edd_members_is_private_content();
@@ -40,10 +40,57 @@ function edd_members_private_template( $content ) {
 	return $content;
 	
 }
-add_filter( 'the_content', 'edd_members_private_template', 99 );
-add_filter( 'bbp_get_topic_content', 'edd_members_private_template', 99 ); // Also support for bbPress topics
-add_filter( 'bbp_get_reply_content', 'edd_members_private_template', 99 ); // Also support for bbPress replies
+add_filter( 'the_content', 'edd_members_private_content', 99 );
+add_filter( 'the_content_feed', 'edd_members_private_content', 99 );
+add_filter( 'get_the_excerpt', 'edd_members_private_content', 99 );
+add_filter( 'the_excerpt', 'edd_members_private_content', 99 );
+add_filter( 'comment_text_rss', 'edd_members_private_content', 99 );
+add_filter( 'bbp_get_topic_content', 'edd_members_private_content', 99 ); // Also support for bbPress topics
+add_filter( 'bbp_get_reply_content', 'edd_members_private_content', 99 ); // Also support for bbPress replies
 
+/**
+ * Load members only template for comments.
+ *
+ * Load templates/comments-private.php file when comments are private. 
+ * This file can be overwitten in themes 'edd-members-templates' folder.
+ *
+ * @since  1.0.0
+ * @param  string $template The Comments template
+ * @return string $template
+ */
+function edd_members_private_comments( $template ) {
+
+	// Get comments setting
+	$edd_members_private_comments = edd_get_option( 'edd_members_private_comments' );
+	
+	// Bail if not checked
+	if( ! $edd_members_private_comments ) {
+		return $template;
+	}
+	
+	// Check for private content
+	$edd_members_is_private_content = edd_members_is_private_content();
+	
+	// Load private template if the content is private
+	if ( $edd_members_is_private_content ) {
+
+		// Look for a 'edd-members-templates/comments-private.php' template in the parent and child theme
+		$has_template = locate_template( array( 'edd-members-templates/comments-private.php' ) );
+
+		// If the template was found, use it. Otherwise, load 'templates/comments-private.php' template
+		$template = ( !empty( $has_template ) ? $has_template : EDD_MEMBERS_DIR . 'templates/comments-private.php' );
+
+		// Allow developers to overwrite the comments template
+		$template = apply_filters( 'edd_members_comments_template', $template );
+		
+	}
+
+	// Return the comments template filename
+	return $template;
+	
+}
+add_filter( 'comments_template', 'edd_members_private_comments', 4 );
+	
 /**
  * Check for private content.
  *
@@ -51,30 +98,53 @@ add_filter( 'bbp_get_reply_content', 'edd_members_private_template', 99 ); // Al
  * Admins have this cap by default.
  *
  * @since  1.0.0
+ * @param  int $user_id The ID of the user to check
+ * @param  int $post_id The ID of the post to check
  * @return boolean
  */
-function edd_members_is_private_content() {
+function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
+
+	// If no user is given, use the current user
+	if( ! $user_id ) {
+		$user_id = get_current_user_id();
+	}
+
+	// If no post ID is given, assume we're in The Loop and get the current post's ID
+	if ( empty( $post_id ) ) {
+		$post_id = get_the_ID();
+	}
+	
+	// Get the post object.
+	$post = get_post( $post_id );
 	
 	// Get post meta for singular posts that have been checked private
-	$edd_members_check_as_private = get_post_meta( get_the_ID(), '_edd_members_check_as_private', true );
+	$edd_members_check_as_private = get_post_meta( $post_id, '_edd_members_check_as_private', true );
 	
 	// Get private post types from settings
 	$edd_members_private_post_type = edd_get_option( 'edd_members_private_post_type' );
 	
+	// By default content is not private
+	$edd_members_check = false;
+	
+	// The post author can always see content, or users who can edit the post or have cap 'edd_members_show_all_content'
+	if( $post_id && ( $post->post_author == $user_id || current_user_can( 'edit_post', $post_id ) || current_user_can( 'edd_members_show_all_content' ) ) ) {
+		$edd_members_check = false;
+	}
+	
+	// Check for feed
+	elseif ( !edd_members_is_membership_valid() && is_feed() ) {
+		$edd_members_check = true;
+	}
+	
 	// Check for singular post that have been checked private. @TODO: Should we make is_singular check in here also?
-	$edd_members_check_singular = false;
-	if ( !edd_members_is_membership_valid() && !empty( $edd_members_check_as_private ) && 'private' == $edd_members_check_as_private && !current_user_can( 'edd_members_show_all_content' ) && is_main_query() ) {
-		$edd_members_check_singular = true;
+	elseif ( !edd_members_is_membership_valid() && !empty( $edd_members_check_as_private ) && 'private' == $edd_members_check_as_private && is_main_query() ) {
+		$edd_members_check = true;
 	}
 	
 	// Check private post types from settings
-	$edd_members_check_non_singular = false;
-	if ( !edd_members_is_membership_valid() && !current_user_can( 'edd_members_show_all_content' ) && !empty( $edd_members_private_post_type ) && is_singular( array_keys( $edd_members_private_post_type ) ) && is_main_query() ) {
-		$edd_members_check_non_singular = true;
+	elseif ( !edd_members_is_membership_valid() && !empty( $edd_members_private_post_type ) && is_singular( array_keys( $edd_members_private_post_type ) ) && is_main_query() ) {
+		$edd_members_check = true;
 	}
-	
-	// Check if some of the conditions are true
-	$edd_members_check = $edd_members_check_singular || $edd_members_check_non_singular;
 	
 	return apply_filters( 'edd_members_is_private_content', $edd_members_check );
 
@@ -182,13 +252,13 @@ function edd_members_get_membership_length( $price_id = 0, $payment_id = 0, $dow
 		$edd_members_exp_unit   = esc_attr( get_post_meta( $download_id, '_edd_members_exp_unit', true ) );
 	}
 	
-	// Set default
+	// Set defaults
 	if( empty( $edd_members_exp_unit ) ) {
-		$edd_members_exp_unit = 'days';
+		$edd_members_exp_unit = apply_filters( 'edd_members_exp_unit_default', 'days' );
 	}
 
 	if( empty( $edd_members_exp_length ) ) {
-		$edd_members_exp_length = '0';
+		$edd_members_exp_length = apply_filters( 'edd_members_exp_length_default', '0' );
 	}
 	
 	// Set expiration
@@ -230,7 +300,9 @@ function edd_members_get_expire_date( $user_id = 0 ) {
 		
 	// Return expire_date if there is one
 	if ( !empty( $expire_date ) ) {
-		$edd_members_expire_date = date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $expire_date );
+		$edd_members_expire_date  = date_i18n( get_option( 'date_format' ), $expire_date );
+		$edd_members_expire_date .= ' ' . _x( 'at', 'word between date and time', 'edd-members' ) . ' ';
+		$edd_members_expire_date .= date_i18n( get_option( 'time_format' ), $expire_date );
 	} else {
 		$edd_members_expire_date = __( 'Unknown', 'edd-members' );
 	}
