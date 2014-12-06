@@ -283,12 +283,12 @@ function edd_members_set_membership_expiration( $user_id, $expiration ) {
 }
 
 /**
- * Get user expire date.
+ * Get user expire date in Unix time format.
  *
  * @since 1.0.0
  * @return void
  */
-function edd_members_get_expire_date( $user_id = 0, $show_time = true ) {
+function edd_members_get_unix_expire_date( $user_id = 0 ) {
 	
 	// Get current user id if it's not set from function call
 	if ( empty( $user_id ) && is_user_logged_in() ) {
@@ -297,6 +297,21 @@ function edd_members_get_expire_date( $user_id = 0, $show_time = true ) {
 		
 	// Get expire date
 	$expire_date = get_the_author_meta( '_edd_members_expiration_date', $user_id );
+		
+	return $expire_date;
+
+}
+
+/**
+ * Get user expire date in readable format.
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function edd_members_get_expire_date( $user_id = 0, $show_time = true ) {
+		
+	// Get expire date
+	$expire_date = edd_members_get_unix_expire_date();
 		
 	// Return expire_date if there is one
 	if ( !empty( $expire_date ) ) {
