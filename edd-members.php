@@ -259,7 +259,6 @@ if( !class_exists( 'EDD_Members' ) ) {
 
 			$activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
 			$activation = $activation->edd_members_run();
-			return EDD_Members::instance();
 		} else {
 			return EDD_Members::instance();
 		}
