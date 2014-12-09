@@ -47,7 +47,7 @@ msgstr ""
 msgid "Enter the text for private content when user is logged out."
 msgstr ""
 
-#: edd-members.php:190 templates/content-private.php:19
+#: edd-members.php:190 templates/content-private.php:25
 msgid "This content is for members only."
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Enter the text for private content when user is logged in."
 msgstr ""
 
-#: edd-members.php:198 templates/content-private.php:41
+#: edd-members.php:198 templates/content-private.php:51
 msgid "This content is for members only. Your membership have probably expired."
 msgstr ""
 
@@ -152,11 +152,11 @@ msgstr ""
 msgid "EDD Members"
 msgstr ""
 
-#: includes/class.extension-activation.php:94
+#: includes/class.extension-activation.php:87
 msgid "requires Easy Digital Downloads! Please activate it to continue!"
 msgstr ""
 
-#: includes/class.extension-activation.php:96
+#: includes/class.extension-activation.php:89
 msgid "requires Easy Digital Downloads! Please install it to continue!"
 msgstr ""
 
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:307
+#: includes/functions.php:324
 msgid "Unknown"
 msgstr ""
 
@@ -324,19 +324,19 @@ msgstr ""
 msgid "Expire Date"
 msgstr ""
 
-#: includes/user-meta.php:56
+#: includes/user-meta.php:59
 msgid "Membership expire date"
 msgstr ""
 
-#: includes/user-meta.php:61
+#: includes/user-meta.php:64
 msgid "Expire date"
 msgstr ""
 
-#: includes/user-meta.php:66
-msgid "Set expire date for membership."
+#: includes/user-meta.php:72
+msgid "Set expire date and time for membership."
 msgstr ""
 
-#: templates/content-private.php:35
+#: templates/content-private.php:41
 msgid "Lost password?"
 msgstr ""
 
@@ -356,7 +356,7 @@ msgstr ""
 msgid "https://foxland.fi"
 msgstr ""
 
-#: includes/functions.php:304
+#: includes/functions.php:320 includes/user-meta.php:69
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""

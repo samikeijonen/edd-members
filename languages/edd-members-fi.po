@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: EDD Members 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
-"PO-Revision-Date: 2014-11-30 15:27+0200\n"
+"PO-Revision-Date: 2014-12-09 17:46+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <Sami Keijonen>\n"
 "Language: fi\n"
@@ -55,7 +55,7 @@ msgid "Enter the text for private content when user is logged out."
 msgstr ""
 "Kirjoita teksti uloskirjautuneille käyttäjille, jotka eivät näe sisältöä."
 
-#: edd-members.php:190 templates/content-private.php:19
+#: edd-members.php:190 templates/content-private.php:25
 msgid "This content is for members only."
 msgstr "Tämä sisältö on vain jäsenille."
 
@@ -68,7 +68,7 @@ msgid "Enter the text for private content when user is logged in."
 msgstr ""
 "Kirjoita teksti uloskirjautuneille käyttäjille, jotka eivät näe sisältöä."
 
-#: edd-members.php:198 templates/content-private.php:41
+#: edd-members.php:198 templates/content-private.php:51
 msgid ""
 "This content is for members only. Your membership have probably expired."
 msgstr ""
@@ -173,13 +173,13 @@ msgstr "Käyttäjän jäsenyyden päättymispäivä"
 msgid "EDD Members"
 msgstr "EDD Jäsenet"
 
-#: includes/class.extension-activation.php:94
+#: includes/class.extension-activation.php:87
 msgid "requires Easy Digital Downloads! Please activate it to continue!"
 msgstr ""
 "vaatii Easy Digital Downloads -lisäosan! Aktivoi se ensin, jotta pääset "
 "eteenpäin!"
 
-#: includes/class.extension-activation.php:96
+#: includes/class.extension-activation.php:89
 msgid "requires Easy Digital Downloads! Please install it to continue!"
 msgstr ""
 "vaatii Easy Digital Downloads -lisäosan! Asenna se ensin, jotta pääset "
@@ -197,7 +197,7 @@ msgstr "Sähköpostiviesti"
 msgid "Update Renewal Notice"
 msgstr "Päivitä sähköpostimuistutus"
 
-#: includes/functions.php:307
+#: includes/functions.php:324
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -351,19 +351,19 @@ msgstr "Jäsenyyden sähköpostimuistutus"
 msgid "Expire Date"
 msgstr "Päättymispäivä"
 
-#: includes/user-meta.php:56
+#: includes/user-meta.php:59
 msgid "Membership expire date"
 msgstr "Jäsenyyden päättymispäivä"
 
-#: includes/user-meta.php:61
+#: includes/user-meta.php:64
 msgid "Expire date"
 msgstr "Päättymispäivä"
 
-#: includes/user-meta.php:66
-msgid "Set expire date for membership."
-msgstr "Aseta jäsenyyden päättymispäivä."
+#: includes/user-meta.php:72
+msgid "Set expire date and time for membership."
+msgstr "Aseta jäsenyyden päättymispäivä -ja aika."
 
-#: templates/content-private.php:35
+#: templates/content-private.php:41
 msgid "Lost password?"
 msgstr "Salasana unohtunut?"
 
@@ -383,7 +383,7 @@ msgstr "Sami Keijonen"
 msgid "https://foxland.fi"
 msgstr "https://foxland.fi"
 
-#: includes/functions.php:304
+#: includes/functions.php:320 includes/user-meta.php:69
 msgctxt "word between date and time"
 msgid "at"
 msgstr "klo"
