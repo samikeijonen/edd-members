@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function edd_members_expire_date_shortcode() {
 	
-	if ( false != edd_members_get_expire_date() ) {
+	if ( false != edd_members_get_expire_date() && is_user_logged_in() ) {
 		return edd_members_get_expire_date();
 	}
 	
