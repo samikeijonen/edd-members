@@ -51,7 +51,10 @@ add_action( 'manage_users_custom_column', 'edd_members_expire_date_data', 10, 3 
  * @since  1.0.0
  * @return void
  */
-function edd_members_expire_date_profile_field( $user ) { ?>
+function edd_members_expire_date_profile_field( $user ) { 
+
+	$expire_date = edd_members_get_unix_expire_date( $user->ID );
+	?>
 
 	<h3><?php _e( 'Membership expire date', 'edd-members' ); ?></h3>
 
@@ -62,8 +65,11 @@ function edd_members_expire_date_profile_field( $user ) { ?>
 
 			<td>
 				<?php if ( current_user_can( 'edd_members_edit_user' ) || current_user_can( 'manage_shop_settings' ) ) { // Only users with 'edd_members_edit_user' or 'manage_shop_settings' cap can edit expire date ?>
-					<input class="edd_members_datepicker" type="text" name="_edd_members_expiration_date" id="edd_members_exprire_date" value="<?php echo edd_members_get_expire_date( $user->ID, false ); ?>" class="regular-text" />
-					<span class="description"><?php _e( 'Set expire date for membership.', 'edd-members' ); ?></span>
+					<input type="text" name="edd_members_expiration_date" id="edd_members_exprire_date" value="<?php esc_attr_e( date_i18n( get_option( 'date_format' ), $expire_date ) ); ?>" class="edd_members_datepicker medium-text edd-members-time-date" />
+					<?php _ex( 'at', 'word between date and time', 'edd-members' ); ?>
+					<input type="number" step="1" max="24" name="edd_members_expiration_time_hour" value="<?php esc_attr_e( date_i18n( 'H', $expire_date ) ); ?>" class="small-text edd-members-time-hour "/>&nbsp;:
+					<input type="number" step="1" max="59" name="edd_members_expiration_time_min" value="<?php esc_attr_e( date( 'i', $expire_date ) ); ?>" class="small-text edd-members-time-min "/>
+					<p class="description"><?php _e( 'Set expire date and time for membership.', 'edd-members' ); ?></p>
 				<?php } else {
 					echo edd_members_get_expire_date( $user->ID );
 				} ?>
@@ -79,7 +85,7 @@ add_action( 'edit_user_profile', 'edd_members_expire_date_profile_field' );
 /**
  * Save expire date in user profile.
  *
- * Only user with 'edd_members_edit_user' can save expire date.
+ * Only user with 'edd_members_edit_user' or 'manage_shop_settings' can save expire date.
  *
  * @since  1.0.0
  * @return void
@@ -90,9 +96,17 @@ function edd_members_save_expire_date_profile_field( $user_id ) {
 	if ( !current_user_can( 'edd_members_edit_user', $user_id ) || !current_user_can( 'manage_shop_settings', $user_id ) ) {
 		return false;
 	}
+	
+	// Get date and time values
+	$date   = sanitize_text_field( $_POST['edd_members_expiration_date'] );
+	$hour   = sanitize_text_field( $_POST['edd_members_expiration_time_hour'] );
+	$minute = sanitize_text_field( $_POST['edd_members_expiration_time_min'] );
+	
+	// Value saved in unix format
+	$date_unix_save = strtotime( $date . ' ' . $hour . ':' . $minute . ':00' );
 
 	// Update user meta
-	update_user_meta( $user_id, '_edd_members_expiration_date', strtotime( esc_attr( $_POST['_edd_members_expiration_date'] ) ) );
+	update_user_meta( $user_id, '_edd_members_expiration_date', $date_unix_save );
 	
 }
 add_action( 'personal_options_update', 'edd_members_save_expire_date_profile_field' );
