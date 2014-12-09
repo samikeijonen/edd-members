@@ -311,7 +311,7 @@ function edd_members_get_unix_expire_date( $user_id = 0 ) {
 function edd_members_get_expire_date( $user_id = 0, $show_time = true ) {
 		
 	// Get expire date
-	$expire_date = edd_members_get_unix_expire_date();
+	$expire_date = edd_members_get_unix_expire_date( $user_id );
 		
 	// Return expire_date if there is one
 	if ( !empty( $expire_date ) ) {
