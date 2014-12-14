@@ -55,14 +55,14 @@ class EDD_Members_Emails {
 		}
 
 		// Email to
-		$email_to   = $user_email;
+		$email_to = $user_email;
 
-		$notice     = edd_members_get_renewal_notice( $notice_id );
-		$message    = ! empty( $notice['message'] ) ? $notice['message'] : __( "Hello {name},\n\nYour membership is about to expire.\n\nYour membership expires on: {edd_members_expiration}.", "edd-members" );
-		$message    = $this->filter_reminder_template_tags( $message, $user_email );
+		$notice   = edd_members_get_renewal_notice( $notice_id );
+		$message  = ! empty( $notice['message'] ) ? $notice['message'] : __( "Hello {name},\n\nYour membership is about to expire.\n\nYour membership expires on: {edd_members_expiration}.", "edd-members" );
+		$message  = $this->filter_reminder_template_tags( $message, $user_email );
 
-		$subject    = ! empty( $notice['subject'] ) ? $notice['subject'] : __( 'Your membership is about to expire', 'edd-members' );
-		$subject    = $this->filter_reminder_template_tags( $subject, $user_email );
+		$subject  = ! empty( $notice['subject'] ) ? $notice['subject'] : __( 'Your membership is about to expire', 'edd-members' );
+		$subject  = $this->filter_reminder_template_tags( $subject, $user_email );
 
 		if( class_exists( 'EDD_Emails' ) ) {
 			
@@ -97,7 +97,7 @@ class EDD_Members_Emails {
 		$user_id = edd_members_get_user_info_by_email( $user_email, 'ID' );
 		
 		// Get expire date
-		$exprire_date = edd_members_get_expire_date( $user_id  );
+		$exprire_date = edd_members_get_expire_date( $user_id );
 
 		// Retrieve the customer name
 		if ( $user_display_name ) {
