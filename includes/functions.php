@@ -200,7 +200,7 @@ function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type =
 	// Get current expire date
 	$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
 	
-	/*
+	/**
 	 * If expire_date is not set (this means new user), add membership length = current_date + support_time.
 	 * Else there is expire date already.
 	 */
