@@ -14,7 +14,7 @@ if( !defined( 'ABSPATH' ) ) {
 do_action( 'edd_members_before_private_content' );
 ?>
 						
-<div id="edd-members-private-message" class="edd-members-private-message">
+<div class="edd-members-private-message">
 
 	<?php do_action( 'edd_members_open_private_content' ); ?>
 	
