@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: EDD Members 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
-"PO-Revision-Date: 2014-12-09 17:46+0200\n"
+"PO-Revision-Date: 2014-12-09 20:48+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <Sami Keijonen>\n"
 "Language: fi\n"
@@ -361,7 +361,7 @@ msgstr "Päättymispäivä"
 
 #: includes/user-meta.php:72
 msgid "Set expire date and time for membership."
-msgstr "Aseta jäsenyyden päättymispäivä -ja aika."
+msgstr "Aseta jäsenyyden päättymispäivä ja -aika."
 
 #: templates/content-private.php:41
 msgid "Lost password?"
