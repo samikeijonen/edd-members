@@ -193,7 +193,7 @@ function edd_members_get_expiring_users( $period = '+1week' ) {
 	// Add +1 day (2015-04-17 00:00)
 	$end_date = strtotime( '+1 day', $start_date );
 	
-	// Compare date values between start and and date, this means one whole day
+	// Compare date values between start and end date, this means one whole day
 	$args = array(
 		'meta_query'      => array(
 			array(
