@@ -3,7 +3,7 @@
  * Plugin Name:     EDD Members
  * Plugin URI:      https://foxland.fi/downloads/edd-members
  * Description:     Create membership site with EDD Members. 
- * Version:         1.0.0
+ * Version:         1.0.0-alpha
  * Author:          Sami Keijonen
  * Author URI:      https://foxland.fi
  * Text Domain:     edd-members
@@ -179,6 +179,12 @@ if( !class_exists( 'EDD_Members' ) ) {
 					'id'          => 'edd_members_private_comments',
 					'name'        => __( 'Private comments', 'edd-members' ),
 					'desc'        => __( 'Check this if you want to set comments private for above selected content.', 'edd-members' ),
+					'type'        => 'checkbox'
+				),
+				array(
+					'id'          => 'edd_members_private_feed',
+					'name'        => __( 'Private feed', 'edd-members' ),
+					'desc'        => __( 'Check this if you want to set all feeds private.', 'edd-members' ),
 					'type'        => 'checkbox'
 				),
 				array(

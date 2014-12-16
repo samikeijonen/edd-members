@@ -42,8 +42,6 @@ function edd_members_private_content( $content ) {
 }
 add_filter( 'the_content', 'edd_members_private_content', 99 );
 add_filter( 'the_content_feed', 'edd_members_private_content', 99 );
-add_filter( 'get_the_excerpt', 'edd_members_private_content', 99 );
-add_filter( 'the_excerpt', 'edd_members_private_content', 99 );
 add_filter( 'comment_text_rss', 'edd_members_private_content', 99 );
 add_filter( 'bbp_get_topic_content', 'edd_members_private_content', 99 ); // Also support for bbPress topics
 add_filter( 'bbp_get_reply_content', 'edd_members_private_content', 99 ); // Also support for bbPress replies
@@ -123,6 +121,9 @@ function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
 	// Get private post types from settings
 	$edd_members_private_post_type = edd_get_option( 'edd_members_private_post_type' );
 	
+	// Get feed setting
+	$edd_members_private_feed = edd_get_option( 'edd_members_private_feed' );
+	
 	// By default content is not private
 	$edd_members_check = false;
 	
@@ -132,7 +133,7 @@ function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
 	}
 	
 	// Check for feed
-	elseif ( !edd_members_is_membership_valid() && is_feed() ) {
+	elseif ( !edd_members_is_membership_valid() && is_feed() && $edd_members_private_feed ) {
 		$edd_members_check = true;
 	}
 	
