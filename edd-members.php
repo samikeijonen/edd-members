@@ -108,8 +108,6 @@ if( !class_exists( 'EDD_Members' ) ) {
 			}
 			
 			require_once EDD_MEMBERS_DIR . 'includes/functions.php';
-			require_once EDD_MEMBERS_DIR . 'includes/class-gamajo-template-loader.php';
-			require_once EDD_MEMBERS_DIR . 'includes/class-template-loader.php';
 			require_once EDD_MEMBERS_DIR . 'includes/functions-filters.php';
 			require_once EDD_MEMBERS_DIR . 'includes/shortcodes.php';
 			require_once EDD_MEMBERS_DIR . 'includes/renewals.php';

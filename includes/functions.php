@@ -29,10 +29,8 @@ function edd_members_private_content( $content ) {
 	// Load private template if the content is private
 	if ( $edd_members_is_private_content ) {
 		
-		$templates = new EDD_Members_Template_Loader;
-		
 		ob_start();
-		$content = $templates->get_template_part( 'content', 'private' );
+		$content = edd_get_template_part( 'content', 'private' );
 		return ob_get_clean();
 		
 	}
@@ -73,7 +71,7 @@ function edd_members_private_comments( $template ) {
 	if ( $edd_members_is_private_content ) {
 
 		// Look for a 'edd-members-templates/comments-private.php' template in the parent and child theme
-		$has_template = locate_template( array( 'edd-members-templates/comments-private.php' ) );
+		$has_template = locate_template( array( 'edd_templates/comments-private.php' ) );
 
 		// If the template was found, use it. Otherwise, load 'templates/comments-private.php' template
 		$template = ( !empty( $has_template ) ? $has_template : EDD_MEMBERS_DIR . 'templates/comments-private.php' );
@@ -405,7 +403,7 @@ function edd_members_get_user_info_by_email( $user_email = null, $type = null ) 
 /**
  * Returns a list of all public post types.
  *
- * @since 1.0.0
+ * @since  1.0.0
  * @return array $edd_members_public_post_types_array All the public post types
  */
 function edd_members_get_public_post_types() {
@@ -424,3 +422,18 @@ function edd_members_get_public_post_types() {
 	
 	return apply_filters( 'edd_members_public_post_types', $edd_members_public_post_types_array );
 }
+
+/**
+ * Adds our templates dir to the EDD template stack.
+ *
+ * @since  1.0.0
+ * @return array $paths Directories of EDD template stack
+ */
+function edd_members_add_template_stack( $paths ) {
+
+	$paths[ 50 ] = EDD_MEMBERS_DIR . 'templates/';
+
+	return $paths;
+
+}
+add_filter( 'edd_template_paths', 'edd_members_add_template_stack' );
