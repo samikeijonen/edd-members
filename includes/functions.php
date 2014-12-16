@@ -431,7 +431,7 @@ function edd_members_get_public_post_types() {
  */
 function edd_members_add_template_stack( $paths ) {
 
-	$paths[ 50 ] = EDD_MEMBERS_DIR . 'templates/';
+	$paths[ 66 ] = EDD_MEMBERS_DIR . 'templates/';
 
 	return $paths;
 
