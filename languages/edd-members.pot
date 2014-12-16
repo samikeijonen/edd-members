@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the EDD Members package.
 msgid ""
 msgstr ""
-"Project-Id-Version: EDD Members 1.0.0\n"
+"Project-Id-Version: EDD Members 1.0.0-alpha\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
 "MIME-Version: 1.0\n"
@@ -40,52 +40,60 @@ msgid "Check this if you want to set comments private for above selected content
 msgstr ""
 
 #: edd-members.php:186
-msgid "Private Label logged out"
+msgid "Private feed"
 msgstr ""
 
 #: edd-members.php:187
+msgid "Check this if you want to set all feeds private."
+msgstr ""
+
+#: edd-members.php:192
+msgid "Private Label logged out"
+msgstr ""
+
+#: edd-members.php:193
 msgid "Enter the text for private content when user is logged out."
 msgstr ""
 
-#: edd-members.php:190 templates/content-private.php:25
+#: edd-members.php:196 templates/content-private.php:25
 msgid "This content is for members only."
 msgstr ""
 
-#: edd-members.php:194
+#: edd-members.php:200
 msgid "Private Label logged in"
 msgstr ""
 
-#: edd-members.php:195
+#: edd-members.php:201
 msgid "Enter the text for private content when user is logged in."
 msgstr ""
 
-#: edd-members.php:198 templates/content-private.php:51
+#: edd-members.php:204 templates/content-private.php:51
 msgid "This content is for members only. Your membership have probably expired."
 msgstr ""
 
-#: edd-members.php:202
+#: edd-members.php:208
 msgid "Login form"
 msgstr ""
 
-#: edd-members.php:203
+#: edd-members.php:209
 msgid "Check this box if you want to show login form for logged out users."
 msgstr ""
 
-#: edd-members.php:208
+#: edd-members.php:214
 msgid "Send Renewal Reminders"
 msgstr ""
 
-#: edd-members.php:209
+#: edd-members.php:215
 msgid ""
 "Check this box if you want customers to receive a renewal reminder when "
 "their membership is about to expire."
 msgstr ""
 
-#: edd-members.php:214
+#: edd-members.php:220
 msgid "Renewal Notices"
 msgstr ""
 
-#: edd-members.php:215
+#: edd-members.php:221
 msgid "Configure the renewal notice emails."
 msgstr ""
 
@@ -172,7 +180,7 @@ msgstr ""
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:324
+#: includes/functions.php:325
 msgid "Unknown"
 msgstr ""
 
@@ -356,7 +364,7 @@ msgstr ""
 msgid "https://foxland.fi"
 msgstr ""
 
-#: includes/functions.php:320 includes/user-meta.php:69
+#: includes/functions.php:321 includes/user-meta.php:69
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""

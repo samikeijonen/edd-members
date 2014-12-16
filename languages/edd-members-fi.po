@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: EDD Members 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
-"PO-Revision-Date: 2014-12-09 20:48+0200\n"
+"PO-Revision-Date: 2014-12-16 19:18+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <Sami Keijonen>\n"
 "Language: fi\n"
@@ -47,48 +47,56 @@ msgstr ""
 "sisällöille."
 
 #: edd-members.php:186
+msgid "Private feed"
+msgstr "Yksityiset syötteet (RSS)"
+
+#: edd-members.php:187
+msgid "Check this if you want to set all feeds private."
+msgstr "Valitse tämä, jos haluat kaikki RSS-syötteet yksityiseksi."
+
+#: edd-members.php:192
 msgid "Private Label logged out"
 msgstr "Teksti uloskirjautuneille"
 
-#: edd-members.php:187
+#: edd-members.php:193
 msgid "Enter the text for private content when user is logged out."
 msgstr ""
 "Kirjoita teksti uloskirjautuneille käyttäjille, jotka eivät näe sisältöä."
 
-#: edd-members.php:190 templates/content-private.php:25
+#: edd-members.php:196 templates/content-private.php:25
 msgid "This content is for members only."
 msgstr "Tämä sisältö on vain jäsenille."
 
-#: edd-members.php:194
+#: edd-members.php:200
 msgid "Private Label logged in"
 msgstr "Teksti sisäänkirjautuneille"
 
-#: edd-members.php:195
+#: edd-members.php:201
 msgid "Enter the text for private content when user is logged in."
 msgstr ""
 "Kirjoita teksti uloskirjautuneille käyttäjille, jotka eivät näe sisältöä."
 
-#: edd-members.php:198 templates/content-private.php:51
+#: edd-members.php:204 templates/content-private.php:51
 msgid ""
 "This content is for members only. Your membership have probably expired."
 msgstr ""
 "Tämä sisältö on vain jäsenille. Jäsenyytesi on mahdollisesti päättynyt."
 
-#: edd-members.php:202
+#: edd-members.php:208
 msgid "Login form"
 msgstr "Kirjaudu sisään -lomake?"
 
-#: edd-members.php:203
+#: edd-members.php:209
 msgid "Check this box if you want to show login form for logged out users."
 msgstr ""
 "Valitse tämä, jos haluat näyttää kirjaudu sisään -lomakkeen "
 "uloskirjautuneille käyttäjille."
 
-#: edd-members.php:208
+#: edd-members.php:214
 msgid "Send Renewal Reminders"
 msgstr "Lähetä sähköpostimuistutuksia"
 
-#: edd-members.php:209
+#: edd-members.php:215
 msgid ""
 "Check this box if you want customers to receive a renewal reminder when "
 "their membership is about to expire."
@@ -96,11 +104,11 @@ msgstr ""
 "Valitse tämä, jos haluat lähettää käyttäjille sähköpostimuistutuksia kun "
 "heidän jäsenyytensä on loppumassa."
 
-#: edd-members.php:214
+#: edd-members.php:220
 msgid "Renewal Notices"
 msgstr "Sähköpostimuistutukset"
 
-#: edd-members.php:215
+#: edd-members.php:221
 msgid "Configure the renewal notice emails."
 msgstr "Hallitse sähköpostimuistutuksia"
 
@@ -197,7 +205,7 @@ msgstr "Sähköpostiviesti"
 msgid "Update Renewal Notice"
 msgstr "Päivitä sähköpostimuistutus"
 
-#: includes/functions.php:324
+#: includes/functions.php:325
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -383,7 +391,7 @@ msgstr "Sami Keijonen"
 msgid "https://foxland.fi"
 msgstr "https://foxland.fi"
 
-#: includes/functions.php:320 includes/user-meta.php:69
+#: includes/functions.php:321 includes/user-meta.php:69
 msgctxt "word between date and time"
 msgid "at"
 msgstr "klo"
