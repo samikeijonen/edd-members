@@ -43,6 +43,10 @@ add_filter( 'the_content_feed', 'edd_members_private_content', 99 );
 add_filter( 'comment_text_rss', 'edd_members_private_content', 99 );
 add_filter( 'bbp_get_topic_content', 'edd_members_private_content', 99 ); // Also support for bbPress topics
 add_filter( 'bbp_get_reply_content', 'edd_members_private_content', 99 ); // Also support for bbPress replies
+add_filter( 'mb_get_forum_content', 'edd_members_private_content', 99 );  // Also support for Message Board Plugin
+add_filter( 'mb_get_topic_content', 'edd_members_private_content', 99 );
+add_filter( 'mb_get_reply_content', 'edd_members_private_content', 99 ); 
+
 
 /**
  * Load members only template for comments.
