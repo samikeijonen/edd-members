@@ -126,6 +126,13 @@ function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
 	// Get feed setting
 	$edd_members_private_feed = edd_get_option( 'edd_members_private_feed' );
 	
+	// Add support for EDD Recurring Plugin
+	if( class_exists( 'EDD_Recurring_Customer' ) ) {
+		$edd_members_recurring_check = EDD_Recurring_Customer::is_customer_active( $user_id );
+	} else {
+		$edd_members_recurring_check = '';
+	}
+	
 	// By default content is not private
 	$edd_members_check = false;
 	
@@ -136,6 +143,16 @@ function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
 	
 	// Check for feed
 	elseif ( !edd_members_is_membership_valid() && is_feed() && $edd_members_private_feed ) {
+		$edd_members_check = true;
+	}
+	
+	// Check recurring and post that have been checked private
+	elseif ( !empty( $edd_members_check_as_private ) && 'private' == $edd_members_check_as_private && is_bool( $edd_members_recurring_check ) && !$edd_members_recurring_check && is_main_query() ) {
+		$edd_members_check = true;
+	}
+	
+	// Check recurring for private post types from settings
+	elseif ( !empty( $edd_members_private_post_type ) && is_singular( array_keys( $edd_members_private_post_type ) ) && is_bool( $edd_members_recurring_check ) && !$edd_members_recurring_check && is_main_query() ) {
 		$edd_members_check = true;
 	}
 	
