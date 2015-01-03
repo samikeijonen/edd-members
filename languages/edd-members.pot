@@ -1,4 +1,4 @@
-# Copyright (C) 2014 Sami Keijonen
+# Copyright (C) 2015 Sami Keijonen
 # This file is distributed under the same license as the EDD Members package.
 msgid ""
 msgstr ""
@@ -8,93 +8,103 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.5\n"
 
-#: edd-members.php:167
+#: edd-members.php:164
 msgid "EDD Members Settings"
 msgstr ""
 
-#: edd-members.php:168
+#: edd-members.php:165
 msgid "Configure EDD Members Settings"
 msgstr ""
 
-#: edd-members.php:173
+#: edd-members.php:170
 msgid "Private content"
 msgstr ""
 
-#: edd-members.php:174
+#: edd-members.php:171
 msgid ""
 "Select which post type content you want to have private. Note! Only "
 "singular views will be private."
 msgstr ""
 
-#: edd-members.php:180
+#: edd-members.php:177
 msgid "Private comments"
 msgstr ""
 
-#: edd-members.php:181
+#: edd-members.php:178
 msgid "Check this if you want to set comments private for above selected content."
 msgstr ""
 
-#: edd-members.php:186
+#: edd-members.php:183
 msgid "Private feed"
 msgstr ""
 
-#: edd-members.php:187
+#: edd-members.php:184
 msgid "Check this if you want to set all feeds private."
 msgstr ""
 
-#: edd-members.php:192
+#: edd-members.php:189
 msgid "Private Label logged out"
 msgstr ""
 
-#: edd-members.php:193
+#: edd-members.php:190
 msgid "Enter the text for private content when user is logged out."
 msgstr ""
 
-#: edd-members.php:196 templates/content-private.php:25
+#: edd-members.php:193 templates/content-private.php:25
 msgid "This content is for members only."
 msgstr ""
 
-#: edd-members.php:200
+#: edd-members.php:197
 msgid "Private Label logged in"
 msgstr ""
 
-#: edd-members.php:201
+#: edd-members.php:198
 msgid "Enter the text for private content when user is logged in."
 msgstr ""
 
-#: edd-members.php:204 templates/content-private.php:51
+#: edd-members.php:201 templates/content-private.php:51
 msgid "This content is for members only. Your membership have probably expired."
 msgstr ""
 
-#: edd-members.php:208
+#: edd-members.php:205
 msgid "Login form"
 msgstr ""
 
-#: edd-members.php:209
+#: edd-members.php:206
 msgid "Check this box if you want to show login form for logged out users."
 msgstr ""
 
-#: edd-members.php:214
+#: edd-members.php:211
 msgid "Send Renewal Reminders"
 msgstr ""
 
-#: edd-members.php:215
+#: edd-members.php:212
 msgid ""
 "Check this box if you want customers to receive a renewal reminder when "
 "their membership is about to expire."
 msgstr ""
 
-#: edd-members.php:220
+#: edd-members.php:217
 msgid "Renewal Notices"
 msgstr ""
 
-#: edd-members.php:221
+#: edd-members.php:218
 msgid "Configure the renewal notice emails."
+msgstr ""
+
+#: edd-members.php:227 includes/meta-boxes.php:73
+msgid "Active Subscribers Only?"
+msgstr ""
+
+#: edd-members.php:228
+msgid ""
+"Check this if you want to show content only for active subscribers which "
+"are set in EDD Recurring Payments Plugin."
 msgstr ""
 
 #: includes/EDD_Members_Emails.php:26
@@ -180,7 +190,7 @@ msgstr ""
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:325
+#: includes/functions.php:348
 msgid "Unknown"
 msgstr ""
 
@@ -196,31 +206,31 @@ msgstr ""
 msgid "Check this content as private."
 msgstr ""
 
-#: includes/meta-boxes.php:89
+#: includes/meta-boxes.php:101
 msgid "Check to enable membership length creation"
 msgstr ""
 
-#: includes/meta-boxes.php:96 includes/meta-boxes.php:156
+#: includes/meta-boxes.php:108 includes/meta-boxes.php:168
 msgid "Days"
 msgstr ""
 
-#: includes/meta-boxes.php:97 includes/meta-boxes.php:157
+#: includes/meta-boxes.php:109 includes/meta-boxes.php:169
 msgid "Weeks"
 msgstr ""
 
-#: includes/meta-boxes.php:98 includes/meta-boxes.php:158
+#: includes/meta-boxes.php:110 includes/meta-boxes.php:170
 msgid "Months"
 msgstr ""
 
-#: includes/meta-boxes.php:99 includes/meta-boxes.php:159
+#: includes/meta-boxes.php:111 includes/meta-boxes.php:171
 msgid "Years"
 msgstr ""
 
-#: includes/meta-boxes.php:101
+#: includes/meta-boxes.php:113
 msgid "How long are membership valid for?"
 msgstr ""
 
-#: includes/meta-boxes.php:126
+#: includes/meta-boxes.php:138
 msgid "Membership length"
 msgstr ""
 
@@ -364,7 +374,7 @@ msgstr ""
 msgid "https://foxland.fi"
 msgstr ""
 
-#: includes/functions.php:321 includes/user-meta.php:69
+#: includes/functions.php:344 includes/user-meta.php:69
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""
