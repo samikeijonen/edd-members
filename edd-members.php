@@ -22,7 +22,6 @@
  * @license         http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-
 // Exit if accessed directly
 if( !defined( 'ABSPATH' ) ) {
 	exit;
@@ -220,6 +219,16 @@ if( !class_exists( 'EDD_Members' ) ) {
 					'type'        => 'hook'
 				)
 			);
+			
+			// Support for Recurring Payments Plugin
+			if( class_exists( 'EDD_Recurring' ) ) {
+				$edd_members_settings[2] = array(
+					'id'      => 'edd_members_rc_all_active_only',
+					'name'    => __( 'Active Subscribers Only?', 'edd-members' ),
+					'desc'    => __( 'Check this if you want to show content only for active subscribers which are set in EDD Recurring Payments Plugin.', 'edd-members' ),
+					'type'    => 'checkbox',
+				);
+			}
 
 			return array_merge( $settings, $edd_members_settings );
 		}

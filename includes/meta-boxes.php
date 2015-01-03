@@ -61,7 +61,19 @@ function edd_members_render_check_as_private_meta_box( $post, $metabox ) {
 			<input type="checkbox" name="edd_members_check_as_private" id="edd_members_check_private" value="1" <?php checked( '1', $edd_members_check_as_private, true ); ?> />
 			<label for="edd_members_check_private"><?php _e( 'Check this content as private.', 'edd-members' ); ?></label>
 		</p>
+		
+		<?php 
+		// Support for EDD Recurring Payments Plugin
+		if( class_exists( 'EDD_Recurring' ) ) {
+			
+			$edd_members_rc_active_only = get_post_meta( $post->ID, '_edd_members_rc_active_only', true );
+		?>
+			<p>
+				<input type="checkbox" name="edd_members_rc_active_only" id="edd_members_rc_active_only" value="1" <?php checked( '1', $edd_members_rc_active_only, true ); ?> />
+				<label for="edd_members_rc_active_only"><?php _e( 'Active Subscribers Only?', 'edd-members' ); ?></label>
+			</p>
 		<?php
+		} // End if check
 	}
 	
 }
@@ -187,6 +199,11 @@ function edd_members_save_set_as_private_meta_box( $post_id, $post ) {
 	$meta = array(
 		'_edd_members_check_as_private' => edd_members_sanitize_checkbox( $_POST['edd_members_check_as_private'] )
 	);
+	
+	// Support for EDD Recurring Payments Plugin
+	if( class_exists( 'EDD_Recurring' ) ) {
+		$meta['_edd_members_rc_active_only'] = edd_members_sanitize_checkbox( $_POST['edd_members_rc_active_only'] );
+	}
 
         foreach ( $meta as $meta_key => $new_meta_value ) {
 			
