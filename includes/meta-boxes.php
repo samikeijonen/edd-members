@@ -6,19 +6,19 @@
  * @since       1.0.0
  */
 
-/* Exit if accessed directly. */
+// Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Add custom meta box for 'download' metabox.
+ * Add custom meta box for public post types.
  *
  * @since 1.0.0
  * @return void
  */
 
- function edd_members_create_meta_boxes() {
+function edd_members_create_meta_boxes() {
 	
 	// Add metabox for checking singular public post type private
 	$edd_members_when_to_show_metaboxes = apply_filters( 'edd_members_when_to_show_metaboxes', array_keys( edd_members_get_public_post_types() ) );
@@ -58,7 +58,7 @@ function edd_members_render_check_as_private_meta_box( $post, $metabox ) {
 	} else { 
 	?>
 		<p>
-			<input type="checkbox" name="edd_members_check_as_private" id="edd_members_check_private" value="private" <?php checked( $edd_members_check_as_private, 'private' ); ?> />
+			<input type="checkbox" name="edd_members_check_as_private" id="edd_members_check_private" value="1" <?php checked( '1', $edd_members_check_as_private, true ); ?> />
 			<label for="edd_members_check_private"><?php _e( 'Check this content as private.', 'edd-members' ); ?></label>
 		</p>
 		<?php
@@ -185,7 +185,7 @@ function edd_members_save_set_as_private_meta_box( $post_id, $post ) {
 	}
 
 	$meta = array(
-		'_edd_members_check_as_private' => strip_tags( $_POST['edd_members_check_as_private'] )
+		'_edd_members_check_as_private' => edd_members_sanitize_checkbox( $_POST['edd_members_check_as_private'] )
 	);
 
         foreach ( $meta as $meta_key => $new_meta_value ) {
@@ -211,6 +211,21 @@ function edd_members_save_set_as_private_meta_box( $post_id, $post ) {
         }
 }
 add_action( 'save_post', 'edd_members_save_set_as_private_meta_box', 10, 2 );
+
+/**
+ * Sanitize the checkbox value.
+ *
+ * @since  1.0.0
+ * @param  string $input checkbox.
+ * @return string (1 or null).
+ */
+function edd_members_sanitize_checkbox( $input ) {
+	if ( 1 == $input ) {
+		return 1;
+	} else {
+		return '';
+	}
+}
 
 /**
  * Save the membership length and unit metabox when EDD saves other fields.

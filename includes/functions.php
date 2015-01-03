@@ -147,7 +147,7 @@ function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
 	}
 	
 	// Check recurring and post that have been checked private
-	elseif ( !empty( $edd_members_check_as_private ) && 'private' == $edd_members_check_as_private && is_bool( $edd_members_recurring_check ) && !$edd_members_recurring_check && is_main_query() ) {
+	elseif ( !empty( $edd_members_check_as_private ) && $edd_members_check_as_private && is_bool( $edd_members_recurring_check ) && !$edd_members_recurring_check && is_main_query() ) {
 		$edd_members_check = true;
 	}
 	
@@ -157,7 +157,7 @@ function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
 	}
 	
 	// Check for singular post that have been checked private. @TODO: Should we make is_singular check in here also?
-	elseif ( !edd_members_is_membership_valid() && !empty( $edd_members_check_as_private ) && 'private' == $edd_members_check_as_private && is_main_query() ) {
+	elseif ( !edd_members_is_membership_valid() && !empty( $edd_members_check_as_private ) && $edd_members_check_as_private && is_main_query() ) {
 		$edd_members_check = true;
 	}
 	
