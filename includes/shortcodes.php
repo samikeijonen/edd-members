@@ -42,13 +42,10 @@ function edd_members_only_shortcode( $atts, $content = null ) {
 		'message' => null
 	), $atts );
 	
-	// Current date
-	$current_date = current_time( 'timestamp' );
+	// Is membership valid
+	$edd_members_is_membership_valid = edd_members_is_membership_valid();
 	
-	// Get expire date
-	$expire_date = edd_members_get_unix_expire_date();
-	
-	if( $expire_date > $current_date || current_user_can( 'edd_members_show_all_content' ) ) {
+	if( $edd_members_is_membership_valid || current_user_can( 'edd_members_show_all_content' ) ) {
 		$content = do_shortcode( $content );
 	} elseif( ! is_null( $atts['message'] ) ) {
 		$content = '<div class="edd-members-private-message edd-members-private-shortcode">' . wpautop( ( $atts['message'] ) ) . '</div>';
