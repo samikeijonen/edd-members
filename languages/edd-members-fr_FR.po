@@ -1,115 +1,113 @@
 # Copyright (C) 2015 Sami Keijonen
 # This file is distributed under the same license as the EDD Members package.
+# Translators:
+# FxB <fxb@wp-translations.org>, 2014-2015
 msgid ""
 msgstr ""
-"Project-Id-Version: EDD Members 1.0.0\n"
+"Project-Id-Version: EDD Members\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
+"PO-Revision-Date: 2015-01-13 17:01+0200\n"
+"Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
+"Language-Team: French (France) (http://www.transifex.com/projects/p/edd-members/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.5\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.7.3\n"
 
 #: edd-members.php:164
 msgid "EDD Members Settings"
-msgstr ""
+msgstr "Réglages d'EDD Members"
 
 #: edd-members.php:165
 msgid "Configure EDD Members Settings"
-msgstr ""
+msgstr "Configuration des réglages d'EDD Members"
 
 #: edd-members.php:170
 msgid "Private content"
-msgstr ""
+msgstr "Contenu privé"
 
 #: edd-members.php:171
-msgid ""
-"Select which post type content you want to have private. Note! Only "
-"singular views will be private."
-msgstr ""
+msgid "Select which post type content you want to have private. Note! Only singular views will be private."
+msgstr "Sélectionnez le type de contenu que vous voulez rendre privé. Remarque ! Seuls les contenus en vue unique seront privés."
 
 #: edd-members.php:177
 msgid "Private comments"
-msgstr ""
+msgstr "Commentaires privés"
 
 #: edd-members.php:178
 msgid "Check this if you want to set comments private for above selected content."
-msgstr ""
+msgstr "Cochez cette case si vous souhaitez définir les commentaires comme privés pour le contenu ci-dessus sélectionné."
 
 #: edd-members.php:183
 msgid "Private feed"
-msgstr ""
+msgstr "Flux privé"
 
 #: edd-members.php:184
 msgid "Check this if you want to set all feeds private."
-msgstr ""
+msgstr "Cochez ici si vous voulez régler les flux en privés."
 
 #: edd-members.php:189
 msgid "Private Label logged out"
-msgstr ""
+msgstr "Étiquette privée au déconnecté"
 
 #: edd-members.php:190
 msgid "Enter the text for private content when user is logged out."
-msgstr ""
+msgstr "Entrez le texte en tant que contenu privé lorsque l&#39;utilisateur est déconnecté."
 
 #: edd-members.php:193 templates/content-private.php:25
 msgid "This content is for members only."
-msgstr ""
+msgstr "Ce contenu est réservé aux membres."
 
 #: edd-members.php:197
 msgid "Private Label logged in"
-msgstr ""
+msgstr "Étiquette privée au connecté"
 
 #: edd-members.php:198
 msgid "Enter the text for private content when user is logged in."
-msgstr ""
+msgstr "Entrez le texte en tant que contenu privé lorsque l&#39;utilisateur est connecté."
 
 #: edd-members.php:201 templates/content-private.php:51
 msgid "This content is for members only. Your membership have probably expired."
-msgstr ""
+msgstr "Ce contenu est réservé aux membres. Votre abonnement a probablement expiré."
 
 #: edd-members.php:205
 msgid "Login form"
-msgstr ""
+msgstr "Formulaire de connexion"
 
 #: edd-members.php:206
 msgid "Check this box if you want to show login form for logged out users."
-msgstr ""
+msgstr "Cochez cette case si vous voulez afficher le formulaire de connexion aux utilisateurs deconnectés."
 
 #: edd-members.php:211
 msgid "Send Renewal Reminders"
-msgstr ""
+msgstr "Envoyer des rappels de renouvellement"
 
 #: edd-members.php:212
-msgid ""
-"Check this box if you want customers to receive a renewal reminder when "
-"their membership is about to expire."
-msgstr ""
+msgid "Check this box if you want customers to receive a renewal reminder when their membership is about to expire."
+msgstr "Cochez cette case si vous voulez que vos clients soient en mesure de renouveler leur abonnement avant qu'il n'expire."
 
 #: edd-members.php:217
 msgid "Renewal Notices"
-msgstr ""
+msgstr "Rappels de renouvellement"
 
 #: edd-members.php:218
 msgid "Configure the renewal notice emails."
-msgstr ""
+msgstr "Configurez les e-mails de notification de renouvellement."
 
 #: edd-members.php:227 includes/meta-boxes.php:73
 msgid "Active Subscribers Only?"
-msgstr ""
+msgstr "Abonnés actifs uniquement ?"
 
 #: edd-members.php:228
-msgid ""
-"Check this if you want to show content only for active subscribers which "
-"are set in EDD Recurring Payments Plugin."
-msgstr ""
+msgid "Check this if you want to show content only for active subscribers which are set in EDD Recurring Payments Plugin."
+msgstr "Cochez cette case si vous souhaitez afficher le contenu uniquement aux abonnés qui sont définis dans l'extension  EDD Recurring Payments."
 
 #: includes/EDD_Members_Emails.php:26
 msgid "Show user expire date"
-msgstr ""
+msgstr "Afficher la date d'expiration de l'utilisateur"
 
 #: includes/EDD_Members_Emails.php:61
 msgid ""
@@ -119,262 +117,262 @@ msgid ""
 "\n"
 "Your membership expires on: {edd_members_expiration}."
 msgstr ""
+"Bonjour {name},\n"
+"\n"
+"Votre abonnement est sur le point de se terminer.\n"
+"\n"
+"Il expire le : {edd_members_expiration}."
 
-#: includes/EDD_Members_Emails.php:64 includes/renewals.php:91
-#: includes/renewals.php:129 includes/settings.php:96 includes/settings.php:150
+#: includes/EDD_Members_Emails.php:64 includes/renewals.php:91 includes/renewals.php:129 includes/settings.php:96 includes/settings.php:150
 msgid "Your membership is about to expire"
-msgstr ""
+msgstr "Votre abonnement est sur le point d'expirer"
 
 #: includes/EDD_Members_Emails.php:69
 msgid "Membership Reminder"
-msgstr ""
+msgstr "Rappel d'abonnement"
 
-#: includes/add-renewal-notice.php:21 includes/add-renewal-notice.php:66
-#: includes/settings.php:49
+#: includes/add-renewal-notice.php:21 includes/add-renewal-notice.php:66 includes/settings.php:49
 msgid "Add Renewal Notice"
-msgstr ""
+msgstr "Ajouter une notification de renouvellement"
 
 #: includes/add-renewal-notice.php:21 includes/edit-renewal-notice.php:27
 msgid "Go Back"
-msgstr ""
+msgstr "Retour"
 
-#: includes/add-renewal-notice.php:27 includes/add-renewal-notice.php:36
-#: includes/add-renewal-notice.php:49 includes/edit-renewal-notice.php:33
+#: includes/add-renewal-notice.php:27 includes/add-renewal-notice.php:36 includes/add-renewal-notice.php:49 includes/edit-renewal-notice.php:33
 #: includes/edit-renewal-notice.php:42
 msgid "Email Subject"
-msgstr ""
+msgstr "Sujet de l'e-mail"
 
 #: includes/add-renewal-notice.php:31 includes/edit-renewal-notice.php:37
 msgid "The subject line of the renewal notice email"
-msgstr ""
+msgstr "Sujet de l'e-mail du rappel de renouvellement."
 
 #: includes/add-renewal-notice.php:44 includes/edit-renewal-notice.php:50
 msgid "When should this email be sent?"
-msgstr ""
+msgstr "Quand cet e-mail doit-il être envoyé ?"
 
 #: includes/add-renewal-notice.php:53 includes/edit-renewal-notice.php:59
-msgid ""
-"The email message to be sent with the renewal notice. The following "
-"template tags can be used in the message:"
-msgstr ""
+msgid "The email message to be sent with the renewal notice. The following template tags can be used in the message:"
+msgstr "Le message de l'e-mail à envoyé avec la notification de renouvellement. Les modèles de balises suivants peuvent être utilisés dans le message :"
 
 #: includes/add-renewal-notice.php:55 includes/edit-renewal-notice.php:61
 msgid "The customer's name"
-msgstr ""
+msgstr "Nom du client"
 
 #: includes/add-renewal-notice.php:56 includes/edit-renewal-notice.php:62
 msgid "User expiration date"
-msgstr ""
+msgstr "Date d'expiration de l'utilisateur"
 
 #. Plugin Name of the plugin/theme
 msgid "EDD Members"
-msgstr ""
+msgstr "EDD Members"
 
 #: includes/class.extension-activation.php:87
 msgid "requires Easy Digital Downloads! Please activate it to continue!"
-msgstr ""
+msgstr "nécessite Easy Digital Downloads. Veuillez l'activer pour continuer !"
 
 #: includes/class.extension-activation.php:89
 msgid "requires Easy Digital Downloads! Please install it to continue!"
-msgstr ""
+msgstr "nécessite Easy Digital Downloads. Veuillez l'installer pour continuer !"
 
 #: includes/edit-renewal-notice.php:27
 msgid "Edit Renewal Notice"
-msgstr ""
+msgstr "Modifier la notification de renouvellement"
 
 #: includes/edit-renewal-notice.php:55
 msgid "Email Message"
-msgstr ""
+msgstr "Message de l'e-mail"
 
 #: includes/edit-renewal-notice.php:73
 msgid "Update Renewal Notice"
-msgstr ""
+msgstr "Mettre à jour la notification de renouvellement"
 
 #: includes/functions.php:348
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: includes/meta-boxes.php:27
 msgid "Set as private"
-msgstr ""
+msgstr "Définir comme privé"
 
 #: includes/meta-boxes.php:57
 msgid "All content have been marked as private in global %ssettings%s page."
-msgstr ""
+msgstr "Tout le contenu a été marqué comme privé dans la page des %sréglages%s généraux."
 
 #: includes/meta-boxes.php:62
 msgid "Check this content as private."
-msgstr ""
+msgstr "Considérer ce contenu comme privé."
 
 #: includes/meta-boxes.php:101
 msgid "Check to enable membership length creation"
-msgstr ""
+msgstr "Cochez pour activer la création de durée d'abonnement"
 
 #: includes/meta-boxes.php:108 includes/meta-boxes.php:168
 msgid "Days"
-msgstr ""
+msgstr "Jours"
 
 #: includes/meta-boxes.php:109 includes/meta-boxes.php:169
 msgid "Weeks"
-msgstr ""
+msgstr "Semaines"
 
 #: includes/meta-boxes.php:110 includes/meta-boxes.php:170
 msgid "Months"
-msgstr ""
+msgstr "Mois"
 
 #: includes/meta-boxes.php:111 includes/meta-boxes.php:171
 msgid "Years"
-msgstr ""
+msgstr "Années"
 
 #: includes/meta-boxes.php:113
 msgid "How long are membership valid for?"
-msgstr ""
+msgstr "Pendant combien de temps l'abonnement est-il valide ?"
 
 #: includes/meta-boxes.php:138
 msgid "Membership length"
-msgstr ""
+msgstr "Durée de l'abonnement"
 
 #: includes/renewals.php:44
 msgid "One day before expiration"
-msgstr ""
+msgstr "Un jour avant l&#39;expiration"
 
 #: includes/renewals.php:45
 msgid "Two days before expiration"
-msgstr ""
+msgstr "Deux jours avant l&#39;expiration"
 
 #: includes/renewals.php:46
 msgid "Three days before expiration"
-msgstr ""
+msgstr "Trois jours avant l&#39;expiration"
 
 #: includes/renewals.php:47
 msgid "One week before expiration"
-msgstr ""
+msgstr "Une semaine avant l&#39;expiration"
 
 #: includes/renewals.php:48
 msgid "Two weeks before expiration"
-msgstr ""
+msgstr "Deux semaines avant l&#39;expiration"
 
 #: includes/renewals.php:49
 msgid "One month before expiration"
-msgstr ""
+msgstr "Un mois avant l&#39;expiration"
 
 #: includes/renewals.php:50
 msgid "Two months before expiration"
-msgstr ""
+msgstr "Deux mois avant l&#39;expiration"
 
 #: includes/renewals.php:51
 msgid "Three months before expiration"
-msgstr ""
+msgstr "Trois mois avant l&#39;expiration"
 
 #: includes/renewals.php:52
 msgid "At the time of expiration"
-msgstr ""
+msgstr "Le jour de l'expiration"
 
 #: includes/renewals.php:53
 msgid "One day after expiration"
-msgstr ""
+msgstr "Un jour après l&#39;expiration"
 
 #: includes/renewals.php:54
 msgid "Two days after expiration"
-msgstr ""
+msgstr "Deux jours après l&#39;expiration"
 
 #: includes/renewals.php:55
 msgid "Three days after expiration"
-msgstr ""
+msgstr "Trois jours après l&#39;expiration"
 
 #: includes/renewals.php:56
 msgid "One week after expiration"
-msgstr ""
+msgstr "Une semaine après l&#39;expiration"
 
 #: includes/renewals.php:57
 msgid "Two weeks after expiration"
-msgstr ""
+msgstr "Deux semaines après l&#39;expiration"
 
 #: includes/renewals.php:58
 msgid "One month after expiration"
-msgstr ""
+msgstr "Un mois après l&#39;expiration"
 
 #: includes/renewals.php:59
 msgid "Two months after expiration"
-msgstr ""
+msgstr "Deux mois après l&#39;expiration"
 
 #: includes/renewals.php:60
 msgid "Three months after expiration"
-msgstr ""
+msgstr "Trois mois après l&#39;expiration"
 
 #: includes/settings.php:30
 msgid "Subject"
-msgstr ""
+msgstr "Sujet"
 
 #: includes/settings.php:31
 msgid "Send Period"
-msgstr ""
+msgstr "Moment de l'envoi"
 
 #: includes/settings.php:32
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: includes/settings.php:41
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 #: includes/settings.php:42
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer "
 
 #: includes/settings.php:89 includes/settings.php:139 includes/settings.php:193
 msgid "You do not have permission to add renewal notices"
-msgstr ""
+msgstr "Il semblerait que vous n'avez pas la permission d'ajouter un rappel de renouvellement"
 
 #: includes/settings.php:93 includes/settings.php:143 includes/settings.php:197
 msgid "Nonce verification failed"
-msgstr ""
+msgstr "Échec de la vérification nonce"
 
 #: includes/settings.php:147 includes/settings.php:201
 msgid "No renewal notice ID was provided"
-msgstr ""
+msgstr "Aucune ID de notification de renouvellement n'a été fournie"
 
 #: includes/settings.php:223
 msgid "Membership Renewal Notice"
-msgstr ""
+msgstr "Notification de renouvellement d'abonnement"
 
 #: includes/user-meta.php:21
 msgid "Expire Date"
-msgstr ""
+msgstr "Date d'expiration"
 
 #: includes/user-meta.php:59
 msgid "Membership expire date"
-msgstr ""
+msgstr "Date d'expiration de l'abonnement"
 
 #: includes/user-meta.php:64
 msgid "Expire date"
-msgstr ""
+msgstr "Date d'expiration"
 
 #: includes/user-meta.php:72
 msgid "Set expire date and time for membership."
-msgstr ""
+msgstr "Régler la date et l&#39;heure d'expiration de l'abonnement."
 
 #: templates/content-private.php:41
 msgid "Lost password?"
-msgstr ""
+msgstr "Mot de passe perdu ?"
 
 #. Plugin URI of the plugin/theme
 msgid "https://foxland.fi/downloads/edd-members"
-msgstr ""
+msgstr "https://foxland.fi/downloads/edd-members"
 
 #. Description of the plugin/theme
 msgid "Create membership site with EDD Members."
-msgstr ""
+msgstr "Créer un site de membres avec EDD members."
 
 #. Author of the plugin/theme
 msgid "Sami Keijonen"
-msgstr ""
+msgstr "Sami Keijonen"
 
 #. Author URI of the plugin/theme
 msgid "https://foxland.fi"
-msgstr ""
+msgstr "https://foxland.fi"
 
 #: includes/functions.php:344 includes/user-meta.php:69
 msgctxt "word between date and time"
 msgid "at"
-msgstr ""
+msgstr "à"
