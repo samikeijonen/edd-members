@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[edd-members.edd-members]
+file_filter = languages/<lang>.po
+source_file = languages/edd-members.pot
+source_lang = en_US
+type = PO
