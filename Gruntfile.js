@@ -21,7 +21,7 @@ grunt.initConfig({
 
     exec: {
       txpull: { // Pull Transifex translation - grunt exec:txpull
-        cmd: 'tx pull -a --minimum-perc=100' // Change the percentage with --minimum-perc=yourvalue
+        cmd: 'tx pull -a --minimum-perc=80' // Change the percentage with --minimum-perc=yourvalue
       },
       txpush_s: { // Push pot to Transifex - grunt exec:txpush_s
         cmd: 'tx push -s'
@@ -77,7 +77,8 @@ grunt.initConfig({
           '!.tx/**',
           '!**/Gruntfile.js',
           '!**/package.json',
-          '!**/*~'
+          '!**/*~',
+		  '!tx.exe'
         ],
         dest: 'build/<%= pkg.name %>/'
       }
@@ -101,6 +102,12 @@ grunt.initConfig({
 
 // Default task.
 grunt.registerTask( 'default', [ 'makepot', 'uglify' ] );
+
+// Makepot and push it on Transifex task(s).
+grunt.registerTask( 'makeandpush', [ 'makepot', 'exec:txpush_s' ] );
+
+// Pull from Transifex and create .mo task(s).
+grunt.registerTask( 'tx', [ 'exec:txpull', 'potomo' ] );
 
 // Build task(s).
 grunt.registerTask( 'build', [ 'clean', 'copy', 'compress' ] );
