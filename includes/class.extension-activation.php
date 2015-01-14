@@ -67,7 +67,7 @@ class EDD_Extension_Activation {
 	 * @since       1.0.0
 	 * @return      void
 	 */
-	public function edd_members_run() {
+	public function run() {
 		
 		// Display notice
 		add_action( 'admin_notices', array( $this, 'edd_members_missing_edd_notice' ) );

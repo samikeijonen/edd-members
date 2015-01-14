@@ -3,7 +3,7 @@
  * Plugin Name:     EDD Members
  * Plugin URI:      https://foxland.fi/downloads/edd-members
  * Description:     Create membership site with EDD Members. 
- * Version:         1.0.0
+ * Version:         1.0.1
  * Author:          Sami Keijonen
  * Author URI:      https://foxland.fi
  * Text Domain:     edd-members
@@ -73,7 +73,7 @@ if( !class_exists( 'EDD_Members' ) ) {
 		private function setup_constants() {
 			
 			// Plugin version
-			define( 'EDD_MEMBERS_VER', '1.0.0' );
+			define( 'EDD_MEMBERS_VER', '1.0.1' );
 
 			// Plugin path
 			define( 'EDD_MEMBERS_DIR', plugin_dir_path( __FILE__ ) );
@@ -271,7 +271,7 @@ if( !class_exists( 'EDD_Members' ) ) {
 			}
 
 			$activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
-			$activation = $activation->edd_members_run();
+			$activation = $activation->run();
 		} else {
 			return EDD_Members::instance();
 		}
