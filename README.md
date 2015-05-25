@@ -37,6 +37,10 @@ Plugin resources are licensed under the [GNU GPL](http://www.gnu.org/licenses/ol
 
 ## Changelog
 
+### Version 1.0.2 - May 25, 2015
+
+* Fix: Get user ID from payment meta so that expire date calculation works for all payment gateways.
+
 ### Version 1.0.1
 
 * Bug fix: during the EDD update plugin crashed.
