@@ -1,6 +1,6 @@
 {
   "name": "edd-members",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -14,7 +14,7 @@
     "grunt-po2mo": "~0.1.0",
     "grunt-potomo": "~0.1.7",
     "grunt-text-replace": "^0.3.12",
-    "grunt-wp-i18n": "~0.4.3",
+    "grunt-wp-i18n": "~0.5.0",
     "load-grunt-tasks": "^0.5.0"
   }
 }
