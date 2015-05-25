@@ -252,9 +252,7 @@ function edd_members_add_expire_date( $payment_id = 0 ) {
 	
 	// Set membership expiration date
 	edd_members_set_membership_expiration( $user_id, $expire_date );
-	
-	//edd_insert_payment_note( $payment_id, __( 'EDD members have updated membership expire date', 'edd-members' ) );
-	
+
 }
 add_action( 'edd_complete_purchase', 'edd_members_add_expire_date' );
 
