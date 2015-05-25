@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the EDD Members package.
 msgid ""
 msgstr ""
-"Project-Id-Version: EDD Members 1.0.1\n"
+"Project-Id-Version: EDD Members 1.0.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
 "MIME-Version: 1.0\n"
@@ -190,7 +190,7 @@ msgstr ""
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:347
+#: includes/functions.php:346
 msgid "Unknown"
 msgstr ""
 
@@ -374,7 +374,7 @@ msgstr ""
 msgid "https://foxland.fi"
 msgstr ""
 
-#: includes/functions.php:343 includes/user-meta.php:69
+#: includes/functions.php:342 includes/user-meta.php:69
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""
