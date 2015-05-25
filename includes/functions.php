@@ -180,20 +180,16 @@ function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
  * @since  1.0.0
  * @return void
  */
-function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type = 'default', $cart_item = array() ) {
-
-	if( !is_user_logged_in() ) {
-		return;
-	}
+function edd_members_add_expire_date( $payment_id = 0 ) {
 	
-	$user_id = get_current_user_id();
+	// User info
+	$user_info = edd_get_payment_meta_user_info( $payment_id );
 	
-	if( 'bundle' == $type ) {
-		$downloads = edd_get_bundled_products( $download_id );
-	} else {
-		$downloads = array();
-		$downloads[] = $download_id;
-	}
+	// User ID
+	$user_id = $user_info['id'];
+	
+	// Cart details
+	$downloads = edd_get_payment_meta_cart_details( $payment_id );
 
 	if( ! is_array( $downloads ) ) {
 		return;
@@ -201,20 +197,22 @@ function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type =
 	
 	// Current date
 	$current_date = current_time( 'timestamp' );
+	
+	// Get membership lengths in arrays because user might purchase more than one item
+	$edd_members_membership_lengths = array();
 
-	foreach ( $downloads as $d_id ) {
+	foreach ( $downloads as $download ) {
 		
 		// Skip if members length is not enabled
-		if ( ! get_post_meta( $d_id, '_edd_members_length_enabled', true ) ) {
+		if ( ! get_post_meta( $download['id'], '_edd_members_length_enabled', true ) ) {
 			continue;
 		}
 		
 		// Get price id
-		$price_id = isset( $cart_item['item_number']['options']['price_id'] ) ? (int) $cart_item['item_number']['options']['price_id'] : false;
+		$price_id = edd_get_cart_item_price_id( $download );
 		
-		// Get membership lengths in arrays because user might purchase more than one item
-		$edd_members_membership_lengths = array();
-		$edd_members_membership_lengths[] = strtotime( edd_members_get_membership_length( $price_id, $payment_id, $d_id ), $current_date );
+		// Add membership_lengths in array
+		$edd_members_membership_lengths[] = strtotime( edd_members_get_membership_length( $price_id, $payment_id, $download['id'] ), $current_date );
 		
 	}
 	
@@ -254,9 +252,11 @@ function edd_members_add_expire_date( $download_id = 0, $payment_id = 0, $type =
 	
 	// Set membership expiration date
 	edd_members_set_membership_expiration( $user_id, $expire_date );
-
+	
+	//edd_insert_payment_note( $payment_id, __( 'EDD members have updated membership expire date', 'edd-members' ) );
+	
 }
-add_action( 'edd_complete_download_purchase', 'edd_members_add_expire_date', 10, 4 );
+add_action( 'edd_complete_purchase', 'edd_members_add_expire_date' );
 
 /**
  * Get membership length from download.
