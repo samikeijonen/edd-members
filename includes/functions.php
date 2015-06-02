@@ -356,7 +356,7 @@ function edd_members_get_expire_date( $user_id = 0, $show_time = true ) {
  * @since  1.0.0
  * @return boolean
  */
-function edd_members_is_membership_valid() {
+function edd_members_is_membership_valid( $user_id = 0 ) {
 
 	$check_membership = false;
 
@@ -365,7 +365,9 @@ function edd_members_is_membership_valid() {
 	}
 	
 	// Get current user id
-	$user_id = get_current_user_id();
+	if( empty( $user_id ) ) {
+		$user_id = get_current_user_id();
+	}
 	
 	// Current date
 	$current_date = current_time( 'timestamp' );
