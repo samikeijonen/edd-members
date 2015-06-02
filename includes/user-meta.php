@@ -43,8 +43,17 @@ function edd_members_add_custom_columns( $value, $column_name, $user_id ) {
 	
 	if( 'expire_status' == $column_name ) {
 		
-		// Get membership status
-		$expire_status = edd_members_is_membership_valid( $user_id ) ? __( 'Active', 'edd-members' ) : __( 'Expired', 'edd-members' );
+		// Get expire date
+		$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
+		
+		// Set membership status
+		if ( empty( $expire_date ) ) {
+			$expire_status = __( 'Unknown', 'edd-members' );
+		} elseif( edd_members_is_membership_valid( $user_id ) ) {
+			$expire_status = __( 'Active', 'edd-members' );
+		} else {
+			$expire_status = __( 'Expired', 'edd-members' );
+		}
 		
 		$value = $expire_status;
 	
