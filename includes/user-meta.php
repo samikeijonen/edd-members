@@ -18,30 +18,77 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array $columns
  */
 function edd_members_expire_date_column( $columns ) {
-	$columns['expire_date'] = __( 'Expire Date', 'edd-members' );
+	$columns['expire_date']   = __( 'Expire Date', 'edd-members' );
+	$columns['expire_status'] = __( 'Status', 'edd-members' );
 	return $columns;
 }
 add_filter( 'manage_users_columns', 'edd_members_expire_date_column' );
 
 /**
- * Adds expire Date to column.
+ * Adds Expire date and Status to column.
  *
  * @since  1.0.0
  * @return void
  */
-function edd_members_expire_date_data( $value, $column_name, $user_id ) {
+function edd_members_add_custom_columns( $value, $column_name, $user_id ) {
 	
 	if( 'expire_date' == $column_name ) {
 		
 		// Get expire date
 		$expire_date = edd_members_get_expire_date( $user_id );
 		
-		return $expire_date;
+		$value = $expire_date;
 	
 	}
 	
+	if( 'expire_status' == $column_name ) {
+		
+		// Get membership status
+		$expire_status = edd_members_is_membership_valid( $user_id ) ? __( 'Active', 'edd-members' ) : __( 'Expired', 'edd-members' );
+		
+		$value = $expire_status;
+	
+	}
+	
+	return $value;
+	
 }
-add_action( 'manage_users_custom_column', 'edd_members_expire_date_data', 10, 3 );
+add_action( 'manage_users_custom_column', 'edd_members_add_custom_columns', 10, 3 );
+
+/**
+ * Adds sortable columns.
+ *
+ * @since  1.0.3
+ * @return void
+ */
+function edd_members_sortable_columns( $columns ) {
+	
+	$columns['expire_date']   = 'expire_date';
+
+	return $columns;
+	
+}
+add_filter( 'manage_users_sortable_columns', 'edd_members_sortable_columns' );
+
+/**
+ * Sort by expire date. Meta key is called '_edd_members_expiration_date'.
+ *
+ * @since  1.0.3
+ * @return void
+ */
+function edd_members_sort_by_expiration_date( $query ) {
+	
+	if( ! is_admin() ) {
+		return;
+	}
+	
+	if ( 'expire_date' == $query->get( 'orderby' ) ) {
+		$query->set( 'orderby', 'meta_value_num' );
+		$query->set( 'meta_key', '_edd_members_expiration_date' );
+	}
+
+}
+add_action( 'pre_get_users', 'edd_members_sort_by_expiration_date' );
 
 /**
  * Adds expire date in user profile.
