@@ -33,9 +33,13 @@ After that you get support and automatic updates.
 
 Plugin resources are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
-2014 &copy; [Sami Keijonen](https://foxland.fi).
+2015 &copy; [Sami Keijonen](https://foxland.fi).
 
 ## Changelog
+
+### Version 1.0.3 - June 3, 2015
+
+* Enable sorting by Expire date in Users (users.php) admin page.
 
 ### Version 1.0.2 - May 25, 2015
 
