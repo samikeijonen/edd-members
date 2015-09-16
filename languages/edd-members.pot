@@ -386,7 +386,7 @@ msgstr ""
 msgid "https://foxland.fi"
 msgstr ""
 
-#: includes/functions.php:342 includes/user-meta.php:125
+#: includes/functions.php:342
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""
