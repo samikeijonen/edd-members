@@ -37,6 +37,11 @@ Plugin resources are licensed under the [GNU GPL](http://www.gnu.org/licenses/ol
 
 ## Changelog
 
+### Version 1.1.0 - September 16, 2015
+
+* edd_members_only shortcode now outputs the same as private page if you leave message attribute empty.
+* Secure every text string using esc_html and similar functions.
+
 ### Version 1.0.3 - June 3, 2015
 
 * Enable sorting by Expire date in Users (users.php) admin page.
