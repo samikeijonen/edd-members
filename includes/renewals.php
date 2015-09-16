@@ -41,23 +41,23 @@ function edd_members_renewals_allowed() {
  */
 function edd_members_get_renewal_notice_periods() {
 	$periods = array(
-		'+1day'    => __( 'One day before expiration', 'edd-members' ),
-		'+2days'   => __( 'Two days before expiration', 'edd-members' ),
-		'+3days'   => __( 'Three days before expiration', 'edd-members' ),
-		'+1week'   => __( 'One week before expiration', 'edd-members' ),
-		'+2weeks'  => __( 'Two weeks before expiration', 'edd-members' ),
-		'+1month'  => __( 'One month before expiration', 'edd-members' ),
-		'+2months' => __( 'Two months before expiration', 'edd-members' ),
-		'+3months' => __( 'Three months before expiration', 'edd-members' ),
-		'expired'  => __( 'At the time of expiration', 'edd-members' ),
-		'-1day'    => __( 'One day after expiration', 'edd-members' ),
-		'-2days'   => __( 'Two days after expiration', 'edd-members' ),
-		'-3days'   => __( 'Three days after expiration', 'edd-members' ),
-		'-1week'   => __( 'One week after expiration', 'edd-members' ),
-		'-2weeks'  => __( 'Two weeks after expiration', 'edd-members' ),
-		'-1month'  => __( 'One month after expiration', 'edd-members' ),
-		'-2months' => __( 'Two months after expiration', 'edd-members' ),
-		'-3months' => __( 'Three months after expiration', 'edd-members' ),
+		'+1day'    => esc_html__( 'One day before expiration', 'edd-members' ),
+		'+2days'   => esc_html__( 'Two days before expiration', 'edd-members' ),
+		'+3days'   => esc_html__( 'Three days before expiration', 'edd-members' ),
+		'+1week'   => esc_html__( 'One week before expiration', 'edd-members' ),
+		'+2weeks'  => esc_html__( 'Two weeks before expiration', 'edd-members' ),
+		'+1month'  => esc_html__( 'One month before expiration', 'edd-members' ),
+		'+2months' => esc_html__( 'Two months before expiration', 'edd-members' ),
+		'+3months' => esc_html__( 'Three months before expiration', 'edd-members' ),
+		'expired'  => esc_html__( 'At the time of expiration', 'edd-members' ),
+		'-1day'    => esc_html__( 'One day after expiration', 'edd-members' ),
+		'-2days'   => esc_html__( 'Two days after expiration', 'edd-members' ),
+		'-3days'   => esc_html__( 'Three days after expiration', 'edd-members' ),
+		'-1week'   => esc_html__( 'One week after expiration', 'edd-members' ),
+		'-2weeks'  => esc_html__( 'Two weeks after expiration', 'edd-members' ),
+		'-1month'  => esc_html__( 'One month after expiration', 'edd-members' ),
+		'-2months' => esc_html__( 'Two months after expiration', 'edd-members' ),
+		'-3months' => esc_html__( 'Three months after expiration', 'edd-members' ),
 	);
 	return apply_filters( 'edd_members_get_renewal_notice_periods', $periods );
 }
@@ -88,7 +88,7 @@ function edd_members_get_renewal_notice( $notice_id = 0 ) {
 	$notices  = edd_members_get_renewal_notices();
 
 	$defaults = array(
-		'subject'      => __( 'Your membership is about to expire', 'edd-members' ),
+		'subject'      => esc_html__( 'Your membership is about to expire', 'edd-members' ),
 		'send_period'  => '+1week',
 		'message'      => 'Hello {name},
 
@@ -126,7 +126,7 @@ Your membership expires on: {edd_members_expiration}.';
 
 		$notices[0] = array(
 			'send_period' => '+1week',
-			'subject'     => __( 'Your membership is about to expire', 'edd-members' ),
+			'subject'     => esc_html__( 'Your membership is about to expire', 'edd-members' ),
 			'message'     => $message
 		);
 

@@ -54,12 +54,12 @@ function edd_members_render_check_as_private_meta_box( $post, $metabox ) {
 	
 	// Do not show metabox if all post type have been set private in settings
 	if ( !empty( $edd_members_private_post_type ) && in_array( $screen->post_type , array_keys( $edd_members_private_post_type ) ) ) {
-		echo sprintf( __( 'All content have been marked as private in global %ssettings%s page.', 'edd-members' ), '<a href="' . esc_url( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ) . '">', '</a>' );
+		echo sprintf( esc_html__( 'All content have been marked as private in global %ssettings%s page.', 'edd-members' ), '<a href="' . esc_url( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ) . '">', '</a>' );
 	} else { 
 	?>
 		<p>
 			<input type="checkbox" name="edd_members_check_as_private" id="edd_members_check_private" value="1" <?php checked( '1', $edd_members_check_as_private, true ); ?> />
-			<label for="edd_members_check_private"><?php _e( 'Check this content as private.', 'edd-members' ); ?></label>
+			<label for="edd_members_check_private"><?php esc_html_e( 'Check this content as private.', 'edd-members' ); ?></label>
 		</p>
 		
 		<?php 
@@ -70,7 +70,7 @@ function edd_members_render_check_as_private_meta_box( $post, $metabox ) {
 		?>
 			<p>
 				<input type="checkbox" name="edd_members_rc_active_only" id="edd_members_rc_active_only" value="1" <?php checked( '1', $edd_members_rc_active_only, true ); ?> />
-				<label for="edd_members_rc_active_only"><?php _e( 'Active Subscribers Only?', 'edd-members' ); ?></label>
+				<label for="edd_members_rc_active_only"><?php esc_html_e( 'Active Subscribers Only?', 'edd-members' ); ?></label>
 			</p>
 		<?php
 		} // End if check
@@ -98,19 +98,19 @@ function edd_members_metabox_membership_length( $post_id = 0 ) {
 	
 	<p>
 		<input type="checkbox" name="_edd_members_length_enabled" id="edd_members_check_length_enabled" value="1" <?php echo checked( true, $edd_members_length_enabled, false ); ?> />
-		<label for="edd_members_check_length_enabled"><?php _e( 'Check to enable membership length creation', 'edd-members' ); ?></label>
+		<label for="edd_members_check_length_enabled"><?php esc_html_e( 'Check to enable membership length creation', 'edd-members' ); ?></label>
 	</p>
 	
 	<div <?php echo $edd_members_display; ?> class="edd-members-toggled-hide">
 		<input type="number" name="_edd_members_exp_length" class="small-text" value="<?php echo $edd_members_exp_length; ?>" />
 	
 		<select name="_edd_members_exp_unit" id="edd_members_exp_unit">
-			<option value="days"   <?php echo selected( 'days',   $edd_members_exp_unit, false ); ?>><?php _e( 'Days', 'edd-members' );   ?></option>
-			<option value="weeks"  <?php echo selected( 'weeks',  $edd_members_exp_unit, false ); ?>><?php _e( 'Weeks', 'edd-members' );  ?></option>
-			<option value="months" <?php echo selected( 'months', $edd_members_exp_unit, false ); ?>><?php _e( 'Months', 'edd-members' ); ?></option>
-			<option value="years"  <?php echo selected( 'years',  $edd_members_exp_unit, false ); ?>><?php _e( 'Years', 'edd-members' );  ?></option>
+			<option value="days"   <?php echo selected( 'days',   $edd_members_exp_unit, false ); ?>><?php esc_html_e( 'Days', 'edd-members' );   ?></option>
+			<option value="weeks"  <?php echo selected( 'weeks',  $edd_members_exp_unit, false ); ?>><?php esc_html_e( 'Weeks', 'edd-members' );  ?></option>
+			<option value="months" <?php echo selected( 'months', $edd_members_exp_unit, false ); ?>><?php esc_html_e( 'Months', 'edd-members' ); ?></option>
+			<option value="years"  <?php echo selected( 'years',  $edd_members_exp_unit, false ); ?>><?php esc_html_e( 'Years', 'edd-members' );  ?></option>
 		</select>
-		<label for="edd_members_exp_unit"><?php _e( 'How long are membership valid for?', 'edd-members' ); ?></label>
+		<label for="edd_members_exp_unit"><?php esc_html_e( 'How long are membership valid for?', 'edd-members' ); ?></label>
 	</div>
 
 	<?php
@@ -135,7 +135,7 @@ function edd_members_prices_header( $download_id ) {
 	$edd_members_display   	    = $edd_members_length_enabled ? '' : ' style="display:none;"';
 
 ?>
-	<th <?php echo $edd_members_display; ?> class="edd-members-toggled-hide"><?php _e( 'Membership length', 'edd-members' ); ?></th>
+	<th <?php echo $edd_members_display; ?> class="edd-members-toggled-hide"><?php esc_html_e( 'Membership length', 'edd-members' ); ?></th>
 <?php
 }
 add_action( 'edd_download_price_table_head', 'edd_members_prices_header', 800 );
@@ -165,10 +165,10 @@ function edd_members_price_option_membership_length( $download_id, $price_id, $a
 		<input type="number" min="0" step="1" name="edd_variable_prices[<?php echo $price_id; ?>][edd_members_length]" id="edd_variable_prices[<?php echo $price_id; ?>][edd_members_length]" size="4" style="width: 70px" value="<?php echo absint( $edd_members_length ); ?>" />
 	
 		<select name="edd_variable_prices[<?php echo $price_id; ?>][edd_members_exp_unit]" id="edd_variable_prices[<?php echo $price_id; ?>][edd_members_exp_unit]">
-			<option value="days"   <?php echo selected( 'days',   esc_attr( $edd_members_exp_unit ), false ); ?>><?php _e( 'Days', 'edd-members' );   ?></option>
-			<option value="weeks"  <?php echo selected( 'weeks',  esc_attr( $edd_members_exp_unit ), false ); ?>><?php _e( 'Weeks', 'edd-members' );  ?></option>
-			<option value="months" <?php echo selected( 'months', esc_attr( $edd_members_exp_unit ), false ); ?>><?php _e( 'Months', 'edd-members' ); ?></option>
-			<option value="years"  <?php echo selected( 'years',  esc_attr( $edd_members_exp_unit ), false ); ?>><?php _e( 'Years', 'edd-members' );  ?></option>
+			<option value="days"   <?php echo selected( 'days',   esc_attr( $edd_members_exp_unit ), false ); ?>><?php esc_html_e( 'Days', 'edd-members' );   ?></option>
+			<option value="weeks"  <?php echo selected( 'weeks',  esc_attr( $edd_members_exp_unit ), false ); ?>><?php esc_html_e( 'Weeks', 'edd-members' );  ?></option>
+			<option value="months" <?php echo selected( 'months', esc_attr( $edd_members_exp_unit ), false ); ?>><?php esc_html_e( 'Months', 'edd-members' ); ?></option>
+			<option value="years"  <?php echo selected( 'years',  esc_attr( $edd_members_exp_unit ), false ); ?>><?php esc_html_e( 'Years', 'edd-members' );  ?></option>
 		</select>
 	</td>
 <?php

@@ -3,7 +3,7 @@
  * Plugin Name:     EDD Members
  * Plugin URI:      https://foxland.fi/downloads/edd-members
  * Description:     Create membership site with EDD Members. 
- * Version:         1.0.3
+ * Version:         1.1.0
  * Author:          Sami Keijonen
  * Author URI:      https://foxland.fi
  * Text Domain:     edd-members
@@ -73,7 +73,7 @@ if( !class_exists( 'EDD_Members' ) ) {
 		private function setup_constants() {
 			
 			// Plugin version
-			define( 'EDD_MEMBERS_VER', '1.0.3' );
+			define( 'EDD_MEMBERS_VER', '1.1.0' );
 
 			// Plugin path
 			define( 'EDD_MEMBERS_DIR', plugin_dir_path( __FILE__ ) );
@@ -161,61 +161,61 @@ if( !class_exists( 'EDD_Members' ) ) {
 			$edd_members_settings = array(
 				array(
 					'id'          => 'edd_members_settings',
-					'name'        => '<strong>' . __( 'EDD Members Settings', 'edd-members' ) . '</strong>',
-					'desc'        => __( 'Configure EDD Members Settings', 'edd-members' ),
+					'name'        => '<strong>' . esc_html__( 'EDD Members Settings', 'edd-members' ) . '</strong>',
+					'desc'        => esc_html__( 'Configure EDD Members Settings', 'edd-members' ),
 					'type'        => 'header',
 				),
 				array(
 					'id'          => 'edd_members_private_post_type',
-					'name'        => __( 'Private content', 'edd-members' ),
-					'desc'        => __( 'Select which post type content you want to have private. Note! Only singular views will be private.', 'edd-members' ),
+					'name'        => esc_html__( 'Private content', 'edd-members' ),
+					'desc'        => esc_html__( 'Select which post type content you want to have private. Note! Only singular views will be private.', 'edd-members' ),
 					'type'        => 'multicheck',
 					'options'     => edd_members_get_public_post_types()
 				),
 				array(
 					'id'          => 'edd_members_private_comments',
-					'name'        => __( 'Private comments', 'edd-members' ),
-					'desc'        => __( 'Check this if you want to set comments private for above selected content.', 'edd-members' ),
+					'name'        => esc_html__( 'Private comments', 'edd-members' ),
+					'desc'        => esc_html__( 'Check this if you want to set comments private for above selected content.', 'edd-members' ),
 					'type'        => 'checkbox'
 				),
 				array(
 					'id'          => 'edd_members_private_feed',
-					'name'        => __( 'Private feed', 'edd-members' ),
-					'desc'        => __( 'Check this if you want to set all feeds private.', 'edd-members' ),
+					'name'        => esc_html__( 'Private feed', 'edd-members' ),
+					'desc'        => esc_html__( 'Check this if you want to set all feeds private.', 'edd-members' ),
 					'type'        => 'checkbox'
 				),
 				array(
 					'id'          => 'edd_members_settings_private_label_logged_out',
-					'name'        => __( 'Private Label logged out', 'edd-members' ),
-					'desc'        => __( 'Enter the text for private content when user is logged out.', 'edd-members' ),
+					'name'        => esc_html__( 'Private Label logged out', 'edd-members' ),
+					'desc'        => esc_html__( 'Enter the text for private content when user is logged out.', 'edd-members' ),
 					'type'        => 'rich_editor',
 					'size'        => 15,
-					'std'         => __( 'This content is for members only.', 'edd-members' )
+					'std'         => esc_html__( 'This content is for members only.', 'edd-members' )
 				),
 				array(
 					'id'          => 'edd_members_settings_private_label_logged_in',
-					'name'        => __( 'Private Label logged in', 'edd-members' ),
-					'desc'        => __( 'Enter the text for private content when user is logged in.', 'edd-members' ),
+					'name'        => esc_html__( 'Private Label logged in', 'edd-members' ),
+					'desc'        => esc_html__( 'Enter the text for private content when user is logged in.', 'edd-members' ),
 					'type'        => 'rich_editor',
 					'size'        => 15,
-					'std'         => __( 'This content is for members only. Your membership have probably expired.', 'edd-members' )
+					'std'         => esc_html__( 'This content is for members only. Your membership have probably expired.', 'edd-members' )
 				),
 				array(
 					'id'          => 'edd_members_show_login_form',
-					'name'        => __( 'Login form', 'edd-members' ),
-					'desc'        => __( 'Check this box if you want to show login form for logged out users.', 'edd-members' ),
+					'name'        => esc_html__( 'Login form', 'edd-members' ),
+					'desc'        => esc_html__( 'Check this box if you want to show login form for logged out users.', 'edd-members' ),
 					'type'        => 'checkbox'
 				),
 				array(
 					'id'          => 'edd_members_send_renewal_reminders',
-					'name'        => __( 'Send Renewal Reminders', 'edd-members' ),
-					'desc'        => __( 'Check this box if you want customers to receive a renewal reminder when their membership is about to expire.', 'edd-members' ),
+					'name'        => esc_html__( 'Send Renewal Reminders', 'edd-members' ),
+					'desc'        => esc_html__( 'Check this box if you want customers to receive a renewal reminder when their membership is about to expire.', 'edd-members' ),
 					'type'        => 'checkbox'
 				),
 				array(
 					'id'          => 'members_renewal_notices', // EDD adds prefix 'edd_' in hook type
-					'name'        => __( 'Renewal Notices', 'edd-members' ),
-					'desc'        => __( 'Configure the renewal notice emails.', 'edd-members' ),
+					'name'        => esc_html__( 'Renewal Notices', 'edd-members' ),
+					'desc'        => esc_html__( 'Configure the renewal notice emails.', 'edd-members' ),
 					'type'        => 'hook'
 				)
 			);
@@ -224,8 +224,8 @@ if( !class_exists( 'EDD_Members' ) ) {
 			if( class_exists( 'EDD_Recurring' ) ) {
 				$edd_members_settings[2] = array(
 					'id'      => 'edd_members_rc_all_active_only',
-					'name'    => __( 'Active Subscribers Only?', 'edd-members' ),
-					'desc'    => __( 'Check this if you want to show content only for active subscribers which are set in EDD Recurring Payments Plugin.', 'edd-members' ),
+					'name'    => esc_html__( 'Active Subscribers Only?', 'edd-members' ),
+					'desc'    => esc_html__( 'Check this if you want to show content only for active subscribers which are set in EDD Recurring Payments Plugin.', 'edd-members' ),
 					'type'    => 'checkbox',
 				);
 			}

@@ -18,22 +18,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<h2><?php _e( 'Add Renewal Notice', 'edd-members' ); ?> - <a href="<?php echo admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ); ?>" class="add-new-h2"><?php _e( 'Go Back', 'edd-members' ); ?></a></h2>
+<h2><?php esc_html_e( 'Add Renewal Notice', 'edd-members' ); ?> - <a href="<?php echo admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ); ?>" class="add-new-h2"><?php esc_html_e( 'Go Back', 'edd-members' ); ?></a></h2>
 <form id="edd-add-renewal-notice" action="" method="post">
 	<table class="form-table">
 		<tbody>
 			<tr>
 				<th scope="row" valign="top">
-					<label for="edd-notice-subject"><?php _e( 'Email Subject', 'edd-members' ); ?></label>
+					<label for="edd-notice-subject"><?php esc_html_e( 'Email Subject', 'edd-members' ); ?></label>
 				</th>
 				<td>
 					<input name="subject" id="edd-notice-subject" type="text" value="" style="width: 300px;"/>
-					<p class="description"><?php _e( 'The subject line of the renewal notice email', 'edd-members' ); ?></p>
+					<p class="description"><?php esc_html_e( 'The subject line of the renewal notice email', 'edd-members' ); ?></p>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row" valign="top">
-					<label for="edd-notice-period"><?php _e( 'Email Subject', 'edd-members' ); ?></label>
+					<label for="edd-notice-period"><?php esc_html_e( 'Email Subject', 'edd-members' ); ?></label>
 				</th>
 				<td>
 					<select name="period" id="edd-notice-period">
@@ -41,19 +41,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<option value="<?php echo esc_attr( $period ); ?>"><?php echo esc_html( $label ); ?></option>
 						<?php endforeach; ?>
 					</select>
-					<p class="description"><?php _e( 'When should this email be sent?', 'edd-members' ); ?></p>
+					<p class="description"><?php esc_html_e( 'When should this email be sent?', 'edd-members' ); ?></p>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row" valign="top">
-					<label for="edd-notice-message"><?php _e( 'Email Subject', 'edd-members' ); ?></label>
+					<label for="edd-notice-message"><?php esc_html_e( 'Email Subject', 'edd-members' ); ?></label>
 				</th>
 				<td>
 					<?php wp_editor( '', 'message', array( 'textarea_name' => 'message' ) ); ?>
-					<p class="description"><?php _e( 'The email message to be sent with the renewal notice. The following template tags can be used in the message:', 'edd-members' ); ?></p>
+					<p class="description"><?php esc_html_e( 'The email message to be sent with the renewal notice. The following template tags can be used in the message:', 'edd-members' ); ?></p>
 					<ul>
-						<li>{name} <?php _e( 'The customer\'s name', 'edd-members' ); ?></li>
-						<li>{edd_members_expiration} <?php _e( 'User expiration date', 'edd-members' ); ?></li>
+						<li>{name} <?php esc_html_e( 'The customer\'s name', 'edd-members' ); ?></li>
+						<li>{edd_members_expiration} <?php esc_html_e( 'User expiration date', 'edd-members' ); ?></li>
 					</ul>
 				</td>
 			</tr>

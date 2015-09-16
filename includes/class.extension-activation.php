@@ -47,7 +47,7 @@ class EDD_Extension_Activation {
 		if( isset( $plugins[$this->plugin_path . '/' . $this->plugin_file]['Name'] ) ) {
 			$this->plugin_name = str_replace( 'Easy Digital Downloads - ', '', $plugins[$this->plugin_path . '/' . $this->plugin_file]['Name'] );
 		} else {
-			$this->plugin_name = __( 'EDD Members', 'edd-members' );
+			$this->plugin_name = esc_html__( 'EDD Members', 'edd-members' );
 		}
 
 		// Is EDD installed?
@@ -84,9 +84,9 @@ class EDD_Extension_Activation {
 	 */
 	public function edd_members_missing_edd_notice() {
 		if( $this->has_edd ) {
-			echo '<div class="error"><p>' . $this->plugin_name . ' ' . __( 'requires Easy Digital Downloads! Please activate it to continue!', 'edd-members' ) . '</p></div>';
+			echo '<div class="error"><p>' . $this->plugin_name . ' ' . esc_html__( 'requires Easy Digital Downloads! Please activate it to continue!', 'edd-members' ) . '</p></div>';
 		} else {
-			echo '<div class="error"><p>' . $this->plugin_name . ' ' . __( 'requires Easy Digital Downloads! Please install it to continue!', 'edd-members' ) . '</p></div>';
+			echo '<div class="error"><p>' . $this->plugin_name . ' ' . esc_html__( 'requires Easy Digital Downloads! Please install it to continue!', 'edd-members' ) . '</p></div>';
 		}
 	}
 }

@@ -27,9 +27,9 @@ function edd_members_renewal_notices_settings( $args ) {
 	<table id="edd_members_renewal_notices" class="wp-list-table widefat fixed posts">
 		<thead>
 			<tr>
-				<th style="width:350%; padding-left: 10px;" scope="col"><?php _e( 'Subject', 'edd-members' ); ?></th>
-				<th style="width:350%; padding-left: 10px;" scope="col"><?php _e( 'Send Period', 'edd-members' ); ?></th>
-				<th scope="col" style="padding-left: 10px;"><?php _e( 'Actions', 'edd-members' ); ?></th>
+				<th style="width:350%; padding-left: 10px;" scope="col"><?php esc_html_e( 'Subject', 'edd-members' ); ?></th>
+				<th style="width:350%; padding-left: 10px;" scope="col"><?php esc_html_e( 'Send Period', 'edd-members' ); ?></th>
+				<th scope="col" style="padding-left: 10px;"><?php esc_html_e( 'Actions', 'edd-members' ); ?></th>
 			</tr>
 		</thead>
 		<?php if( ! empty( $notices ) ) : $i = 1; ?>
@@ -38,15 +38,15 @@ function edd_members_renewal_notices_settings( $args ) {
 				<td><?php echo esc_html( $notice['subject'] ); ?></td>
 				<td><?php echo esc_html( edd_members_get_renewal_notice_period_label( $key ) ); ?></td>
 				<td>
-					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_members_action=edit-renewal-notice&notice=' . $key ) ); ?>" class="edd-members-edit-renewal-notice" data-key="<?php echo esc_attr( $key ); ?>"><?php _e( 'Edit', 'edd-members' ); ?></a>&nbsp;|
-					<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_action=delete_renewal_notice&notice-id=' . $key ) ) ); ?>" class="edd-delete"><?php _e( 'Delete', 'edd-members' ); ?></a>
+					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_members_action=edit-renewal-notice&notice=' . $key ) ); ?>" class="edd-members-edit-renewal-notice" data-key="<?php echo esc_attr( $key ); ?>"><?php esc_html_e( 'Edit', 'edd-members' ); ?></a>&nbsp;|
+					<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_action=delete_renewal_notice&notice-id=' . $key ) ) ); ?>" class="edd-delete"><?php esc_html_e( 'Delete', 'edd-members' ); ?></a>
 				</td>
 			</tr>
 			<?php $i++; endforeach; ?>
 		<?php endif; ?>
 	</table>
 	<p>
-		<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_members_action=add-renewal-notice' ) ); ?>" class="button-secondary" id="edd_members_add_renewal_notice"><?php _e( 'Add Renewal Notice', 'edd-members' ); ?></a>
+		<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_members_action=add-renewal-notice' ) ); ?>" class="button-secondary" id="edd_members_add_renewal_notice"><?php esc_html_e( 'Add Renewal Notice', 'edd-members' ); ?></a>
 	</p>
 	<?php
 	echo ob_get_clean();
@@ -93,7 +93,7 @@ function edd_members_process_add_renewal_notice( $data ) {
 		wp_die( __( 'Nonce verification failed', 'edd-members' ) );
 	}
 
-	$subject = isset( $data['subject'] ) ? sanitize_text_field( $data['subject'] ) : __( 'Your membership is about to expire', 'edd-members' );
+	$subject = isset( $data['subject'] ) ? sanitize_text_field( $data['subject'] ) : esc_html__( 'Your membership is about to expire', 'edd-members' );
 	$period  = isset( $data['period'] )  ? sanitize_text_field( $data['period'] )  : '+1week';
 	$message = isset( $data['message'] ) ? wp_kses( $data['message'], wp_kses_allowed_html( 'post' ) ) : false;
 
@@ -136,18 +136,18 @@ function edd_members_process_update_renewal_notice( $data ) {
 	}
 
 	if( ! current_user_can( 'manage_shop_settings' ) ) {
-		wp_die( __( 'You do not have permission to add renewal notices', 'edd-members' ) );
+		wp_die( esc_html__( 'You do not have permission to add renewal notices', 'edd-members' ) );
 	}
 
 	if( ! wp_verify_nonce( $data['edd-members-renewal-notice-nonce'], 'edd_members_renewal_nonce' ) ) {
-		wp_die( __( 'Nonce verification failed', 'edd-members' ) );
+		wp_die( esc_html__( 'Nonce verification failed', 'edd-members' ) );
 	}
 
 	if( ! isset( $data['notice-id'] ) ) {
-		wp_die( __( 'No renewal notice ID was provided', 'edd-members' ) );
+		wp_die( esc_html__( 'No renewal notice ID was provided', 'edd-members' ) );
 	}
 
-	$subject = isset( $data['subject'] ) ? sanitize_text_field( $data['subject'] ) : __( 'Your membership is about to expire', 'edd-members' );
+	$subject = isset( $data['subject'] ) ? sanitize_text_field( $data['subject'] ) : esc_html__( 'Your membership is about to expire', 'edd-members' );
 	$period  = isset( $data['period'] )  ? sanitize_text_field( $data['period'] )  : '+1week';
 	$message = isset( $data['message'] ) ? wp_kses( $data['message'], wp_kses_allowed_html( 'post' ) ) : false;
 
@@ -190,15 +190,15 @@ function edd_members_process_delete_renewal_notice( $data ) {
 	}
 
 	if( ! current_user_can( 'manage_shop_settings' ) ) {
-		wp_die( __( 'You do not have permission to add renewal notices', 'edd-members' ) );
+		wp_die( esc_html__( 'You do not have permission to add renewal notices', 'edd-members' ) );
 	}
 
 	if( ! wp_verify_nonce( $data['_wpnonce'] ) ) {
-		wp_die( __( 'Nonce verification failed', 'edd-members' ) );
+		wp_die( esc_html__( 'Nonce verification failed', 'edd-members' ) );
 	}
 
 	if( empty( $data['notice-id'] ) ) {
-		wp_die( __( 'No renewal notice ID was provided', 'edd-members' ) );
+		wp_die( esc_html__( 'No renewal notice ID was provided', 'edd-members' ) );
 	}
 
 	$notices = edd_members_get_renewal_notices();
@@ -220,7 +220,7 @@ add_action( 'edd_delete_renewal_notice', 'edd_members_process_delete_renewal_not
 */
 function edd_members_add_renewal_page() {
 
-	$edd_members_renewal_page = add_submenu_page( 'edit.php?post_type=download', __( 'Membership Renewal Notice', 'edd-members' ), __( 'Membership Renewal Notice', 'edd-members' ), 'manage_shop_settings', 'edd-members-renewal-notice', 'edd_members_renewal_notice_edit' );
+	$edd_members_renewal_page = add_submenu_page( 'edit.php?post_type=download', esc_html__( 'Membership Renewal Notice', 'edd-members' ), __( 'Membership Renewal Notice', 'edd-members' ), 'manage_shop_settings', 'edd-members-renewal-notice', 'edd_members_renewal_notice_edit' );
 
 	add_action( 'admin_head', 'edd_members_hide_renewal_notice_page' );
 }

@@ -18,8 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array $columns
  */
 function edd_members_expire_date_column( $columns ) {
-	$columns['expire_date']   = __( 'Expire Date', 'edd-members' );
-	$columns['expire_status'] = __( 'Status', 'edd-members' );
+	$columns['expire_date']   = esc_html__( 'Expire Date', 'edd-members' );
+	$columns['expire_status'] = esc_html__( 'Status', 'edd-members' );
 	return $columns;
 }
 add_filter( 'manage_users_columns', 'edd_members_expire_date_column' );
@@ -48,11 +48,11 @@ function edd_members_add_custom_columns( $value, $column_name, $user_id ) {
 		
 		// Set membership status
 		if ( empty( $expire_date ) ) {
-			$expire_status = __( 'Unknown', 'edd-members' );
+			$expire_status = esc_html__( 'Unknown', 'edd-members' );
 		} elseif( edd_members_is_membership_valid( $user_id ) ) {
-			$expire_status = __( 'Active', 'edd-members' );
+			$expire_status = esc_html__( 'Active', 'edd-members' );
 		} else {
-			$expire_status = __( 'Expired', 'edd-members' );
+			$expire_status = esc_html__( 'Expired', 'edd-members' );
 		}
 		
 		$value = $expire_status;
@@ -112,17 +112,17 @@ function edd_members_expire_date_profile_field( $user ) {
 	$expire_date = edd_members_get_unix_expire_date( $user->ID );
 	?>
 
-	<h3><?php _e( 'Membership expire date', 'edd-members' ); ?></h3>
+	<h3><?php esc_html_e( 'Membership expire date', 'edd-members' ); ?></h3>
 
 	<table class="form-table">
 
 		<tr>
-			<th><label for="edd_members_exprire_date"><?php _e( 'Expire date', 'edd-members' ); ?></label></th>
+			<th><label for="edd_members_exprire_date"><?php esc_html_e( 'Expire date', 'edd-members' ); ?></label></th>
 
 			<td>
 				<?php if ( current_user_can( 'edd_members_edit_user' ) || current_user_can( 'manage_shop_settings' ) ) { // Only users with 'edd_members_edit_user' or 'manage_shop_settings' cap can edit expire date ?>
 					<input type="text" name="edd_members_expiration_date" id="edd_members_exprire_date" value="<?php esc_attr_e( date_i18n( get_option( 'date_format' ), $expire_date ) ); ?>" class="edd_members_datepicker medium-text edd-members-time-date" />
-					<?php _ex( 'at', 'word between date and time', 'edd-members' ); ?>
+					<?php esc_html_ex( 'at', 'word between date and time', 'edd-members' ); ?>
 					<input type="number" step="1" max="24" name="edd_members_expiration_time_hour" value="<?php esc_attr_e( date_i18n( 'H', $expire_date ) ); ?>" class="small-text edd-members-time-hour "/>&nbsp;:
 					<input type="number" step="1" max="59" name="edd_members_expiration_time_min" value="<?php esc_attr_e( date( 'i', $expire_date ) ); ?>" class="small-text edd-members-time-min "/>
 					<p class="description"><?php _e( 'Set expire date and time for membership.', 'edd-members' ); ?></p>

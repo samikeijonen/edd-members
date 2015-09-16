@@ -38,7 +38,7 @@ do_action( 'edd_members_before_private_content' );
 		
 			<?php wp_login_form(); ?>
 			
-			<a href="<?php echo wp_lostpassword_url( esc_url( get_permalink() ) ); ?>"><?php _e( 'Lost password?', 'edd-members' ); ?></a>
+			<a href="<?php echo wp_lostpassword_url( esc_url( get_permalink() ) ); ?>"><?php esc_html_e( 'Lost password?', 'edd-members' ); ?></a>
 		
 		<?php endif; ?>
 		
@@ -48,7 +48,7 @@ do_action( 'edd_members_before_private_content' );
 	
 		<?php do_action( 'edd_members_open_private_content_logged_in' ); ?>
 	
-		<?php $edd_members_settings_private_label_logged_in = edd_get_option( 'edd_members_settings_private_label_logged_in' ) ? edd_get_option( 'edd_members_settings_private_label_logged_in' ) : __( 'This content is for members only. Your membership have probably expired.', 'edd-members' ); ?>
+		<?php $edd_members_settings_private_label_logged_in = edd_get_option( 'edd_members_settings_private_label_logged_in' ) ? edd_get_option( 'edd_members_settings_private_label_logged_in' ) : esc_html__( 'This content is for members only. Your membership have probably expired.', 'edd-members' ); ?>
 		<?php echo apply_filters( 'edd_members_the_content', wp_kses_post( $edd_members_settings_private_label_logged_in ) ); ?>
 		
 		<?php do_action( 'edd_members_close_private_content_logged_in' ); ?>
