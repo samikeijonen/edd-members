@@ -122,7 +122,7 @@ function edd_members_expire_date_profile_field( $user ) {
 			<td>
 				<?php if ( current_user_can( 'edd_members_edit_user' ) || current_user_can( 'manage_shop_settings' ) ) { // Only users with 'edd_members_edit_user' or 'manage_shop_settings' cap can edit expire date ?>
 					<input type="text" name="edd_members_expiration_date" id="edd_members_exprire_date" value="<?php esc_attr_e( date_i18n( get_option( 'date_format' ), $expire_date ) ); ?>" class="edd_members_datepicker medium-text edd-members-time-date" />
-					<?php esc_html_ex( 'at', 'word between date and time', 'edd-members' ); ?>
+					<?php echo esc_html_x( 'at', 'word between date and time', 'edd-members' ); ?>
 					<input type="number" step="1" max="24" name="edd_members_expiration_time_hour" value="<?php esc_attr_e( date_i18n( 'H', $expire_date ) ); ?>" class="small-text edd-members-time-hour "/>&nbsp;:
 					<input type="number" step="1" max="59" name="edd_members_expiration_time_min" value="<?php esc_attr_e( date( 'i', $expire_date ) ); ?>" class="small-text edd-members-time-min "/>
 					<p class="description"><?php _e( 'Set expire date and time for membership.', 'edd-members' ); ?></p>
