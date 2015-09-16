@@ -39,7 +39,8 @@ add_shortcode( 'edd_members_expire_date', 'edd_members_expire_date_shortcode' );
 function edd_members_only_shortcode( $atts, $content = null ) {
 	
 	$atts = shortcode_atts( array(
-		'message' => null
+		'message'    => null,
+		'login-form' => false,
 	), $atts );
 	
 	// Is membership valid
@@ -49,10 +50,10 @@ function edd_members_only_shortcode( $atts, $content = null ) {
 		$content = do_shortcode( $content );
 	} elseif( ! is_null( $atts['message'] ) ) {
 		$content = '<div class="edd-members-private-message edd-members-private-shortcode">' . wpautop( ( $atts['message'] ) ) . '</div>';
-	} elseif( is_user_logged_in() ) {
-		$content = '<div class="edd-members-private-message edd-members-private-shortcode">' . apply_filters( 'edd_members_the_content', wp_kses_post( edd_get_option( 'edd_members_settings_private_label_logged_in' ) ) ) . '</div>';
 	} else {
-		$content = '<div class="edd-members-private-message edd-members-private-shortcode">' . apply_filters( 'edd_members_the_content', wp_kses_post( edd_get_option( 'edd_members_settings_private_label_logged_out' ) ) ) . '</div>';
+		ob_start();
+			$content = edd_get_template_part( 'content', 'private' );
+		return ob_get_clean();
 	}
 	
 	return $content;
