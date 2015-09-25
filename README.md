@@ -37,6 +37,10 @@ Plugin resources are licensed under the [GNU GPL](http://www.gnu.org/licenses/ol
 
 ## Changelog
 
+### Version 1.1.1 - September 25, 2015
+
+* Fix undefined notices and warnings in profile page by checking do we have expire date or not.
+
 ### Version 1.1.0 - September 16, 2015
 
 * edd_members_only shortcode now outputs the same as private page if you leave message attribute empty.
