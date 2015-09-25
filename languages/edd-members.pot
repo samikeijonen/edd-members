@@ -190,7 +190,7 @@ msgstr ""
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:346 includes/user-meta.php:51
+#: includes/functions.php:346 includes/user-meta.php:52
 msgid "Unknown"
 msgstr ""
 
@@ -338,31 +338,31 @@ msgstr ""
 msgid "Membership Renewal Notice"
 msgstr ""
 
-#: includes/user-meta.php:21
+#: includes/user-meta.php:22
 msgid "Expire Date"
 msgstr ""
 
-#: includes/user-meta.php:22
+#: includes/user-meta.php:23
 msgid "Status"
 msgstr ""
 
-#: includes/user-meta.php:53
+#: includes/user-meta.php:54
 msgid "Active"
 msgstr ""
 
-#: includes/user-meta.php:55
+#: includes/user-meta.php:56
 msgid "Expired"
 msgstr ""
 
-#: includes/user-meta.php:115
+#: includes/user-meta.php:118
 msgid "Membership expire date"
 msgstr ""
 
-#: includes/user-meta.php:120
+#: includes/user-meta.php:123
 msgid "Expire date"
 msgstr ""
 
-#: includes/user-meta.php:128
+#: includes/user-meta.php:131
 msgid "Set expire date and time for membership."
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr ""
 msgid "https://foxland.fi"
 msgstr ""
 
-#: includes/functions.php:342 includes/user-meta.php:125
+#: includes/functions.php:342 includes/user-meta.php:128
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""
