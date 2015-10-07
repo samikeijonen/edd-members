@@ -101,3 +101,28 @@ function edd_members_drip_shortcode( $atts, $content = null ) {
 	return $content;
 }
 add_shortcode( 'edd_members_drip', 'edd_members_drip_shortcode' );
+
+/**
+ * Add edd_members_name shortcode for displaying name or any other author meta.
+ *
+ * @since  1.1.2
+ * @param  array $atts The attributes to pass to the shortcode
+ * @param  string $content The content of the shortcode
+ * @return string $content The data to return for the shortcode
+ */
+function edd_members_name_shortcode( $atts, $content = null ) {
+	
+	$atts = shortcode_atts( array(
+		'field'       => 'display_name',
+	), $atts );
+	
+	// Bail if user is not logged in
+	if ( ! is_user_logged_in() ) {
+		return;
+	}
+	
+	// Return current user name or any other author meta when using field attribute
+	return get_the_author_meta( esc_attr( $atts['field'] ), get_current_user_id() );
+	
+}
+add_shortcode( 'edd_members_name', 'edd_members_name_shortcode' );
