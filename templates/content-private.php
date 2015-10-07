@@ -30,6 +30,7 @@ do_action( 'edd_members_before_private_content' );
 		$edd_members_show_login_form = edd_get_option( 'edd_members_show_login_form' );
 		
 		// Do not show login form in bbPress content
+		$edd_members_is_bbpress = false;
 		if( function_exists( 'is_bbpress' ) ) :
 			$edd_members_is_bbpress = is_bbpress();
 		endif;
