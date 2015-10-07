@@ -17,10 +17,24 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since  1.0.0
  * @return void
  */
-function edd_members_expire_date_shortcode() {
+function edd_members_expire_date_shortcode( $atts ) {
+	
+	$atts = shortcode_atts( array(
+		'unknown_text' => null,
+	), $atts );
 	
 	if ( false != edd_members_get_expire_date() && is_user_logged_in() ) {
-		return edd_members_get_expire_date();
+		
+		// Get expire date
+		$expire_date = edd_members_get_unix_expire_date( $user_id = get_current_user_id() );
+		
+		// Set custom "Unknown" text for shortcode. Otherwise return expire date.
+		if ( empty( $expire_date ) && ! is_null( $atts['unknown_text'] ) ) {
+			return esc_html( $atts['unknown_text'] );
+		} else {
+			return edd_members_get_expire_date();
+		}
+		
 	}
 	
 	return '';
