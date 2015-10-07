@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the EDD Members package.
 msgid ""
 msgstr ""
-"Project-Id-Version: EDD Members 1.1.0\n"
+"Project-Id-Version: EDD Members 1.1.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Enter the text for private content when user is logged in."
 msgstr ""
 
-#: edd-members.php:201 templates/content-private.php:51
+#: edd-members.php:201 templates/content-private.php:52
 msgid "This content is for members only. Your membership have probably expired."
 msgstr ""
 
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Set expire date and time for membership."
 msgstr ""
 
-#: templates/content-private.php:41
+#: templates/content-private.php:42
 msgid "Lost password?"
 msgstr ""
 
