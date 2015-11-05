@@ -67,7 +67,7 @@ $notice    = edd_members_get_renewal_notice( $notice_id );
 		</tbody>
 	</table>
 	<p class="submit">
-		<input type="hidden" name="edd-action" value="edit_renewal_notice"/>
+		<input type="hidden" name="edd-action" value="members_edit_renewal_notice"/>
 		<input type="hidden" name="notice-id" value="<?php echo esc_attr( $notice_id ); ?>"/>
 		<input type="hidden" name="edd-members-renewal-notice-nonce" value="<?php echo wp_create_nonce( 'edd_members_renewal_nonce' ); ?>"/>
 		<input type="submit" value="<?php esc_html_e( 'Update Renewal Notice', 'edd-members' ); ?>" class="button-primary"/>

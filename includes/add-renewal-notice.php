@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tbody>
 	</table>
 	<p class="submit">
-		<input type="hidden" name="edd-action" value="add_renewal_notice"/>
+		<input type="hidden" name="edd-action" value="members_add_renewal_notice"/>
 		<input type="hidden" name="edd-members-renewal-notice-nonce" value="<?php echo wp_create_nonce( 'edd_members_renewal_nonce' ); ?>"/>
 		<input type="submit" value="<?php _e( 'Add Renewal Notice', 'edd-members' ); ?>" class="button-primary"/>
 	</p>

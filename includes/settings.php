@@ -39,7 +39,7 @@ function edd_members_renewal_notices_settings( $args ) {
 				<td><?php echo esc_html( edd_members_get_renewal_notice_period_label( $key ) ); ?></td>
 				<td>
 					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_members_action=edit-renewal-notice&notice=' . $key ) ); ?>" class="edd-members-edit-renewal-notice" data-key="<?php echo esc_attr( $key ); ?>"><?php esc_html_e( 'Edit', 'edd-members' ); ?></a>&nbsp;|
-					<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_action=delete_renewal_notice&notice-id=' . $key ) ) ); ?>" class="edd-delete"><?php esc_html_e( 'Delete', 'edd-members' ); ?></a>
+					<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'edit.php?post_type=download&page=edd-members-renewal-notice&edd_action=members_delete_renewal_notice&notice-id=' . $key ) ) ); ?>" class="edd-delete"><?php esc_html_e( 'Delete', 'edd-members' ); ?></a>
 				</td>
 			</tr>
 			<?php $i++; endforeach; ?>
@@ -120,7 +120,7 @@ Renew now: {renewal_link}.';
 	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ); exit;
 
 }
-add_action( 'edd_add_renewal_notice', 'edd_members_process_add_renewal_notice' );
+add_action( 'edd_members_add_renewal_notice', 'edd_members_process_add_renewal_notice' );
 
 /**
  * Processes the update of an existing renewal notice
@@ -174,7 +174,7 @@ Renew now: {renewal_link}.';
 	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ); exit;
 
 }
-add_action( 'edd_edit_renewal_notice', 'edd_members_process_update_renewal_notice' );
+add_action( 'edd_members_edit_renewal_notice', 'edd_members_process_update_renewal_notice' );
 
 /**
  * Processes the deletion of an existing renewal notice
@@ -209,7 +209,7 @@ function edd_members_process_delete_renewal_notice( $data ) {
 	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ); exit;
 
 }
-add_action( 'edd_delete_renewal_notice', 'edd_members_process_delete_renewal_notice' );
+add_action( 'edd_members_delete_renewal_notice', 'edd_members_process_delete_renewal_notice' );
 
 /**
  * Add renewal admin submenu page
