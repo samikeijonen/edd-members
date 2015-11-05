@@ -37,10 +37,14 @@ Plugin resources are licensed under the [GNU GPL](http://www.gnu.org/licenses/ol
 
 ## Changelog
 
+### Version 1.1.3 - November 5, 2015
+
+* Update edd action hooks because they might conflict with other add-ons.
+
 ### Version 1.1.2 - October 7, 2015
 
-* Add `unknown_text` attribute to `[edd_members_expire_date]` shorcode. By default shorcode returns `Unknown` text if there is no expire date. You can overwrite default text like this: `[edd_members_expire_date unknown_text="Unfortunately your expire date is unknown."]` 
-* Add `[edd_members_name]` shorcode. By default it shows user's display name. It accecpt `field` attribute and can be like `field="first_name"`.
+* Add `unknown_text` attribute to `[edd_members_expire_date]` shortcode. By default shortcode returns `Unknown` text if there is no expire date. You can overwrite default text like this: `[edd_members_expire_date unknown_text="Unfortunately your expire date is unknown."]` 
+* Add `[edd_members_name]` shortcode. By default it shows user's display name. It accepts `field` attribute and can be like `field="first_name"`.
 * Fix undefined notice when bbPress isn't activated.
 
 ### Version 1.1.1 - September 25, 2015
