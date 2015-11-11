@@ -37,6 +37,12 @@ Plugin resources are licensed under the [GNU GPL](http://www.gnu.org/licenses/ol
 
 ## Changelog
 
+### Version 1.1.4 - November 11, 2015
+
+* Fix headers already sent warning. There was extra marks in the beginning of the user-meta.php file.
+
+* Update edd action hooks because they might conflict with other add-ons.
+
 ### Version 1.1.3 - November 5, 2015
 
 * Update edd action hooks because they might conflict with other add-ons.
