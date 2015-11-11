@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Add user meta related functions
