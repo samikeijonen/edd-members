@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the EDD Members package.
 msgid ""
 msgstr ""
-"Project-Id-Version: EDD Members 1.1.3\n"
+"Project-Id-Version: EDD Members 1.1.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
 "MIME-Version: 1.0\n"
@@ -190,7 +190,7 @@ msgstr ""
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:346 includes/user-meta.php:52
+#: includes/functions.php:346 includes/user-meta.php:51
 msgid "Unknown"
 msgstr ""
 
@@ -338,31 +338,31 @@ msgstr ""
 msgid "Membership Renewal Notice"
 msgstr ""
 
-#: includes/user-meta.php:22
+#: includes/user-meta.php:21
 msgid "Expire Date"
 msgstr ""
 
-#: includes/user-meta.php:23
+#: includes/user-meta.php:22
 msgid "Status"
 msgstr ""
 
-#: includes/user-meta.php:54
+#: includes/user-meta.php:53
 msgid "Active"
 msgstr ""
 
-#: includes/user-meta.php:56
+#: includes/user-meta.php:55
 msgid "Expired"
 msgstr ""
 
-#: includes/user-meta.php:118
+#: includes/user-meta.php:117
 msgid "Membership expire date"
 msgstr ""
 
-#: includes/user-meta.php:123
+#: includes/user-meta.php:122
 msgid "Expire date"
 msgstr ""
 
-#: includes/user-meta.php:131
+#: includes/user-meta.php:130
 msgid "Set expire date and time for membership."
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr ""
 msgid "https://foxland.fi"
 msgstr ""
 
-#: includes/functions.php:342 includes/user-meta.php:128
+#: includes/functions.php:342 includes/user-meta.php:127
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""
