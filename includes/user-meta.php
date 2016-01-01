@@ -44,7 +44,7 @@ function edd_members_add_custom_columns( $value, $column_name, $user_id ) {
 	if( 'expire_status' == $column_name ) {
 		
 		// Get expire date
-		$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
+		$expire_date = get_user_option( '_edd_members_expiration_date', $user_id );
 		
 		// Set membership status
 		if ( empty( $expire_date ) ) {
@@ -164,7 +164,7 @@ function edd_members_save_expire_date_profile_field( $user_id ) {
 	$date_unix_save = strtotime( $date . ' ' . $hour . ':' . $minute . ':00' );
 
 	// Update user meta
-	update_user_meta( $user_id, '_edd_members_expiration_date', $date_unix_save );
+	update_user_option( $user_id, '_edd_members_expiration_date', $date_unix_save );
 	
 }
 add_action( 'personal_options_update', 'edd_members_save_expire_date_profile_field' );

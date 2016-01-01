@@ -220,14 +220,14 @@ function edd_members_add_expire_date( $payment_id = 0 ) {
 	$edd_members_membership_length = max( $edd_members_membership_lengths );
 	
 	// Get current expire date
-	$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
+	$expire_date = get_user_option( '_edd_members_expiration_date', $user_id );
 	
 	/**
-	 * If expire_date is not set (this means new user), add membership length = current_date + support_time.
+	 * If expire_date returns false (this means new user), add membership length = current_date + support_time.
 	 * Else there is expire date already.
 	 */
 	 
-	if ( !isset( $expire_date ) || empty( $expire_date ) ) {
+	if ( false !== $expire_date ) {
 		$expire_date = $edd_members_membership_length;
 	}
 	else {
@@ -299,7 +299,7 @@ function edd_members_set_membership_expiration( $user_id, $expiration ) {
 
 	// $expiration should be a valid time stamp
 	do_action( 'edd_members_pre_set_expiration', $user_id, $expiration );
-	update_user_meta( $user_id, '_edd_members_expiration_date', $expiration );
+	update_user_option( $user_id, '_edd_members_expiration_date', $expiration );
 	do_action( 'edd_members_post_set_expiration', $user_id, $expiration );
 
 }
@@ -318,7 +318,7 @@ function edd_members_get_unix_expire_date( $user_id = 0 ) {
 	}
 		
 	// Get expire date
-	$expire_date = get_the_author_meta( '_edd_members_expiration_date', $user_id );
+	$expire_date = get_user_option( '_edd_members_expiration_date', $user_id );
 		
 	return $expire_date;
 
@@ -373,7 +373,7 @@ function edd_members_is_membership_valid( $user_id = 0 ) {
 	$current_date = current_time( 'timestamp' );
 
 	// Get expire date
-	$expire_date = get_user_meta( $user_id, '_edd_members_expiration_date', true );
+	$expire_date = get_user_option( '_edd_members_expiration_date', $user_id );
 	
 	// Check if user expire date >= current date
 	if ( !empty( $expire_date ) && $expire_date >= $current_date ) {
