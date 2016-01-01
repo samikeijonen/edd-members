@@ -292,14 +292,25 @@ function edd_members_get_membership_length( $price_id = 0, $payment_id = 0, $dow
 /**
  * Set membership length to user meta.
  *
+ * $expiration should be a valid time stamp.
+ *
  * @since  1.0.0
  * @return void
  */
 function edd_members_set_membership_expiration( $user_id, $expiration ) {
 
-	// $expiration should be a valid time stamp
+	// Pre action hook.
 	do_action( 'edd_members_pre_set_expiration', $user_id, $expiration );
-	update_user_option( $user_id, '_edd_members_expiration_date', $expiration );
+	
+	// This will add blog prefix in multisite.
+	if ( is_multisite() ) {
+		update_user_option( $user_id, '_edd_members_expiration_date', $expiration );
+	}
+	
+	// Leave old method for non multisite, for filtering users by expire date and for email reminders.
+	update_user_meta( $user_id, '_edd_members_expiration_date', $expiration );
+	
+	// Post action hook.
 	do_action( 'edd_members_post_set_expiration', $user_id, $expiration );
 
 }
