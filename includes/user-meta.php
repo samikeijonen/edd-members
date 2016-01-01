@@ -72,7 +72,7 @@ add_action( 'manage_users_custom_column', 'edd_members_add_custom_columns', 10, 
  */
 function edd_members_sortable_columns( $columns ) {
 	
-	$columns['expire_date']   = 'expire_date';
+	$columns['expire_date'] = 'expire_date';
 
 	return $columns;
 	
@@ -163,8 +163,13 @@ function edd_members_save_expire_date_profile_field( $user_id ) {
 	// Value saved in unix format
 	$date_unix_save = strtotime( $date . ' ' . $hour . ':' . $minute . ':00' );
 
-	// Update user meta
-	update_user_option( $user_id, '_edd_members_expiration_date', $date_unix_save );
+	// This will add blog prefix in multisite.
+	if ( is_multisite() ) {
+		update_user_option( $user_id, '_edd_members_expiration_date', $date_unix_save );
+	}
+	
+	// Leave old method for non multisite, for filtering users by expire date and for email reminders.
+	update_user_meta( $user_id, '_edd_members_expiration_date', $date_unix_save );
 	
 }
 add_action( 'personal_options_update', 'edd_members_save_expire_date_profile_field' );
