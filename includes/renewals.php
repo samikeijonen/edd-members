@@ -193,11 +193,19 @@ function edd_members_get_expiring_users( $period = '+1week' ) {
 	// Add +1 day (2015-04-17 00:00)
 	$end_date = strtotime( '+1 day', $start_date );
 	
+	// Set meta_key. In multisite it has blog prefix.
+	if ( is_multisite() ) {
+		global $wpdb;
+		$expire_meta_key = $wpdb->get_blog_prefix() . '_edd_members_expiration_date';
+	} else {
+		$expire_meta_key = '_edd_members_expiration_date';
+	}
+	
 	// Compare date values between start and end date, this means one whole day
 	$args = array(
 		'meta_query'      => array(
 			array(
-				'key'     => '_edd_members_expiration_date',
+				'key'     => $expire_meta_key,
 				'value'   =>  array( $start_date, $end_date ),
 				'compare' => 'BETWEEN',
 			),

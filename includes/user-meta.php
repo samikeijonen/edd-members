@@ -87,13 +87,23 @@ add_filter( 'manage_users_sortable_columns', 'edd_members_sortable_columns' );
  */
 function edd_members_sort_by_expiration_date( $query ) {
 	
+	// Bail if we are not in the admin.
 	if( ! is_admin() ) {
 		return;
 	}
 	
+	// Set meta_key. In multisite it has blog prefix.
+	if ( is_multisite() ) {
+		global $wpdb;
+		$expire_meta_key = $wpdb->get_blog_prefix() . '_edd_members_expiration_date';
+	} else {
+		$expire_meta_key = '_edd_members_expiration_date';
+	}
+	
+	// Sort be expire date.
 	if ( 'expire_date' == $query->get( 'orderby' ) ) {
 		$query->set( 'orderby', 'meta_value_num' );
-		$query->set( 'meta_key', '_edd_members_expiration_date' );
+		$query->set( 'meta_key', $expire_meta_key );
 	}
 
 }
