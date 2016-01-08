@@ -137,6 +137,9 @@ if( !class_exists( 'EDD_Members' ) ) {
 		 * @return      void
          */
 		private function hooks() {
+			
+			// Register section for settings
+			add_filter( 'edd_settings_sections_extensions', array( $this, 'settings_sections' ) );
             
 			// Register settings
 			add_filter( 'edd_settings_extensions', array( $this, 'settings' ), 1 );
@@ -145,6 +148,21 @@ if( !class_exists( 'EDD_Members' ) ) {
 			if( class_exists( 'EDD_License' ) ) {
 				$license = new EDD_License( __FILE__, 'EDD Members', EDD_MEMBERS_VER, 'Sami Keijonen', null, 'http://foxland.fi/' );
 			}
+		}
+		
+		/**
+		 * Add section for settings
+		 *
+		 * @access      public
+		 * @since       1.1.5
+		 * @param       array $sections The existing EDD sections array
+		 * @return      array The modified EDD sections array
+		 */
+		public function settings_sections( $sections ) {
+				
+			$sections['edd-members-settings-section'] = esc_html__( 'EDD Members', 'edd-members' );
+			return $sections;
+				
 		}
 
 
@@ -228,6 +246,12 @@ if( !class_exists( 'EDD_Members' ) ) {
 					'desc'    => esc_html__( 'Check this if you want to show content only for active subscribers which are set in EDD Recurring Payments Plugin.', 'edd-members' ),
 					'type'    => 'checkbox',
 				);
+			}
+			
+			// If EDD is at version 2.5 or later use section for settings.
+			if ( version_compare( EDD_VERSION, 2.5, '>=' ) ) {
+				// Use the previously noted array key as an array key again and next your settings
+				$edd_members_settings = array( 'edd-members-settings-section' => $edd_members_settings );
 			}
 
 			return array_merge( $settings, $edd_members_settings );
