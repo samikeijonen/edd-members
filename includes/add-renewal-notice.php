@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<h2><?php esc_html_e( 'Add Renewal Notice', 'edd-members' ); ?> - <a href="<?php echo admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ); ?>" class="add-new-h2"><?php esc_html_e( 'Go Back', 'edd-members' ); ?></a></h2>
+<h2><?php esc_html_e( 'Add Renewal Notice', 'edd-members' ); ?> - <a href="<?php echo admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions&section=edd-members-settings-section' ); ?>" class="add-new-h2"><?php esc_html_e( 'Go Back', 'edd-members' ); ?></a></h2>
 <form id="edd-add-renewal-notice" action="" method="post">
 	<table class="form-table">
 		<tbody>

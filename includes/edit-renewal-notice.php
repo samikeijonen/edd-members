@@ -24,7 +24,7 @@ if ( ! isset( $_GET['notice'] ) || ! is_numeric( $_GET['notice'] ) ) {
 $notice_id = absint( $_GET['notice'] );
 $notice    = edd_members_get_renewal_notice( $notice_id );
 ?>
-<h2><?php esc_html_e( 'Edit Renewal Notice', 'edd-members' ); ?> - <a href="<?php echo admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ); ?>" class="add-new-h2"><?php _e( 'Go Back', 'edd-members' ); ?></a></h2>
+<h2><?php esc_html_e( 'Edit Renewal Notice', 'edd-members' ); ?> - <a href="<?php echo admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions&section=edd-members-settings-section' ); ?>" class="add-new-h2"><?php _e( 'Go Back', 'edd-members' ); ?></a></h2>
 <form id="edd-edit-renewal-notice" action="" method="post">
 	<table class="form-table">
 		<tbody>

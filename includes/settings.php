@@ -117,7 +117,7 @@ Renew now: {renewal_link}.';
 
 	update_option( 'edd_members_renewal_notices', $notices );
 
-	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ); exit;
+	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions&section=edd-members-settings-section' ) ); exit;
 
 }
 add_action( 'edd_members_add_renewal_notice', 'edd_members_process_add_renewal_notice' );
@@ -171,7 +171,7 @@ Renew now: {renewal_link}.';
 
 	update_option( 'edd_members_renewal_notices', $notices );
 
-	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ); exit;
+	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions&section=edd-members-settings-section' ) ); exit;
 
 }
 add_action( 'edd_members_edit_renewal_notice', 'edd_members_process_update_renewal_notice' );
@@ -206,7 +206,7 @@ function edd_members_process_delete_renewal_notice( $data ) {
 
 	update_option( 'edd_members_renewal_notices', $notices );
 
-	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ); exit;
+	wp_redirect( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions&section=edd-members-settings-section' ) ); exit;
 
 }
 add_action( 'edd_members_delete_renewal_notice', 'edd_members_process_delete_renewal_notice' );
