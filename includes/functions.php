@@ -216,42 +216,16 @@ function edd_members_add_expire_date( $payment_id = 0 ) {
 		
 	}
 	
+	// Return if there is no memberships at all in the array.
+	if ( empty( $edd_members_membership_lengths ) ) {
+		return;
+	}
+	
 	// Pick the max value from membership lengths
 	$edd_members_membership_length = max( $edd_members_membership_lengths );
 	
-	// Get current expire date
-	$expire_date = get_user_option( '_edd_members_expiration_date', $user_id );
-	
-	/**
-	 * If expire_date returns false (this means new user), add membership length = current_date + support_time.
-	 * Else there is expire date already.
-	 */
-	 
-	if ( false !== $expire_date ) {
-		$expire_date = $edd_members_membership_length;
-	}
-	else {
-		
-		// if expire_date < current_date, add current_date + support_time
-		if ( $expire_date < strtotime( $current_date ) ) {
-			$expire_date = $edd_members_membership_length;
-		}
-		else {
-			
-			// If future_date < expire_date, don't add anything
-			if ( $edd_members_membership_length < $expire_date ) {
-				$expire_date = $expire_date;
-			}
-			else {
-				$expire_date = $edd_members_membership_length;
-			}
-			
-		}
-		
-	}
-	
-	// Set membership expiration date
-	edd_members_set_membership_expiration( $user_id, $expire_date );
+	// Calculate expire date.
+	edd_members_calculate_expire_date( $user_id, $edd_members_membership_length );
 
 }
 add_action( 'edd_complete_purchase', 'edd_members_add_expire_date' );
@@ -287,6 +261,50 @@ function edd_members_get_membership_length( $price_id = 0, $payment_id = 0, $dow
 	$expiration = '+' . $edd_members_exp_length . ' ' . $edd_members_exp_unit;
 
 	return apply_filters( 'edd_members_membership_length', $expiration, $payment_id, $download_id, $price_id );
+}
+
+/**
+ * Get user expire date in Unix time format.
+ *
+ * @since 1.1.5
+ * @return void
+ */
+function edd_members_calculate_expire_date( $user_id, $edd_members_membership_length ) {
+
+	// Get current expire date
+	$expire_date = get_user_option( '_edd_members_expiration_date', $user_id );
+	
+	/**
+	 * If expire_date returns false (this means new user), add membership length = current_date + support_time.
+	 * Else there is expire date already.
+	 */
+	 
+	if ( false !== $expire_date ) {
+		$expire_date = $edd_members_membership_length;
+	}
+	else {
+		
+		// if expire_date < current_date, add current_date + support_time
+		if ( $expire_date < strtotime( $current_date ) ) {
+			$expire_date = $edd_members_membership_length;
+		}
+		else {
+			
+			// If future_date < expire_date, don't add anything
+			if ( $edd_members_membership_length < $expire_date ) {
+				$expire_date = $expire_date;
+			}
+			else {
+				$expire_date = $edd_members_membership_length;
+			}
+			
+		}
+		
+	}
+	
+	// Set membership expiration date
+	edd_members_set_membership_expiration( $user_id, $expire_date );
+	
 }
 
 /**
