@@ -1,107 +1,111 @@
-# Copyright (C) 2015 Sami Keijonen
+# Copyright (C) 2016 Sami Keijonen
 # This file is distributed under the same license as the EDD Members package.
 msgid ""
 msgstr ""
-"Project-Id-Version: EDD Members 1.1.4\n"
+"Project-Id-Version: EDD Members 1.2.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.0\n"
 
-#: edd-members.php:164
+#. Plugin Name of the plugin/theme
+msgid "EDD Members"
+msgstr ""
+
+#: edd-members.php:182
 msgid "EDD Members Settings"
 msgstr ""
 
-#: edd-members.php:165
+#: edd-members.php:183
 msgid "Configure EDD Members Settings"
 msgstr ""
 
-#: edd-members.php:170
+#: edd-members.php:188
 msgid "Private content"
 msgstr ""
 
-#: edd-members.php:171
+#: edd-members.php:189
 msgid ""
 "Select which post type content you want to have private. Note! Only "
 "singular views will be private."
 msgstr ""
 
-#: edd-members.php:177
+#: edd-members.php:195
 msgid "Private comments"
 msgstr ""
 
-#: edd-members.php:178
+#: edd-members.php:196
 msgid "Check this if you want to set comments private for above selected content."
 msgstr ""
 
-#: edd-members.php:183
+#: edd-members.php:201
 msgid "Private feed"
 msgstr ""
 
-#: edd-members.php:184
+#: edd-members.php:202
 msgid "Check this if you want to set all feeds private."
 msgstr ""
 
-#: edd-members.php:189
+#: edd-members.php:207
 msgid "Private Label logged out"
 msgstr ""
 
-#: edd-members.php:190
+#: edd-members.php:208
 msgid "Enter the text for private content when user is logged out."
 msgstr ""
 
-#: edd-members.php:193 templates/content-private.php:25
+#: edd-members.php:211 templates/content-private.php:25
 msgid "This content is for members only."
 msgstr ""
 
-#: edd-members.php:197
+#: edd-members.php:215
 msgid "Private Label logged in"
 msgstr ""
 
-#: edd-members.php:198
+#: edd-members.php:216
 msgid "Enter the text for private content when user is logged in."
 msgstr ""
 
-#: edd-members.php:201 templates/content-private.php:52
+#: edd-members.php:219 templates/content-private.php:52
 msgid "This content is for members only. Your membership have probably expired."
 msgstr ""
 
-#: edd-members.php:205
+#: edd-members.php:223
 msgid "Login form"
 msgstr ""
 
-#: edd-members.php:206
+#: edd-members.php:224
 msgid "Check this box if you want to show login form for logged out users."
 msgstr ""
 
-#: edd-members.php:211
+#: edd-members.php:229
 msgid "Send Renewal Reminders"
 msgstr ""
 
-#: edd-members.php:212
+#: edd-members.php:230
 msgid ""
 "Check this box if you want customers to receive a renewal reminder when "
 "their membership is about to expire."
 msgstr ""
 
-#: edd-members.php:217
+#: edd-members.php:235
 msgid "Renewal Notices"
 msgstr ""
 
-#: edd-members.php:218
+#: edd-members.php:236
 msgid "Configure the renewal notice emails."
 msgstr ""
 
-#: edd-members.php:227 includes/meta-boxes.php:73
+#: edd-members.php:245 includes/meta-boxes.php:73
 msgid "Active Subscribers Only?"
 msgstr ""
 
-#: edd-members.php:228
+#: edd-members.php:246
 msgid ""
 "Check this if you want to show content only for active subscribers which "
 "are set in EDD Recurring Payments Plugin."
@@ -166,10 +170,6 @@ msgstr ""
 msgid "User expiration date"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "EDD Members"
-msgstr ""
-
 #: includes/class.extension-activation.php:87
 msgid "requires Easy Digital Downloads! Please activate it to continue!"
 msgstr ""
@@ -190,7 +190,7 @@ msgstr ""
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:346 includes/user-meta.php:51
+#: includes/functions.php:375 includes/user-meta.php:51
 msgid "Unknown"
 msgstr ""
 
@@ -354,15 +354,15 @@ msgstr ""
 msgid "Expired"
 msgstr ""
 
-#: includes/user-meta.php:117
+#: includes/user-meta.php:127
 msgid "Membership expire date"
 msgstr ""
 
-#: includes/user-meta.php:122
+#: includes/user-meta.php:132
 msgid "Expire date"
 msgstr ""
 
-#: includes/user-meta.php:130
+#: includes/user-meta.php:140
 msgid "Set expire date and time for membership."
 msgstr ""
 
@@ -371,7 +371,7 @@ msgid "Lost password?"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://foxland.fi/downloads/edd-members"
+msgid "https://foxland.fi/downloads/edd-members/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -383,10 +383,10 @@ msgid "Sami Keijonen"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://foxland.fi"
+msgid "https://foxland.fi/"
 msgstr ""
 
-#: includes/functions.php:342 includes/user-meta.php:127
+#: includes/functions.php:371 includes/user-meta.php:137
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""
