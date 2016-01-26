@@ -33,14 +33,18 @@ After that you get support and automatic updates.
 
 Plugin resources are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
-2015 &copy; [Sami Keijonen](https://foxland.fi).
+&copy; 2015-2016 [Sami Keijonen](https://foxland.fi).
 
 ## Changelog
+
+### Version 1.2.0 - January 26, 2016
+
+* Add multisite compability: User can now have different expire dates on sub sites.
+* New section for settings.
 
 ### Version 1.1.4 - November 11, 2015
 
 * Fix headers already sent warning. There was extra marks in the beginning of the user-meta.php file.
-
 * Update edd action hooks because they might conflict with other add-ons.
 
 ### Version 1.1.3 - November 5, 2015
