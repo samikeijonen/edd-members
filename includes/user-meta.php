@@ -100,7 +100,7 @@ function edd_members_sort_by_expiration_date( $query ) {
 		$expire_meta_key = '_edd_members_expiration_date';
 	}
 	
-	// Sort be expire date.
+	// Sort by expire date.
 	if ( 'expire_date' == $query->get( 'orderby' ) ) {
 		$query->set( 'orderby', 'meta_value_num' );
 		$query->set( 'meta_key', $expire_meta_key );
