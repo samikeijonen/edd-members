@@ -2,8 +2,8 @@
 # This file is distributed under the same license as the EDD Members package.
 msgid ""
 msgstr ""
-"Project-Id-Version: EDD Members 1.2.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/edd-members\n"
+"Project-Id-Version: EDD Members 1.2.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/edd-members\n"
 "POT-Creation-Date: 2014-11-15 11:31:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -11,7 +11,7 @@ msgstr ""
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.0\n"
+"X-Generator: grunt-wp-i18n 0.5.3\n"
 
 #. Plugin Name of the plugin/theme
 msgid "EDD Members"
@@ -190,7 +190,7 @@ msgstr ""
 msgid "Update Renewal Notice"
 msgstr ""
 
-#: includes/functions.php:375 includes/user-meta.php:51
+#: includes/functions.php:376 includes/user-meta.php:51
 msgid "Unknown"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr ""
 msgid "https://foxland.fi/"
 msgstr ""
 
-#: includes/functions.php:371 includes/user-meta.php:137
+#: includes/functions.php:372 includes/user-meta.php:137
 msgctxt "word between date and time"
 msgid "at"
 msgstr ""
