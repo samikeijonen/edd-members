@@ -166,7 +166,7 @@ function edd_members_scheduled_reminders() {
 		// Loop all found users and sent emails
 		foreach( $user_emails as $user_email ) {
 
-			$edd_members_emails->send_renewal_reminder( sanitize_email( $user_email->user_email ), $notice_id );
+			$edd_members_emails->edd_members_send_renewal_reminder( sanitize_email( $user_email->user_email ), $notice_id );
 
 		}
 

@@ -39,7 +39,7 @@ class EDD_Members_Emails {
 
 	}
 
-	public function send_renewal_reminder( $user_email = null, $notice_id = 0 ) {
+	public function edd_members_send_renewal_reminder( $user_email = null, $notice_id = 0 ) {
 		
 		// Bail if there is no email
 		if( empty( $user_email ) ) {
