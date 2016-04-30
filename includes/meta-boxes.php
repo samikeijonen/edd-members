@@ -54,7 +54,7 @@ function edd_members_render_check_as_private_meta_box( $post, $metabox ) {
 	
 	// Do not show metabox if all post type have been set private in settings
 	if ( !empty( $edd_members_private_post_type ) && in_array( $screen->post_type , array_keys( $edd_members_private_post_type ) ) ) {
-		echo sprintf( esc_html__( 'All content have been marked as private in global %ssettings%s page.', 'edd-members' ), '<a href="' . esc_url( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) ) . '">', '</a>' );
+		echo sprintf( esc_html__( 'All content have been marked as private in global %ssettings%s page.', 'edd-members' ), '<a href="' . esc_url( admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions&section=edd-members-settings-section' ) ) . '">', '</a>' );
 	} else { 
 	?>
 		<p>
@@ -64,7 +64,7 @@ function edd_members_render_check_as_private_meta_box( $post, $metabox ) {
 		
 		<?php 
 		// Support for EDD Recurring Payments Plugin
-		if( class_exists( 'EDD_Recurring' ) ) {
+		if( class_exists( 'EDD_Recurring_Subscriber' ) ) {
 			
 			$edd_members_rc_active_only = get_post_meta( $post->ID, '_edd_members_rc_active_only', true );
 		?>

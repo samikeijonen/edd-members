@@ -127,8 +127,9 @@ function edd_members_is_private_content( $user_id = false, $post_id = '' ) {
 	$edd_members_private_feed = edd_get_option( 'edd_members_private_feed' );
 	
 	// Add support for EDD Recurring Plugin
-	if( class_exists( 'EDD_Recurring_Customer' ) ) {
-		$edd_members_recurring_check    = EDD_Recurring_Customer::is_customer_active( $user_id );
+	if( class_exists( 'EDD_Recurring_Subscriber' ) ) {
+		$subscriber                     = new EDD_Recurring_Subscriber( $user_id, true );
+		$edd_members_recurring_check    = $subscriber->has_active_subscription();
 		$edd_members_rc_active_only     = get_post_meta( $post_id, '_edd_members_rc_active_only', true );
 		$edd_members_rc_all_active_only = edd_get_option( 'edd_members_rc_all_active_only' );
 	} else {
