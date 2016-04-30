@@ -37,6 +37,11 @@ Plugin resources are licensed under the [GNU GPL](http://www.gnu.org/licenses/ol
 
 ## Changelog
 
+### Version 1.2.1 - April 30, 2016
+
+* Bug fix: Use `EDD_Recurring_Subscriber` class instead of `EDD_Recurring_Customer` class which is deprecated.
+* Tweak: Link to EDD Members setting page have been fixed in post metabox.
+
 ### Version 1.2.0 - January 26, 2016
 
 * Add multisite compability: User can now have different expire dates on sub sites.
